@@ -18,6 +18,7 @@
 		font-size: 25vmin;
 		text-align: center;
 		margin: auto auto 0;
+		cursor: default;
 		font-family: 'Bungee', cursive;
 		text-shadow:
 			-10px -10px 0 $_white,
@@ -29,6 +30,12 @@
 
 	button {
 		margin: $_gutter auto auto;
+		width: 25%;
+		height: 10vmin;
+		font-size: 5vmin;
+		line-height: 10vmin;
+		text-transform: uppercase;
+		border-width: 5px;
 	}
 
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../basics/Button';
+
 export const className = 'landingPage';
 
 const LandingPage = () => (
@@ -8,7 +10,7 @@ const LandingPage = () => (
 
 		<h1>Pub Quiz</h1>
 
-		<button type="button">Start</button>
+		<Button label="Start" />
 
 	</div>
 
