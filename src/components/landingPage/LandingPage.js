@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import Button from '../basics/Button';
 
 export const className = 'landingPage';
 
-const LandingPage = () => (
+const LandingPage = () => {
 
-	<div className={className}>
+	const [ isStartPressed, updateStartPressedState ] = useState(false);
 
-		<h1>Pub Quiz</h1>
+	const defaultContent = (
 
-		<Button label="Start" />
+		<div className={className}>
 
-	</div>
+			<h1>Pub Quiz</h1>
 
-);
+			<Button
+				label="Start"
+				onClick={() => updateStartPressedState(!isStartPressed)}
+			/>
+
+		</div>
+
+	);
+	const redirectContent = (<Redirect push to="/session" />);
+
+	return isStartPressed ? redirectContent : defaultContent;
+
+};
 
 export default LandingPage;

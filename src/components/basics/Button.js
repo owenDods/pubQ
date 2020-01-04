@@ -2,9 +2,9 @@ import React from 'react';
 
 export const className = 'button';
 
-const Button = ({ label }) => (
+const Button = ({ label, onClick }) => (
 
-	<button type="button" className={className}>
+	<button type="button" className={className} onClick={onClick}>
 
 		<span>{label}</span>
 
