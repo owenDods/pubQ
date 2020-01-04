@@ -3,6 +3,6 @@ import { render } from 'react-dom';
 
 import './styles/index.scss';
 
-import LandingPage from './components/landingPage/LandingPage';
+import App from './components/app/App';
 
-render(<LandingPage />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
