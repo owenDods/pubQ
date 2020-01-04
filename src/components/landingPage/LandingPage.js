@@ -8,6 +8,8 @@ const LandingPage = () => (
 
 		<h1>Pub Quiz</h1>
 
+		<button type="button">Start</button>
+
 	</div>
 
 );

@@ -1,16 +1,9 @@
-@keyframes barberpole {
-
-	100% {
-		background-position: 100% 100%;
-	}
-
-}
-
 .landingPage {
 
 	width: 100%;
 	height: 100%;
 	display: flex;
+	flex-direction: column;
 	background: repeating-linear-gradient(
 		45deg,
 		#f5f799,
@@ -19,19 +12,23 @@
 		#f8f9d0 10%
 	);
 	background-size: 200% 200%;
-	animation: barberpole 10s linear infinite alternate;
+	@include backgroundStripe;
 
 	h1 {
 		font-size: 25vmin;
 		text-align: center;
-		margin: auto;
+		margin: auto auto 0;
 		font-family: 'Bungee', cursive;
 		text-shadow:
-			-10px -10px 0 #fff,
-			10px -10px 0 #fff,
-			-10px 10px 0 #fff,
-			10px 10px 0 #fff,
-			0 0 20px #000;
+			-10px -10px 0 $_white,
+			10px -10px 0 $_white,
+			-10px 10px 0 $_white,
+			10px 10px 0 $_white,
+			0 0 20px $_black;
+	}
+
+	button {
+		margin: $_gutter auto auto;
 	}
 
 }
