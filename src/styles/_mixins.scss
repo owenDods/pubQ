@@ -33,9 +33,9 @@
 @mixin blueStripedBackground {
 	background: repeating-linear-gradient(
 		45deg,
-		$_blue-primary,
-		$_blue-primary 5%,
-		$_blue-secondary 5%,
-		$_blue-secondary 10%
+		$_blue-background-primary,
+		$_blue-background-primary 5%,
+		$_blue-background-secondary 5%,
+		$_blue-background-secondary 10%
 	);
 }

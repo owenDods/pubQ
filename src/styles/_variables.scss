@@ -1,6 +1,8 @@
 $_gutter: 20px;
+$_gutter-small: 10px;
 
 $_fontSize: 16px;
+$_fontSize-medium: 24px;
 $_fontSize-large: 32px;
 
 $_lineHeight: 32px;
@@ -10,13 +12,18 @@ $_radius: 10px;
 $_white: #fff;
 $_black: #000;
 
+$_black-slightlyTransparent: rgba(0, 0, 0, 0.25);
 $_black-semiOpaque: rgba(0, 0, 0, 0.5);
 
 $_yellow-primary: #f5f799;
 $_yellow-secondary: #f8f9d0;
 
-$_blue-primary: #99def7;
-$_blue-secondary: #d0e9f9;
+$_blue-background-primary: #99def7;
+$_blue-background-secondary: #d0e9f9;
+$_blue-primary: #5bace4;
+$_blue-secondary: #84c2ec;
+$_blue-tertiary: #afd2ea;
 
 $_shadow: 0 1px 3px 0 $_black;
 $_shadow-raised: 0 1px 5px 0 $_black;
+$_shadow-inset: inset 0 0 3px 0 $_black;

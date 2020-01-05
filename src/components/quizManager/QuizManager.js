@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import quizzesJson from '../../quizzes.json';
+
+import QuizList from './QuizList';
 
 export const className = 'quizManager';
 
-const QuizManager = () => (
+const QuizManager = () => {
 
-	<div className={className}>
+	const [ quizzes, setQuizzes ] = useState([]);
+	useEffect(() => {
 
-		<label className={`${className}__label`}>Choose a quiz</label>
+		new Promise(res => res(quizzesJson))
+			.then(data => setQuizzes(data));
 
-	</div>
+	}, []);
 
-);
+	return (
+
+		<div className={className}>
+
+			<label className={`${className}__label`}>Choose a quiz</label>
+
+			<QuizList quizzes={quizzes} />
+
+		</div>
+
+	);
+
+};
 
 export default QuizManager;
