@@ -4,28 +4,46 @@ import {
 	Switch,
 	Route
 } from 'react-router-dom';
+import {
+	TransitionGroup,
+	CSSTransition
+} from 'react-transition-group';
 
 import LandingPage from '../landingPage/LandingPage';
+
+export const className = 'app';
 
 const App = () => (
 
 	<Router>
 
-		<Switch>
+		<Route render={({ location }) => (
 
-			<Route path="/session">
+			<TransitionGroup className={className}>
 
-				<div className="test" />
+				<CSSTransition timeout={1000} classNames={className} key={location.key}>
 
-			</Route>
+					<Switch location={location}>
 
-			<Route path="/">
+						<Route path="/session">
 
-				<LandingPage />
+							<div className={`${className}__content`}>
 
-			</Route>
+								<label>HALLO</label>
 
-		</Switch>
+							</div>
+
+						</Route>
+
+						<Route path="/" component={LandingPage} />
+
+					</Switch>
+
+				</CSSTransition>
+
+			</TransitionGroup>
+
+		)} />
 
 	</Router>
 

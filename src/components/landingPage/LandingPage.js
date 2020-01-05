@@ -9,7 +9,9 @@ const LandingPage = () => {
 
 	const [ isStartPressed, updateStartPressedState ] = useState(false);
 
-	const defaultContent = (
+	const redirectContent = (<Redirect push to="/session" />);
+
+	return (
 
 		<div className={className}>
 
@@ -20,12 +22,11 @@ const LandingPage = () => {
 				onClick={() => updateStartPressedState(!isStartPressed)}
 			/>
 
+			{isStartPressed ? redirectContent : null}
+
 		</div>
 
 	);
-	const redirectContent = (<Redirect push to="/session" />);
-
-	return isStartPressed ? redirectContent : defaultContent;
 
 };
 

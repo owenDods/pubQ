@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee|Sarabun&display=swap');
+$_main-transitionTiming: 500ms;
 
 html {
 	width: 100%;
@@ -25,4 +26,63 @@ body {
 	);
 	background-size: 200% 200%;
 	@include backgroundStripe;
+}
+
+.app {
+
+	width: 100%;
+	height: 100%;
+
+	& > * {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&-enter {
+
+		opacity: 0;
+
+		&.landingPage {
+			transform: translateY(-100%);
+		}
+
+	}
+
+	&-enter-active {
+
+		opacity: 1;
+		transition: opacity $_main-transitionTiming $_main-transitionTiming;
+
+		&.landingPage {
+			transition: opacity $_main-transitionTiming $_main-transitionTiming, transform $_main-transitionTiming $_main-transitionTiming;
+			transform: translateY(0);
+		}
+
+	}
+
+	&-exit {
+
+		opacity: 1;
+
+		&.landingPage {
+			transform: translateY(0);
+		}
+
+	}
+
+	&-exit-active {
+
+		opacity: 0;
+		transition: opacity $_main-transitionTiming;
+
+		&.landingPage {
+			transition: opacity $_main-transitionTiming, transform $_main-transitionTiming;
+			transform: translateY(-100%);
+		}
+
+	}
+
 }
