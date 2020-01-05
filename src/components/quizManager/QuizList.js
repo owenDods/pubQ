@@ -5,18 +5,26 @@ import QuizListItem from './QuizListItem';
 
 export const className = 'quizList';
 
-const QuizList = ({ quizzes }) => (
+const QuizList = ({ quizzes = [] }) => {
 
-	<ul className={className}>
+	const quizzesLength = quizzes.length;
+	let styleClass = className;
+	styleClass = quizzesLength > 8 ? `${styleClass} ${className}--overflow` : styleClass;
 
-		{map.convert({ cap: false })(({ name }, i) => (
+	return (
 
-			<QuizListItem name={name} key={`${className}-${i}`} />
+		<ul className={styleClass}>
 
-		), quizzes)}
+			{map.convert({ cap: false })(({ name }, i) => (
 
-	</ul>
+				<QuizListItem name={name} key={`${className}-${i}`} />
 
-);
+			), quizzes)}
+
+		</ul>
+
+	);
+
+};
 
 export default QuizList;

@@ -24,16 +24,14 @@
 
 		height: 100%;
 		display: flex;
-		flex-wrap: wrap;
 		padding: 0 0 0 $_gutter;
-		overflow-y: auto;
 		margin: 0 0 $_gutter;
 
 		&Item {
 
 			background-color: $_blue-primary;
 			width: calc(25% - #{$_gutter});
-			height: calc(45% - #{$_gutter});
+			height: 100%;
 			padding: $_gutter-small;
 			box-sizing: border-box;
 			margin: 0 $_gutter $_gutter 0;
@@ -64,6 +62,18 @@
 				font-size: $_fontSize-medium;
 				font-weight: bold;
 				cursor: pointer;
+			}
+
+		}
+
+		&--overflow {
+
+			flex-wrap: wrap;
+			overflow-y: auto;
+
+			.quizListItem {
+				width: calc(25% - #{$_gutter});
+				height: calc(45% - #{$_gutter});
 			}
 
 		}
