@@ -9,12 +9,7 @@
 		margin: auto auto 0;
 		cursor: default;
 		font-family: 'Bungee', cursive;
-		text-shadow:
-			-10px -10px 0 $_white,
-			10px -10px 0 $_white,
-			-10px 10px 0 $_white,
-			10px 10px 0 $_white,
-			0 0 20px $_black;
+		@include textOutlineBig;
 	}
 
 	button {

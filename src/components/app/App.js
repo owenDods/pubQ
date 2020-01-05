@@ -10,6 +10,7 @@ import {
 } from 'react-transition-group';
 
 import LandingPage from '../landingPage/LandingPage';
+import Session from '../session/Session';
 
 export const className = 'app';
 
@@ -25,15 +26,7 @@ const App = () => (
 
 					<Switch location={location}>
 
-						<Route path="/session">
-
-							<div className={`${className}__content`}>
-
-								<label>HALLO</label>
-
-							</div>
-
-						</Route>
+						<Route path="/session" component={Session} />
 
 						<Route path="/" component={LandingPage} />
 

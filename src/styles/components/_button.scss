@@ -5,7 +5,7 @@
 	color: $_white;
 	background: $_black;
 	border: 2px solid $_white;
-	box-shadow: 0 1px 3px 0 $_black;
+	box-shadow: $_shadow;
 	font-family: 'Sarabun', sans-serif;
 	line-height: $_lineHeight;
 	padding: 0 $_gutter;
@@ -24,7 +24,7 @@
 
 	&:active {
 		background: #555;
-		box-shadow: 0 1px 5px 0 $_black;
+		box-shadow: $_shadow-raised;
 	}
 
 	&:focus {

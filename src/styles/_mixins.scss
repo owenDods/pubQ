@@ -1,3 +1,41 @@
+@mixin textOutline {
+	text-shadow:
+		-1px -1px 0 $_white,
+		1px -1px 0 $_white,
+		-1px 1px 0 $_white,
+		1px 1px 0 $_white,
+		0 0 2px $_black;
+}
+
+@mixin textOutlineBig {
+	text-shadow:
+		-10px -10px 0 $_white,
+		10px -10px 0 $_white,
+		-10px 10px 0 $_white,
+		10px 10px 0 $_white,
+		0 0 20px $_black;
+}
+
 @mixin backgroundStripe {
 	animation: backgroundStripe 10s linear infinite alternate;
+}
+
+@mixin yellowStripedBackground {
+	background: repeating-linear-gradient(
+		45deg,
+		$_yellow-primary,
+		$_yellow-primary 5%,
+		$_yellow-secondary 5%,
+		$_yellow-secondary 10%
+	);
+}
+
+@mixin blueStripedBackground {
+	background: repeating-linear-gradient(
+		45deg,
+		$_blue-primary,
+		$_blue-primary 5%,
+		$_blue-secondary 5%,
+		$_blue-secondary 10%
+	);
 }
