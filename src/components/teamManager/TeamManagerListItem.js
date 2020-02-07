@@ -8,6 +8,7 @@ export const className = 'teamManagerListItem';
 const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 
 	const teamNumber = index + 1;
+	const teamNotCreatedYet = !name;
 
 	return (
 
@@ -15,7 +16,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 
 			<label className={`${className}__label`}>
 
-				<span>{teamNumber}</span>
+				<span>{teamNotCreatedYet ? '...' : teamNumber}</span>
 
 			</label>
 
@@ -27,7 +28,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 			<Button
 				label="X"
 				onClick={() => removeTeam(teamNumber)}
-				disabled={!name}
+				disabled={teamNotCreatedYet}
 			/>
 
 		</div>
