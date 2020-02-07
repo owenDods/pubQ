@@ -59,7 +59,7 @@
 	}
 
 	& > .button {
-		margin: $_gutter;
+		margin: $_gutter auto;
 		font-size: $_fontSize-large;
 		flex-shrink: 0;
 		padding: $_gutter;

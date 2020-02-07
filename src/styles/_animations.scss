@@ -5,3 +5,31 @@
 	}
 
 }
+
+@keyframes funPulse {
+
+	5% {
+		transform: scale(1.2);
+	}
+
+	10% {
+		transform: scale(0.85);
+	}
+
+	15% {
+		transform: scale(1.25);
+	}
+
+	20% {
+		transform: scale(0.95);
+	}
+
+	25% {
+		transform: scale(1.05);
+	}
+
+	30% {
+		transform: scale(1);
+	}
+
+}

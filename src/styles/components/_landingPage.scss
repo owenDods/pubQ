@@ -20,6 +20,7 @@
 		line-height: 10vmin;
 		text-transform: uppercase;
 		border-width: 5px;
+		@include funPulse;
 	}
 
 }
