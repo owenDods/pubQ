@@ -9,7 +9,11 @@ const TextInput = ({ onSubmit, value = '' }) => {
 
 	const handleBlur = () => {
 
-		onSubmit(localValue);
+		if (value !== localValue) {
+
+			onSubmit(localValue);
+
+		}
 
 		setFocus(false);
 
