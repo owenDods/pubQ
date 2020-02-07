@@ -9,7 +9,11 @@ const List = ({ name = '', items = [], children }) => (
 
 		{map.convert({ cap: false })((item, i) => (
 
-			cloneElement(children, { ...item, key: `${className}-${name}-${i}`, index: i })
+			<li key={`${className}-${name}-${i}`}>
+
+				{cloneElement(children, { ...item, index: i })}
+
+			</li>
 
 		), items)}
 
