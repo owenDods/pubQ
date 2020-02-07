@@ -31,7 +31,12 @@
 		display: flex;
 		box-shadow: $_shadow;
 		border-radius: $_radius;
-		background-color: $_red-primary;
+		background-color: $_red-secondary;
+		transition: background-color $_transitionTiming ease-in-out;
+
+		&--completed {
+			background-color: $_red-primary;
+		}
 
 		&__label {
 

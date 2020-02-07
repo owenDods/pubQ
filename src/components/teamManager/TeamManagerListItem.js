@@ -20,9 +20,11 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 
 	};
 
+	const styleClass = teamNotCreatedYet ? className : `${className} ${className}--completed`;
+
 	return (
 
-		<div className={className}>
+		<div className={styleClass}>
 
 			<label className={`${className}__label`}>
 
