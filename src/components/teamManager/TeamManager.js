@@ -5,13 +5,16 @@ import TeamManagerListItem from './TeamManagerListItem';
 
 export const className = 'teamManager';
 
-const TeamManager = () => (
+const TeamManager = ({ teams = [] }) => (
 
 	<div className={className}>
 
 		<label className={`${className}__label`}>Add in teams</label>
 
-		<List name={className}>
+		<List
+			name={className}
+			items={[ { name: null }, ...teams ]}
+		>
 
 			<TeamManagerListItem />
 
