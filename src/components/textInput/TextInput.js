@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const className = 'textInput';
 
-const TextInput = ({ onChange }) => (
+const TextInput = ({ onSubmit, value = '' }) => {
 
-	<input
-		className={className}
-		type="text"
-		onChange={({ target }) => onChange(target.value)}
-	/>
+	const [ hasFocus, setFocus ] = useState(false);
+	const [ localValue, setLocalValue ] = useState(value);
 
-);
+	const handleBlur = () => {
+
+		onSubmit(localValue);
+
+		setFocus(false);
+
+	};
+
+	return (
+
+		<input
+			className={className}
+			type="text"
+			onFocus={() => setFocus(true)}
+			onBlur={handleBlur}
+			value={hasFocus ? localValue : value}
+			onChange={({ target }) => setLocalValue(target.value)}
+		/>
+
+	);
+
+};
 
 export default TextInput;

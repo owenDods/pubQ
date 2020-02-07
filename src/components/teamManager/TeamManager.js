@@ -31,7 +31,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 
 			<List
 				name={className}
-				items={[ ...teams, { name: null } ]}
+				items={[ ...teams, { name: '' } ]}
 			>
 
 				<TeamManagerListItem setTeamName={setTeamName} />

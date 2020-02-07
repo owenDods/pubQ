@@ -4,7 +4,7 @@ import TextInput from '../textInput/TextInput';
 
 export const className = 'teamManagerListItem';
 
-const TeamManagerListItem = ({ index, setTeamName }) => {
+const TeamManagerListItem = ({ index, setTeamName, name }) => {
 
 	const teamNumber = index + 1;
 
@@ -14,7 +14,10 @@ const TeamManagerListItem = ({ index, setTeamName }) => {
 
 			<label>{teamNumber}</label>
 
-			<TextInput onChange={val => setTeamName(teamNumber, val)} />
+			<TextInput
+				onSubmit={val => setTeamName(teamNumber, val)}
+				value={name}
+			/>
 
 		</div>
 
