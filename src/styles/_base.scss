@@ -18,4 +18,11 @@ ul {
 
 li {
 	list-style: none;
+	margin: 0 0 $_gutter;
+}
+
+input[type="text"] {
+	border: none;
+	padding: 0 $_gutter-small;
+	box-shadow: $_shadow-inset;
 }

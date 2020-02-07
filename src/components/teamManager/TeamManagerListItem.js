@@ -12,7 +12,11 @@ const TeamManagerListItem = ({ index, setTeamName, name }) => {
 
 		<div className={className}>
 
-			<label>{teamNumber}</label>
+			<label className={`${className}__label`}>
+
+				<span>{teamNumber}</span>
+
+			</label>
 
 			<TextInput
 				onSubmit={val => setTeamName(teamNumber, val)}
