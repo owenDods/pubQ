@@ -4,16 +4,22 @@ import TextInput from '../textInput/TextInput';
 
 export const className = 'teamManagerListItem';
 
-const TeamManagerListItem = ({ index }) => (
+const TeamManagerListItem = ({ index, setTeamName }) => {
 
-	<div className={className}>
+	const teamNumber = index + 1;
 
-		<label>{index + 1}</label>
+	return (
 
-		<TextInput onChange={console.log} />
+		<div className={className}>
 
-	</div>
+			<label>{teamNumber}</label>
 
-);
+			<TextInput onChange={val => setTeamName(teamNumber, val)} />
+
+		</div>
+
+	);
+
+};
 
 export default TeamManagerListItem;
