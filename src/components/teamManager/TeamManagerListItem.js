@@ -27,6 +27,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 			<Button
 				label="X"
 				onClick={() => removeTeam(teamNumber)}
+				disabled={!name}
 			/>
 
 		</div>
