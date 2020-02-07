@@ -16,6 +16,11 @@
 		flex-shrink: 0;
 	}
 
+	.list {
+		height: 100%;
+		overflow: auto;
+	}
+
 	&ListItem {
 
 		width: calc(100% - (2 * #{$_gutter}));
