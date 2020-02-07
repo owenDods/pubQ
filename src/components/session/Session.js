@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import TeamManager from '../teamManager/TeamManager';
 import QuizManager from '../quizManager/QuizManager';
 
 export const className = 'session';
 
-const Session = () => (
+const Session = () => {
 
-	<div className={className}>
+	const [ teams, setTeams ] = useState([]);
 
-		<QuizManager />
+	return (
 
-	</div>
+		<div className={className}>
 
-);
+			<QuizManager />
+
+			<TeamManager teams={teams} setTeams={setTeams} />
+
+		</div>
+
+	);
+
+};
 
 export default Session;

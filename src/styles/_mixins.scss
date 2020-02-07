@@ -39,3 +39,13 @@
 		$_blue-background-secondary 10%
 	);
 }
+
+@mixin redStripedBackground {
+	background: repeating-linear-gradient(
+		45deg,
+		$_red-background-primary,
+		$_red-background-primary 5%,
+		$_red-background-secondary 5%,
+		$_red-background-secondary 10%
+	);
+}
