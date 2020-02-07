@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TextInput from '../textInput/TextInput';
+import Button from '../basics/Button';
 
 export const className = 'teamManagerListItem';
 
@@ -22,6 +23,8 @@ const TeamManagerListItem = ({ index, setTeamName, name }) => {
 				onSubmit={val => setTeamName(teamNumber, val)}
 				value={name}
 			/>
+
+			<Button label="X" />
 
 		</div>
 
