@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const className = 'textInput';
 
@@ -18,6 +18,12 @@ const TextInput = ({ onSubmit, value = '' }) => {
 		setFocus(false);
 
 	};
+
+	useEffect(() => {
+
+		setLocalValue(value);
+
+	}, [ value ]);
 
 	return (
 
