@@ -18,17 +18,25 @@
 		display: inline-block;
 	}
 
-	&:hover {
-		background: #333;
-	}
+	&:not(:disabled) {
 
-	&:active {
-		background: #555;
-		box-shadow: $_shadow-raised;
+		&:hover {
+			background: #333;
+		}
+
+		&:active {
+			background: #555;
+			box-shadow: $_shadow-raised;
+		}
+
 	}
 
 	&:focus {
 		outline: none;
+	}
+
+	&:disabled {
+		@include disabled;
 	}
 
 }

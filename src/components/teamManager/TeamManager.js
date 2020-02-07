@@ -7,6 +7,7 @@ import editOrAddNewItem from '../utils/editOrAddNewItem';
 
 import List from '../basics/List';
 import TeamManagerListItem from './TeamManagerListItem';
+import Button from '../basics/Button';
 
 export const className = 'teamManager';
 
@@ -56,6 +57,12 @@ const TeamManager = ({ teams = [], setTeams }) => {
 				<TeamManagerListItem setTeamName={setTeamName} removeTeam={removeTeam} />
 
 			</List>
+
+			<Button
+				label="All teams ready"
+				disabled={!teams.length}
+				disabledText="Add at least one team"
+			/>
 
 		</div>
 

@@ -49,3 +49,8 @@
 		$_red-background-secondary 10%
 	);
 }
+
+@mixin disabled {
+	opacity: 0.5;
+	cursor: default;
+}
