@@ -33,6 +33,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 			<TextInput
 				onSubmit={handleSubmit}
 				value={name}
+				placeholder="Enter team name"
 			/>
 
 			<Button

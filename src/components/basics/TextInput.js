@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export const className = 'textInput';
 
-const TextInput = ({ onSubmit, value = '' }) => {
+const TextInput = ({ onSubmit, value = '', placeholder }) => {
 
 	const [ hasFocus, setFocus ] = useState(false);
 	const [ localValue, setLocalValue ] = useState(value);
@@ -36,6 +36,7 @@ const TextInput = ({ onSubmit, value = '' }) => {
 			onBlur={handleBlur}
 			value={hasFocus ? localValue : value}
 			onChange={({ target }) => setLocalValue(target.value)}
+			placeholder={placeholder}
 		/>
 
 	);
