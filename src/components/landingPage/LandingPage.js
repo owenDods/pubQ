@@ -15,7 +15,18 @@ const LandingPage = () => {
 
 		<div className={className}>
 
-			<h1>Pub Quiz</h1>
+			<h1>
+
+				<span>P</span>
+				<span>u</span>
+				<span>b</span>
+				<span>&nbsp;</span>
+				<span>Q</span>
+				<span>u</span>
+				<span>i</span>
+				<span>z</span>
+
+			</h1>
 
 			<Button
 				label="Start"

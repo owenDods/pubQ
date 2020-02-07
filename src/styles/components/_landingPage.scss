@@ -4,12 +4,19 @@
 	flex-direction: column;
 
 	h1 {
+
 		font-size: 25vmin;
 		text-align: center;
 		margin: auto auto 0;
 		cursor: default;
 		font-family: 'Bungee', cursive;
 		@include textOutlineBig;
+
+		span {
+			display: inline-block;
+			@include funSway;
+		}
+
 	}
 
 	button {

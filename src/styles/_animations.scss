@@ -33,3 +33,15 @@
 	}
 
 }
+
+@keyframes funSway {
+
+	25% {
+		transform: skewX(5deg);
+	}
+
+	75% {
+		transform: skewX(-5deg);
+	}
+
+}
