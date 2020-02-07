@@ -59,7 +59,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 			</List>
 
 			<Button
-				label="All teams ready"
+				label={`Start ${teams.length} team game`}
 				disabled={!teams.length}
 				disabledText="Add at least one team"
 			/>
