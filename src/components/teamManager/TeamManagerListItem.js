@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextInput from '../textInput/TextInput';
+import TextInput from '../basics/TextInput';
 import Button from '../basics/Button';
 
 export const className = 'teamManagerListItem';

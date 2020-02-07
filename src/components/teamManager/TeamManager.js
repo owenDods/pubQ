@@ -4,7 +4,7 @@ import find from 'lodash/fp/find';
 
 import editOrAddNewItem from '../utils/editOrAddNewItem';
 
-import List from '../list/List';
+import List from '../basics/List';
 import TeamManagerListItem from './TeamManagerListItem';
 
 export const className = 'teamManager';
