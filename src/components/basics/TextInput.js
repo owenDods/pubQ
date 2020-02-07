@@ -15,6 +15,8 @@ const TextInput = ({ onSubmit, value = '' }) => {
 
 		}
 
+		setLocalValue(value);
+
 		setFocus(false);
 
 	};

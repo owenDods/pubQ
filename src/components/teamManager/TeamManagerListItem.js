@@ -10,6 +10,16 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 	const teamNumber = index + 1;
 	const teamNotCreatedYet = !name;
 
+	const handleSubmit = val => {
+
+		if (val) {
+
+			setTeamName(teamNumber, val);
+
+		}
+
+	};
+
 	return (
 
 		<div className={className}>
@@ -21,7 +31,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 			</label>
 
 			<TextInput
-				onSubmit={val => setTeamName(teamNumber, val)}
+				onSubmit={handleSubmit}
 				value={name}
 			/>
 
