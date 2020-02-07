@@ -1,6 +1,7 @@
 import React from 'react';
 
 import find from 'lodash/fp/find';
+import map from 'lodash/fp/map';
 
 import editOrAddNewItem from '../utils/editOrAddNewItem';
 
@@ -22,6 +23,24 @@ const TeamManager = ({ teams = [], setTeams }) => {
 		setTeams(newTeams);
 
 	};
+	const removeTeam = teamNumber => {
+
+		const teamIndex = teamNumber - 1;
+		const teamsBeforeNumber = teams.slice(0, teamIndex);
+		const teamsAfterNumber = teams.slice(teamNumber);
+		const teamsAfterNumberWithUpdatedNumbers = map(team => ({
+			...team,
+			number: team.number - 1
+		}), teamsAfterNumber);
+
+		const newTeams = [
+			...teamsBeforeNumber,
+			...teamsAfterNumberWithUpdatedNumbers
+		];
+
+		setTeams(newTeams);
+
+	};
 
 	return (
 
@@ -34,7 +53,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 				items={[ ...teams, { name: '' } ]}
 			>
 
-				<TeamManagerListItem setTeamName={setTeamName} />
+				<TeamManagerListItem setTeamName={setTeamName} removeTeam={removeTeam} />
 
 			</List>
 

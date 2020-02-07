@@ -5,7 +5,7 @@ import Button from '../basics/Button';
 
 export const className = 'teamManagerListItem';
 
-const TeamManagerListItem = ({ index, setTeamName, name }) => {
+const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 
 	const teamNumber = index + 1;
 
@@ -24,7 +24,10 @@ const TeamManagerListItem = ({ index, setTeamName, name }) => {
 				value={name}
 			/>
 
-			<Button label="X" />
+			<Button
+				label="X"
+				onClick={() => removeTeam(teamNumber)}
+			/>
 
 		</div>
 
