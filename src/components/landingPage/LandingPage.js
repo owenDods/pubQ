@@ -9,7 +9,7 @@ const LandingPage = () => {
 
 	const [ isStartPressed, updateStartPressedState ] = useState(false);
 
-	const redirectContent = (<Redirect push to="/session" />);
+	const redirectContent = (<Redirect push to="/session/addTeams" />);
 
 	return (
 

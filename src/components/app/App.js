@@ -26,7 +26,7 @@ const App = () => (
 
 					<Switch location={location}>
 
-						<Route path="/session" component={Session} />
+						<Route path="/session/addTeams" component={Session} />
 
 						<Route path="/" component={LandingPage} />
 
