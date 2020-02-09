@@ -1,8 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export const className = 'textInput';
 
-const TextInput = ({ onSubmit, value = '', placeholder }) => {
+const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) => {
+
+	const textInput = useRef(null);
+
+	useEffect(() => {
+
+		if (shouldFocusOnMount) {
+
+			textInput.current.focus();
+
+		}
+
+	}, []);
 
 	const [ hasFocus, setFocus ] = useState(false);
 	const [ localValue, setLocalValue ] = useState(value);
@@ -32,6 +44,7 @@ const TextInput = ({ onSubmit, value = '', placeholder }) => {
 		<input
 			className={className}
 			type="text"
+			ref={textInput}
 			onFocus={() => setFocus(true)}
 			onBlur={handleBlur}
 			value={hasFocus ? localValue : value}

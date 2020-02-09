@@ -36,6 +36,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 				onSubmit={handleSubmit}
 				value={name}
 				placeholder="Enter team name"
+				shouldFocusOnMount
 			/>
 
 			<Button
