@@ -39,6 +39,16 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 
 	}, [ value ]);
 
+	const handleKeyPress = ({ key }) => {
+
+		if (key === 'Enter') {
+
+			textInput.current.blur();
+
+		}
+
+	};
+
 	return (
 
 		<input
@@ -50,6 +60,7 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 			value={hasFocus ? localValue : value}
 			onChange={({ target }) => setLocalValue(target.value)}
 			placeholder={placeholder}
+			onKeyPress={handleKeyPress}
 		/>
 
 	);
