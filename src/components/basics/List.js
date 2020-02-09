@@ -1,23 +1,36 @@
 import React, { cloneElement } from 'react';
+import {
+	TransitionGroup,
+	CSSTransition
+} from 'react-transition-group';
+
 import map from 'lodash/fp/map';
 
 export const className = 'list';
 
 const List = ({ name = '', items = [], children }) => (
 
-	<ul className={className}>
+	<TransitionGroup className={className} component="ul">
 
 		{map.convert({ cap: false })((item, i) => (
 
-			<li key={`${className}-${name}-${i}`}>
+			<CSSTransition
+				timeout={300}
+				classNames={className}
+				key={`${className}-${name}-${i}`}
+			>
 
-				{cloneElement(children, { ...item, index: i })}
+				<li>
 
-			</li>
+					{cloneElement(children, { ...item, index: i })}
+
+				</li>
+
+			</CSSTransition>
 
 		), items)}
 
-	</ul>
+	</TransitionGroup>
 
 );
 

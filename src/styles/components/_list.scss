@@ -1,0 +1,27 @@
+$_list-transitionTiming: 300ms;
+
+.list {
+
+	&-enter {
+		opacity: 0;
+		transform: translateY(-$_gutter-tiny);
+	}
+
+	&-enter-active {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity $_list-transitionTiming, transform $_list-transitionTiming;
+	}
+
+	&-exit {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	&-exit-active {
+		opacity: 0;
+		transform: translateY(-$_gutter-tiny);
+		transition: opacity $_list-transitionTiming, transform $_list-transitionTiming;
+	}
+
+}
