@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import find from 'lodash/fp/find';
 import map from 'lodash/fp/map';
@@ -43,6 +44,14 @@ const TeamManager = ({ teams = [], setTeams }) => {
 
 	};
 
+	const [ teamsConfirmed, setTeamConfirmedStatus ] = useState(false);
+
+	if (teamsConfirmed) {
+
+		return (<Redirect to="/session/quizSelect" />);
+
+	}
+
 	return (
 
 		<div className={className}>
@@ -62,6 +71,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 				label={`Start ${teams.length} team game`}
 				disabled={!teams.length}
 				disabledText="Add at least one team"
+				onClick={() => setTeamConfirmedStatus(true)}
 			/>
 
 		</div>
