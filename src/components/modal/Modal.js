@@ -1,10 +1,13 @@
 import React from 'react';
 
+import capitaliseString from '../utils/capitaliseString';
+
 export const className = 'modal';
 
-const Modal = ({ label, children, backgroundColour }) => {
+const Modal = ({ label, children, backgroundColour, enter }) => {
 
-	const styleClass = backgroundColour ? `${className} ${className}--${backgroundColour}` : className;
+	let styleClass = backgroundColour ? `${className} ${className}--${backgroundColour}` : className;
+	styleClass = enter ? `${styleClass} ${className}--enter${capitaliseString(enter)}` : styleClass;
 
 	return (
 

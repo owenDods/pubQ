@@ -7,6 +7,7 @@
 	box-shadow: $_shadow;
 	display: flex;
 	flex-direction: column;
+	@include enterTop;
 
 	&__label {
 		@include textOutline;
@@ -25,6 +26,10 @@
 
 	&--blue {
 		@include blueStripedBackground;
+	}
+
+	&--enterBottom {
+		@include enterBottom;
 	}
 
 }

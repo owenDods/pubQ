@@ -34,7 +34,7 @@ const Session = () => {
 
 				<Route path={match.path}>
 
-					<Modal label="ADD TEAMS" backgroundColour="red">
+					<Modal label="ADD TEAMS" backgroundColour="red" enter="bottom">
 
 						<TeamManager teams={teams} setTeams={setTeams} />
 
