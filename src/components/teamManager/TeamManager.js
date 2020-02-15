@@ -56,8 +56,6 @@ const TeamManager = ({ teams = [], setTeams }) => {
 
 		<div className={className}>
 
-			<label className={`${className}__label`}>ADD TEAMS</label>
-
 			<List
 				name={className}
 				items={[ ...teams, { name: '' } ]}

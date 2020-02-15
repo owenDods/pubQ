@@ -5,6 +5,7 @@ import {
 	useRouteMatch
 } from 'react-router-dom';
 
+import Modal from '../modal/Modal';
 import TeamManager from '../teamManager/TeamManager';
 import QuizManager from '../quizManager/QuizManager';
 
@@ -23,13 +24,21 @@ const Session = () => {
 
 				<Route path={`${match.path}/quizSelect`}>
 
-					<QuizManager />
+					<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
+
+						<QuizManager />
+
+					</Modal>
 
 				</Route>
 
 				<Route path={match.path}>
 
-					<TeamManager teams={teams} setTeams={setTeams} />
+					<Modal label="ADD TEAMS" backgroundColour="red">
+
+						<TeamManager teams={teams} setTeams={setTeams} />
+
+					</Modal>
 
 				</Route>
 

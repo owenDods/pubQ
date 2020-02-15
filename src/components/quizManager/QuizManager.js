@@ -20,8 +20,6 @@ const QuizManager = () => {
 
 		<div className={className}>
 
-			<label className={`${className}__label`}>Choose a quiz</label>
-
 			<QuizList quizzes={quizzes} />
 
 		</div>

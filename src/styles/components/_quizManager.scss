@@ -1,23 +1,9 @@
 .quiz {
 
 	&Manager {
-
-		@include blueStripedBackground;
-		width: 100%;
-		height: calc(100% - (2 * #{$_gutter}));
-		margin: $_gutter 0;
-		border-radius: $_radius;
-		box-shadow: $_shadow;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
-
-		&__label {
-			@include textOutline;
-			font-size: $_fontSize-large;
-			margin: $_gutter auto;
-			flex-shrink: 0;
-		}
-
 	}
 
 	&List {
