@@ -64,9 +64,9 @@
 }
 
 @mixin enterTop {
-	animation: enterTop 0.5s ease-in-out forwards;
+	animation: enterTop 0.5s ease-in-out;
 }
 
 @mixin enterBottom {
-	animation: enterBottom 0.5s ease-in-out forwards;
+	animation: enterBottom 0.5s ease-in-out;
 }
