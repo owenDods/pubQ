@@ -1,14 +1,14 @@
 .modal {
 
 	width: 100%;
-	height: calc(100% - (2 * #{$_gutter}));
-	margin: $_gutter 0;
+	height: 100%;
 	@include enterTop;
 
 	&__inner {
 
 		width: 100%;
-		height: 100%;
+		height: calc(100% - (2 * #{$_gutter}));
+		margin: $_gutter 0;
 		border-radius: $_radius;
 		box-shadow: $_shadow;
 		display: flex;
