@@ -22,7 +22,7 @@ const App = () => (
 
 			<TransitionGroup className={className}>
 
-				<CSSTransition timeout={1000} classNames={className} key={location.key}>
+				<CSSTransition timeout={1000} classNames={className} key={location.pathname.match(/[^/]*\/[^/]*/)[0]}>
 
 					<Switch location={location}>
 
