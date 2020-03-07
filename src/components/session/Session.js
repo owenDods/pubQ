@@ -13,7 +13,7 @@ export const className = 'session';
 
 const Session = () => {
 
-	const match = useRouteMatch();
+	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
 
 	return (
@@ -22,7 +22,7 @@ const Session = () => {
 
 			<Switch>
 
-				<Route path={`${match.path}/quizSelect`}>
+				<Route path={`${path}/quizSelect`}>
 
 					<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
 
@@ -32,7 +32,7 @@ const Session = () => {
 
 				</Route>
 
-				<Route path={match.path}>
+				<Route path={path}>
 
 					<Modal label="ADD TEAMS" backgroundColour="red" enter="bottom">
 

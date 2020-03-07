@@ -48,7 +48,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 
 	if (teamsConfirmed) {
 
-		return (<Redirect to="/session/quizSelect" />);
+		return (<Redirect push to="/session/quizSelect" />);
 
 	}
 

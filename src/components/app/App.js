@@ -26,9 +26,17 @@ const App = () => (
 
 					<Switch location={location}>
 
-						<Route path="/session" component={Session} />
+						<Route path="/session">
 
-						<Route path="/" component={LandingPage} />
+							<Session />
+
+						</Route>
+
+						<Route path="/">
+
+							<LandingPage />
+
+						</Route>
 
 					</Switch>
 
