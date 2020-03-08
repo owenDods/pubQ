@@ -1,9 +1,5 @@
-import React, { cloneElement, useState, useEffect, useRef } from 'react';
-import {
-	TransitionGroup,
-	CSSTransition
-} from 'react-transition-group';
-import defer from 'lodash/fp/defer';
+import React, { cloneElement, useState, useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import capitaliseString from '../utils/capitaliseString';
 
@@ -20,53 +16,38 @@ const Modal = ({ label, children, backgroundColour, enter }) => {
 
 	const closeModal = callback => {
 
-		console.log('closeModal CALLED', callback);
-
 		onExitedCallback.current = callback;
 
-		defer(() => {
-
-			console.log('setModalIsClosingState');
-
-			setModalIsClosingState(true);
-
-		});
+		setModalIsClosingState(true);
 
 	};
 
-	console.log(onExitedCallback);
+	return (
 
-	const modalContent = (
+		<div className={styleClass}>
 
-		<CSSTransition
-			timeout={500}
-			classNames={className}
-			onExited={onExitedCallback.current}
-		>
+			<CSSTransition
+				timeout={500}
+				classNames={className}
+				onExited={onExitedCallback.current}
+				in={!modalIsClosing}
+			>
 
-			<div className={innerStyleClass}>
+				<div className={innerStyleClass}>
 
-				<label className={`${className}__label`}>{label}</label>
+					<label className={`${className}__label`}>{label}</label>
 
-				<div className={`${className}__content`}>
+					<div className={`${className}__content`}>
 
-					{cloneElement(children, { closeModal })}
+						{cloneElement(children, { closeModal })}
+
+					</div>
 
 				</div>
 
-			</div>
+			</CSSTransition>
 
-		</CSSTransition>
-
-	);
-
-	return (
-
-		<TransitionGroup className={styleClass}>
-
-			{modalIsClosing ? null : modalContent}
-
-		</TransitionGroup>
+		</div>
 
 	);
 
