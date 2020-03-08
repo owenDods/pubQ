@@ -11,6 +11,26 @@ import QuizManager from '../quizManager/QuizManager';
 
 export const className = 'session';
 
+const QuizManagerModal = () => (
+
+	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
+
+		<QuizManager />
+
+	</Modal>
+
+);
+
+const TeamManagerModal = ({ teams, setTeams }) => (
+
+	<Modal label="ADD TEAMS" backgroundColour="red" enter="bottom">
+
+		<TeamManager teams={teams} setTeams={setTeams} />
+
+	</Modal>
+
+);
+
 const Session = () => {
 
 	const { path } = useRouteMatch();
@@ -24,21 +44,13 @@ const Session = () => {
 
 				<Route path={`${path}/quizSelect`}>
 
-					<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
-
-						<QuizManager />
-
-					</Modal>
+					<QuizManagerModal />
 
 				</Route>
 
 				<Route path={path}>
 
-					<Modal label="ADD TEAMS" backgroundColour="red" enter="bottom">
-
-						<TeamManager teams={teams} setTeams={setTeams} />
-
-					</Modal>
+					<TeamManagerModal teams={teams} setTeams={setTeams} />
 
 				</Route>
 
