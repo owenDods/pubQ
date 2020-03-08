@@ -16,10 +16,10 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 
 	}, []);
 
-	const [ hasFocus, setFocus ] = useState(false);
+	const [ isEditingLocalValue, setEditingLocalValueStatus ] = useState(false);
 	const [ localValue, setLocalValue ] = useState(value);
 
-	const handleBlur = () => {
+	const handleSubmit = () => {
 
 		if (value !== localValue) {
 
@@ -29,7 +29,7 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 
 		setLocalValue(value);
 
-		setFocus(false);
+		setEditingLocalValueStatus(false);
 
 	};
 
@@ -43,7 +43,7 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 
 		if (key === 'Enter') {
 
-			textInput.current.blur();
+			handleSubmit();
 
 		}
 
@@ -55,9 +55,8 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 			className={className}
 			type="text"
 			ref={textInput}
-			onFocus={() => setFocus(true)}
-			onBlur={handleBlur}
-			value={hasFocus ? localValue : value}
+			onFocus={() => setEditingLocalValueStatus(true)}
+			value={isEditingLocalValue ? localValue : value}
 			onChange={({ target }) => setLocalValue(target.value)}
 			placeholder={placeholder}
 			onKeyPress={handleKeyPress}
