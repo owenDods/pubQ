@@ -102,3 +102,22 @@
 	}
 
 }
+
+@keyframes leaveBottom {
+
+	0% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+
+	10% {
+		opacity: 0.5;
+		transform: translateY(0) scale(0.95);
+	}
+
+	100% {
+		opacity: 0.5;
+		transform: translateY(100%) scale(0.95);
+	}
+
+}
