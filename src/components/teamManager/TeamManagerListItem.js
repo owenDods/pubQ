@@ -37,6 +37,9 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 				value={name}
 				placeholder="Enter team name"
 				shouldFocusOnMount
+				withButton
+				buttonLabel="Add Team"
+				buttonDisabled={!teamNotCreatedYet}
 			/>
 
 			<Button

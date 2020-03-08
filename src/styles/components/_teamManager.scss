@@ -42,7 +42,11 @@
 
 		.textInput {
 			width: 100%;
-			font-size: $_fontSize-medium;
+
+			input {
+				font-size: $_fontSize-medium;
+			}
+
 		}
 
 		.button {

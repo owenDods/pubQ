@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+import Button from './Button';
+
 export const className = 'textInput';
 
-const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) => {
+const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, withButton, buttonLabel, buttonDisabled }) => {
 
 	const textInput = useRef(null);
 
@@ -49,18 +51,33 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount }) =>
 
 	};
 
+	const buttonContent = (
+
+		<Button
+			label={buttonLabel}
+			disabled={buttonDisabled}
+			onClick={handleSubmit}
+		/>
+
+	);
+
 	return (
 
-		<input
-			className={className}
-			type="text"
-			ref={textInput}
-			onFocus={() => setEditingLocalValueStatus(true)}
-			value={isEditingLocalValue ? localValue : value}
-			onChange={({ target }) => setLocalValue(target.value)}
-			placeholder={placeholder}
-			onKeyPress={handleKeyPress}
-		/>
+		<div className={className}>
+
+			<input
+				type="text"
+				ref={textInput}
+				onFocus={() => setEditingLocalValueStatus(true)}
+				value={isEditingLocalValue ? localValue : value}
+				onChange={({ target }) => setLocalValue(target.value)}
+				placeholder={placeholder}
+				onKeyPress={handleKeyPress}
+			/>
+
+			{withButton ? buttonContent : null}
+
+		</div>
 
 	);
 
