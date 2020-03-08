@@ -1,8 +1,9 @@
-import React, { cloneElement, useState } from 'react';
+import React, { cloneElement, useState, useEffect, useRef } from 'react';
 import {
 	TransitionGroup,
 	CSSTransition
 } from 'react-transition-group';
+import defer from 'lodash/fp/defer';
 
 import capitaliseString from '../utils/capitaliseString';
 
@@ -14,13 +15,33 @@ const Modal = ({ label, children, backgroundColour, enter }) => {
 	const innerStyleClass = backgroundColour ? `${innerClass} ${innerClass}--${backgroundColour}` : innerClass;
 	const styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
 
-	const [ modalIsClosing, closeModal ] = useState(false);
+	const [ modalIsClosing, setModalIsClosingState ] = useState(false);
+	const onExitedCallback = useRef(null);
+
+	const closeModal = callback => {
+
+		console.log('closeModal CALLED', callback);
+
+		onExitedCallback.current = callback;
+
+		defer(() => {
+
+			console.log('setModalIsClosingState');
+
+			setModalIsClosingState(true);
+
+		});
+
+	};
+
+	console.log(onExitedCallback);
 
 	const modalContent = (
 
 		<CSSTransition
 			timeout={500}
 			classNames={className}
+			onExited={onExitedCallback.current}
 		>
 
 			<div className={innerStyleClass}>
@@ -29,7 +50,7 @@ const Modal = ({ label, children, backgroundColour, enter }) => {
 
 				<div className={`${className}__content`}>
 
-					{cloneElement(children, { closeModal: () => closeModal(true) })}
+					{cloneElement(children, { closeModal })}
 
 				</div>
 

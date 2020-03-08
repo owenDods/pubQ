@@ -12,7 +12,7 @@ import Button from '../basics/Button';
 
 export const className = 'teamManager';
 
-const TeamManager = ({ teams = [], setTeams }) => {
+const TeamManager = ({ teams = [], setTeams, closeModal }) => {
 
 	const setTeamName = (teamNumber, teamName) => {
 
@@ -69,7 +69,7 @@ const TeamManager = ({ teams = [], setTeams }) => {
 				label={`Start ${teams.length} team game`}
 				disabled={!teams.length}
 				disabledText="Add at least one team"
-				onClick={() => setTeamConfirmedStatus(true)}
+				onClick={() => closeModal(() => setTeamConfirmedStatus(true))}
 			/>
 
 		</div>
