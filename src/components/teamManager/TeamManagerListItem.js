@@ -21,6 +21,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 	};
 
 	const styleClass = teamNotCreatedYet ? className : `${className} ${className}--completed`;
+	const buttonLabel = teamNotCreatedYet ? 'Add Team' : 'Update Team';
 
 	return (
 
@@ -38,8 +39,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 				placeholder="Enter team name"
 				shouldFocusOnMount
 				withButton
-				buttonLabel="Add Team"
-				buttonDisabled={!teamNotCreatedYet}
+				buttonLabel={buttonLabel}
 			/>
 
 			<Button

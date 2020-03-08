@@ -4,7 +4,7 @@ import Button from './Button';
 
 export const className = 'textInput';
 
-const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, withButton, buttonLabel, buttonDisabled }) => {
+const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, withButton, buttonLabel }) => {
 
 	const textInput = useRef(null);
 
@@ -20,10 +20,11 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, with
 
 	const [ isEditingLocalValue, setEditingLocalValueStatus ] = useState(false);
 	const [ localValue, setLocalValue ] = useState(value);
+	const localValueIsDifferent = value !== localValue;
 
 	const handleSubmit = () => {
 
-		if (value !== localValue) {
+		if (localValueIsDifferent) {
 
 			onSubmit(localValue);
 
@@ -55,8 +56,8 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, with
 
 		<Button
 			label={buttonLabel}
-			disabled={buttonDisabled}
 			onClick={handleSubmit}
+			disabled={!localValueIsDifferent}
 		/>
 
 	);
