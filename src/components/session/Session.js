@@ -8,14 +8,15 @@ import {
 import Modal from '../modal/Modal';
 import TeamManager from '../teamManager/TeamManager';
 import QuizManager from '../quizManager/QuizManager';
+import QuizStart from '../quizStart/QuizStart';
 
 export const className = 'session';
 
-const QuizManagerModal = () => (
+const QuizManagerModal = ({ selectedQuiz, setQuiz }) => (
 
 	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
 
-		<QuizManager />
+		<QuizManager selectedQuiz={selectedQuiz} setQuiz={setQuiz} />
 
 	</Modal>
 
@@ -35,6 +36,7 @@ const Session = () => {
 
 	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
+	const [ selectedQuiz, setQuiz ] = useState(null);
 
 	return (
 
@@ -42,9 +44,15 @@ const Session = () => {
 
 			<Switch>
 
+				<Route path={`${path}/quizStart`}>
+
+					<QuizStart />
+
+				</Route>
+
 				<Route path={`${path}/quizSelect`}>
 
-					<QuizManagerModal />
+					<QuizManagerModal selectedQuiz={selectedQuiz} setQuiz={setQuiz} />
 
 				</Route>
 

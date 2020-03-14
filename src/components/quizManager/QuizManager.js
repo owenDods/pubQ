@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import quizzesJson from '../../quizzes.json';
 
@@ -6,7 +7,7 @@ import QuizList from './QuizList';
 
 export const className = 'quizManager';
 
-const QuizManager = () => {
+const QuizManager = ({ setQuiz, closeModal, selectedQuiz }) => {
 
 	const [ quizzes, setQuizzes ] = useState([]);
 	useEffect(() => {
@@ -16,11 +17,34 @@ const QuizManager = () => {
 
 	}, []);
 
+	const [ quizHasBeenSelected, setQuizSelectionStatus ] = useState(false);
+
+	if (quizHasBeenSelected) {
+
+		return (<Redirect push to="/session/quizStart" />);
+
+	}
+
+	const submitQuizSelection = quizId => (
+
+		closeModal(() => {
+
+			setQuiz(quizId);
+			setQuizSelectionStatus(true);
+
+		})
+
+	);
+
 	return (
 
 		<div className={className}>
 
-			<QuizList quizzes={quizzes} />
+			<QuizList
+				quizzes={quizzes}
+				submitQuizSelection={submitQuizSelection}
+				selectedQuiz={selectedQuiz}
+			/>
 
 		</div>
 

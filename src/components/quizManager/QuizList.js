@@ -5,7 +5,7 @@ import QuizListItem from './QuizListItem';
 
 export const className = 'quizList';
 
-const QuizList = ({ quizzes = [] }) => {
+const QuizList = ({ quizzes = [], submitQuizSelection }) => {
 
 	const quizzesLength = quizzes.length;
 	let styleClass = className;
@@ -15,9 +15,13 @@ const QuizList = ({ quizzes = [] }) => {
 
 		<ul className={styleClass}>
 
-			{map.convert({ cap: false })(({ name }, i) => (
+			{map.convert({ cap: false })(({ name, id }, i) => (
 
-				<QuizListItem name={name} key={`${className}-${i}`} />
+				<QuizListItem
+					name={name}
+					key={`${className}-${i}`}
+					submitQuizSelection={() => submitQuizSelection(id)}
+				/>
 
 			), quizzes)}
 

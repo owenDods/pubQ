@@ -2,9 +2,9 @@ import React from 'react';
 
 export const className = 'quizListItem';
 
-const QuizListItem = ({ name }) => (
+const QuizListItem = ({ name, submitQuizSelection }) => (
 
-	<li className={className}>
+	<li className={className} onClick={submitQuizSelection}>
 
 		<div className={`${className}__icon`} />
 
