@@ -5,32 +5,11 @@ import {
 	useRouteMatch
 } from 'react-router-dom';
 
-import Modal from '../modal/Modal';
-import TeamManager from '../teamManager/TeamManager';
-import QuizManager from '../quizManager/QuizManager';
+import TeamManagerModal from '../teamManager/TeamManagerModal';
+import QuizManagerModal from '../quizManager/QuizManagerModal';
 import QuizStart from '../quizStart/QuizStart';
 
 export const className = 'session';
-
-const QuizManagerModal = ({ selectedQuiz, setQuiz }) => (
-
-	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
-
-		<QuizManager selectedQuiz={selectedQuiz} setQuiz={setQuiz} />
-
-	</Modal>
-
-);
-
-const TeamManagerModal = ({ teams, setTeams }) => (
-
-	<Modal label="ADD TEAMS" backgroundColour="red" enter="bottom">
-
-		<TeamManager teams={teams} setTeams={setTeams} />
-
-	</Modal>
-
-);
 
 const Session = () => {
 
