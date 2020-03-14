@@ -5,11 +5,12 @@ import capitaliseString from '../utils/capitaliseString';
 
 export const className = 'modal';
 
-const Modal = ({ label, children, backgroundColour, enter }) => {
+const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 	const innerClass = `${className}__inner`;
 	const innerStyleClass = backgroundColour ? `${innerClass} ${innerClass}--${backgroundColour}` : innerClass;
-	const styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
+	let styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
+	styleClass = halfSize ? `${styleClass} ${className}--halfSize` : styleClass;
 
 	const [ modalIsClosing, setModalIsClosingState ] = useState(false);
 	const onExitedCallback = useRef(null);
@@ -21,6 +22,8 @@ const Modal = ({ label, children, backgroundColour, enter }) => {
 		setModalIsClosingState(true);
 
 	};
+
+	const labelContent = (<label className={`${className}__label`}>{label}</label>);
 
 	return (
 
@@ -35,7 +38,7 @@ const Modal = ({ label, children, backgroundColour, enter }) => {
 
 				<div className={innerStyleClass}>
 
-					<label className={`${className}__label`}>{label}</label>
+					{label ? labelContent : null}
 
 					<div className={`${className}__content`}>
 
