@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import {
 	TransitionGroup,
 	CSSTransition
@@ -33,5 +34,11 @@ const List = ({ name = '', items = [], children }) => (
 	</TransitionGroup>
 
 );
+
+List.propTypes = {
+	name: PropTypes.string,
+	items: PropTypes.arrayOf(PropTypes.shape({})),
+	children: PropTypes.element
+};
 
 export default List;

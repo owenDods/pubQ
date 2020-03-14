@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TextInput from '../basics/TextInput';
 import Button from '../basics/Button';
@@ -52,6 +53,13 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 
 	);
 
+};
+
+TeamManagerListItem.propTypes = {
+	index: PropTypes.number,
+	setTeamName: PropTypes.func.isRequired,
+	name: PropTypes.string,
+	removeTeam: PropTypes.func.isRequired
 };
 
 export default TeamManagerListItem;

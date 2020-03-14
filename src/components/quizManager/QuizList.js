@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 
 import QuizListItem from './QuizListItem';
 
 export const className = 'quizList';
 
-const QuizList = ({ quizzes = [], submitQuizSelection, selectedQuiz }) => {
+const QuizList = ({ quizzes = [], submitQuizSelection, selectedQuizId }) => {
 
 	const quizzesLength = quizzes.length;
 	let styleClass = className;
@@ -21,7 +22,7 @@ const QuizList = ({ quizzes = [], submitQuizSelection, selectedQuiz }) => {
 					name={name}
 					key={`${className}-${i}`}
 					submitQuizSelection={() => submitQuizSelection(id)}
-					isSelected={selectedQuiz === id}
+					isSelected={selectedQuizId === id}
 				/>
 
 			), quizzes)}
@@ -30,6 +31,15 @@ const QuizList = ({ quizzes = [], submitQuizSelection, selectedQuiz }) => {
 
 	);
 
+};
+
+QuizList.propTypes = {
+	quizzes: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		name: PropTypes.string.isRequired
+	})),
+	submitQuizSelection: PropTypes.func.isRequired,
+	selectedQuizId: PropTypes.number
 };
 
 export default QuizList;

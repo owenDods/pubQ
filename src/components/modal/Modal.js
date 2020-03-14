@@ -1,4 +1,5 @@
 import React, { cloneElement, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 import capitaliseString from '../utils/capitaliseString';
@@ -54,6 +55,14 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 	);
 
+};
+
+Modal.propTypes = {
+	label: PropTypes.string,
+	children: PropTypes.element,
+	backgroundColour: PropTypes.string,
+	enter: PropTypes.string,
+	halfSize: PropTypes.bool
 };
 
 export default Modal;

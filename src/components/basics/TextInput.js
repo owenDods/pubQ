@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 import Button from './Button';
 
@@ -82,6 +83,15 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, with
 
 	);
 
+};
+
+TextInput.propTypes = {
+	onSubmit: PropTypes.func.isRequired,
+	value: PropTypes.string,
+	placeholder: PropTypes.string,
+	shouldFocusOnMount: PropTypes.bool,
+	withButton: PropTypes.bool,
+	buttonLabel: PropTypes.string
 };
 
 export default TextInput;

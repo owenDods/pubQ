@@ -15,7 +15,7 @@ const Session = () => {
 
 	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
-	const [ selectedQuiz, setQuiz ] = useState(null);
+	const [ selectedQuizId, setQuiz ] = useState(null);
 
 	return (
 
@@ -31,7 +31,7 @@ const Session = () => {
 
 				<Route path={`${path}/quizSelect`}>
 
-					<QuizManagerModal selectedQuiz={selectedQuiz} setQuiz={setQuiz} />
+					<QuizManagerModal selectedQuizId={selectedQuizId} setQuiz={setQuiz} />
 
 				</Route>
 

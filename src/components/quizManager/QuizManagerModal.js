@@ -1,16 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Modal from '../modal/Modal';
-import QuizManager from '../quizManager/QuizManager';
+import QuizManager from './QuizManager';
 
-const QuizManagerModal = ({ selectedQuiz, setQuiz }) => (
+const QuizManagerModal = ({ selectedQuizId, setQuiz }) => (
 
 	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
 
-		<QuizManager selectedQuiz={selectedQuiz} setQuiz={setQuiz} />
+		<QuizManager selectedQuizId={selectedQuizId} setQuiz={setQuiz} />
 
 	</Modal>
 
 );
+
+QuizManagerModal.propTypes = {
+	selectedQuizId: PropTypes.number,
+	setQuiz: PropTypes.func
+};
 
 export default QuizManagerModal;

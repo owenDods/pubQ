@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import find from 'lodash/fp/find';
@@ -76,6 +77,15 @@ const TeamManager = ({ teams = [], setTeams, closeModal }) => {
 
 	);
 
+};
+
+TeamManager.propTypes = {
+	teams: PropTypes.arrayOf(PropTypes.shape({
+		number: PropTypes.number.isRequired,
+		name: PropTypes.string
+	})),
+	setTeams: PropTypes.func.isRequired,
+	closeModal: PropTypes.func
 };
 
 export default TeamManager;

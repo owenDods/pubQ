@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const className = 'quizListItem';
 
@@ -18,6 +19,12 @@ const QuizListItem = ({ name, submitQuizSelection, isSelected }) => {
 
 	);
 
+};
+
+QuizListItem.propTypes = {
+	name: PropTypes.string,
+	submitQuizSelection: PropTypes.func,
+	isSelected: PropTypes.bool
 };
 
 export default QuizListItem;

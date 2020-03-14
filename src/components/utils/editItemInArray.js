@@ -9,4 +9,4 @@ export default (items = [], newItem, index) => {
 		...itemsAfterIndex
 	];
 
-}
+};

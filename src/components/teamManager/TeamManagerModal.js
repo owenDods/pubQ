@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Modal from '../modal/Modal';
-import TeamManager from '../teamManager/TeamManager';
+import TeamManager from './TeamManager';
 
 const TeamManagerModal = ({ teams, setTeams }) => (
 
@@ -12,5 +13,13 @@ const TeamManagerModal = ({ teams, setTeams }) => (
 	</Modal>
 
 );
+
+TeamManagerModal.propTypes = {
+	teams: PropTypes.arrayOf(PropTypes.shape({
+		number: PropTypes.number.isRequired,
+		name: PropTypes.string
+	})),
+	setTeams: PropTypes.func
+};
 
 export default TeamManagerModal;
