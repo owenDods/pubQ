@@ -12,16 +12,6 @@ import QuizStart from '../quizStart/QuizStart';
 
 export const className = 'session';
 
-const QuizStartModal = () => (
-
-	<Modal backgroundColour="blue" halfSize>
-
-		<QuizStart />
-
-	</Modal>
-
-);
-
 const QuizManagerModal = ({ selectedQuiz, setQuiz }) => (
 
 	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
@@ -56,7 +46,7 @@ const Session = () => {
 
 				<Route path={`${path}/quizStart`}>
 
-					<QuizStartModal />
+					<QuizStart />
 
 				</Route>
 

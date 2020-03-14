@@ -50,7 +50,7 @@
 	}
 
 	&--halfSize {
-		height: calc(50% - (2 * #{$_gutter}));
+		height: 50%;
 	}
 
 }
