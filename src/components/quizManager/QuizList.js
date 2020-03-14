@@ -5,7 +5,7 @@ import QuizListItem from './QuizListItem';
 
 export const className = 'quizList';
 
-const QuizList = ({ quizzes = [], submitQuizSelection }) => {
+const QuizList = ({ quizzes = [], submitQuizSelection, selectedQuiz }) => {
 
 	const quizzesLength = quizzes.length;
 	let styleClass = className;
@@ -21,6 +21,7 @@ const QuizList = ({ quizzes = [], submitQuizSelection }) => {
 					name={name}
 					key={`${className}-${i}`}
 					submitQuizSelection={() => submitQuizSelection(id)}
+					isSelected={selectedQuiz === id}
 				/>
 
 			), quizzes)}

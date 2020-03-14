@@ -32,7 +32,8 @@
 				background-color: $_blue-secondary;
 			}
 
-			&:active {
+			&:active,
+			&--selected {
 				background-color: $_blue-tertiary;
 				box-shadow: $_shadow-raised;
 			}

@@ -2,16 +2,22 @@ import React from 'react';
 
 export const className = 'quizListItem';
 
-const QuizListItem = ({ name, submitQuizSelection }) => (
+const QuizListItem = ({ name, submitQuizSelection, isSelected }) => {
 
-	<li className={className} onClick={submitQuizSelection}>
+	const styleClass = isSelected ? `${className} ${className}--selected` : className;
 
-		<div className={`${className}__icon`} />
+	return (
 
-		<label>{name}</label>
+		<li className={styleClass} onClick={submitQuizSelection}>
 
-	</li>
+			<div className={`${className}__icon`} />
 
-);
+			<label>{name}</label>
+
+		</li>
+
+	);
+
+};
 
 export default QuizListItem;

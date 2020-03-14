@@ -25,16 +25,13 @@ const QuizManager = ({ setQuiz, closeModal, selectedQuiz }) => {
 
 	}
 
-	const submitQuizSelection = quizId => (
+	const submitQuizSelection = quizId => {
 
-		closeModal(() => {
+		setQuiz(quizId);
 
-			setQuiz(quizId);
-			setQuizSelectionStatus(true);
+		closeModal(() => setQuizSelectionStatus(true));
 
-		})
-
-	);
+	};
 
 	return (
 
