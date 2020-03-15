@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-
-import quizzesJson from '../../quizzes.json';
 
 import QuizList from './QuizList';
 
 export const className = 'quizManager';
 
-const QuizManager = ({ setQuiz, closeModal, selectedQuizId }) => {
-
-	const [ quizzes, setQuizzes ] = useState([]);
-	useEffect(() => {
-
-		new Promise(res => res(quizzesJson))
-			.then(data => setQuizzes(data));
-
-	}, []);
+const QuizManager = ({ setQuiz, closeModal, selectedQuizId, quizzes }) => {
 
 	const [ quizHasBeenSelected, setQuizSelectionStatus ] = useState(false);
 
@@ -53,7 +43,11 @@ const QuizManager = ({ setQuiz, closeModal, selectedQuizId }) => {
 QuizManager.propTypes = {
 	selectedQuizId: PropTypes.number,
 	setQuiz: PropTypes.func,
-	closeModal: PropTypes.func
+	closeModal: PropTypes.func,
+	quizzes: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		name: PropTypes.string
+	}))
 };
 
 export default QuizManager;

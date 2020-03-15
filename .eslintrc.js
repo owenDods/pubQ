@@ -33,7 +33,7 @@ module.exports = {
     'react/jsx-indent-props': [ 'error', 'tab' ],
     'jsx-a11y/label-has-associated-control': 'off',
     'arrow-parens': [ 'error', 'as-needed' ],
-    'object-curly-newline': [ 'error', { multiline: true } ],
+    'object-curly-newline': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off'
   },

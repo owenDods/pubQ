@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import Modal from '../modal/Modal';
 import QuizManager from './QuizManager';
 
-const QuizManagerModal = ({ selectedQuizId, setQuiz }) => (
+const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes }) => (
 
 	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
 
-		<QuizManager selectedQuizId={selectedQuizId} setQuiz={setQuiz} />
+		<QuizManager
+			selectedQuizId={selectedQuizId}
+			setQuiz={setQuiz}
+			quizzes={quizzes}
+		/>
 
 	</Modal>
 
@@ -16,7 +20,11 @@ const QuizManagerModal = ({ selectedQuizId, setQuiz }) => (
 
 QuizManagerModal.propTypes = {
 	selectedQuizId: PropTypes.number,
-	setQuiz: PropTypes.func
+	setQuiz: PropTypes.func,
+	quizzes: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		name: PropTypes.string
+	}))
 };
 
 export default QuizManagerModal;

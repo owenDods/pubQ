@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	Switch,
 	Route,
 	useRouteMatch
 } from 'react-router-dom';
+
+import quizzesJson from '../../quizzes.json';
 
 import TeamManagerModal from '../teamManager/TeamManagerModal';
 import QuizManagerModal from '../quizManager/QuizManagerModal';
@@ -12,6 +14,14 @@ import QuizStart from '../quizStart/QuizStart';
 export const className = 'session';
 
 const Session = () => {
+
+	const [ quizzes, setQuizzes ] = useState([]);
+	useEffect(() => {
+
+		new Promise(res => res(quizzesJson))
+			.then(data => setQuizzes(data));
+
+	}, []);
 
 	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
@@ -31,7 +41,11 @@ const Session = () => {
 
 				<Route path={`${path}/quizSelect`}>
 
-					<QuizManagerModal selectedQuizId={selectedQuizId} setQuiz={setQuiz} />
+					<QuizManagerModal
+						selectedQuizId={selectedQuizId}
+						setQuiz={setQuiz}
+						quizzes={quizzes}
+					/>
 
 				</Route>
 
