@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Modal from '../modal/Modal';
+import QuizStartQuizDisplay from './QuizStartQuizDisplay';
 
 export const className = 'quizStart';
 
 const Woop = () => (<p>Woop</p>);
 
-const QuizStart = () => (
+const QuizStart = ({ quizName }) => (
 
 	<div className={className}>
 
 		<Modal backgroundColour="blue" halfSize>
 
-			<Woop />
+			<QuizStartQuizDisplay quizName={quizName} />
 
 		</Modal>
 
@@ -25,5 +27,9 @@ const QuizStart = () => (
 	</div>
 
 );
+
+QuizStart.propTypes = {
+	quizName: PropTypes.string
+};
 
 export default QuizStart;
