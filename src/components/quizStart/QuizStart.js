@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 
 import Modal from '../modal/Modal';
 import QuizStartQuizDisplay from './QuizStartQuizDisplay';
+import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
 
 export const className = 'quizStart';
 
-const Woop = () => (<p>Woop</p>);
-
-const QuizStart = ({ quizName }) => (
+const QuizStart = ({ quizName, teams }) => (
 
 	<div className={className}>
 
@@ -20,7 +19,7 @@ const QuizStart = ({ quizName }) => (
 
 		<Modal backgroundColour="red" enter="bottom" halfSize>
 
-			<Woop />
+			<QuizStartTeamsDisplay teams={teams} />
 
 		</Modal>
 
@@ -29,7 +28,11 @@ const QuizStart = ({ quizName }) => (
 );
 
 QuizStart.propTypes = {
-	quizName: PropTypes.string
+	quizName: PropTypes.string,
+	teams: PropTypes.arrayOf(PropTypes.shape({
+		number: PropTypes.number.isRequired,
+		name: PropTypes.string
+	}))
 };
 
 export default QuizStart;

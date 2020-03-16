@@ -43,7 +43,7 @@ const Session = () => {
 
 				<Route path={`${path}/quizStart`}>
 
-					<QuizStart quizName={quizName} />
+					<QuizStart quizName={quizName} teams={teams} />
 
 				</Route>
 
