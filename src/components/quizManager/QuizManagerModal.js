@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import quizShape from '../shapes/quizShape';
+
 import Modal from '../modal/Modal';
 import QuizManager from './QuizManager';
 
@@ -21,10 +23,7 @@ const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes }) => (
 QuizManagerModal.propTypes = {
 	selectedQuizId: PropTypes.number,
 	setQuiz: PropTypes.func,
-	quizzes: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number.isRequired,
-		name: PropTypes.string
-	}))
+	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape))
 };
 
 export default QuizManagerModal;

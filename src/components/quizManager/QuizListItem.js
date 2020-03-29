@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 export const className = 'quizListItem';
 
-const QuizListItem = ({ name, submitQuizSelection, isSelected }) => {
+const QuizListItem = ({ name, submitQuizSelection, isSelected, img }) => {
+
+	const iconBackgroundStyle = img ? {
+		backgroundImage: `url(${img})`
+	} : {};
 
 	const styleClass = isSelected ? `${className} ${className}--selected` : className;
 
@@ -11,7 +15,7 @@ const QuizListItem = ({ name, submitQuizSelection, isSelected }) => {
 
 		<li className={styleClass} onClick={submitQuizSelection}>
 
-			<div className={`${className}__icon`} />
+			<div className={`${className}__icon`} style={iconBackgroundStyle} />
 
 			<label>{name}</label>
 
@@ -24,7 +28,8 @@ const QuizListItem = ({ name, submitQuizSelection, isSelected }) => {
 QuizListItem.propTypes = {
 	name: PropTypes.string,
 	submitQuizSelection: PropTypes.func,
-	isSelected: PropTypes.bool
+	isSelected: PropTypes.bool,
+	img: PropTypes.string
 };
 
 export default QuizListItem;

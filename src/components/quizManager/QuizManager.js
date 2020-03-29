@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
+import quizShape from '../shapes/quizShape';
+
 import QuizList from './QuizList';
 
 export const className = 'quizManager';
@@ -44,10 +46,7 @@ QuizManager.propTypes = {
 	selectedQuizId: PropTypes.number,
 	setQuiz: PropTypes.func,
 	closeModal: PropTypes.func,
-	quizzes: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number.isRequired,
-		name: PropTypes.string
-	}))
+	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape))
 };
 
 export default QuizManager;

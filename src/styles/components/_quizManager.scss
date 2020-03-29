@@ -41,8 +41,11 @@
 			&__icon {
 				width: 100%;
 				height: 100%;
+				overflow: hidden;
 				box-shadow: $_shadow-inset;
 				background-color: $_black-slightlyTransparent;
+				background-size: cover;
+				background-repeat: no-repeat;
 			}
 
 			label {

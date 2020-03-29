@@ -1,38 +1,47 @@
 [
   {
     "id": 1,
-    "name": "Quiz 1"
+    "name": "Quiz 1",
+    "img": "https://picsum.photos/600?random=1"
   },
   {
     "id": 2,
-    "name": "Quiz 2"
+    "name": "Quiz 2",
+    "img": "https://picsum.photos/600?random=2"
   },
   {
     "id": 3,
-    "name": "Quiz 3"
+    "name": "Quiz 3",
+    "img": "https://picsum.photos/600?random=3"
   },
   {
     "id": 4,
-    "name": "Quiz 4"
+    "name": "Quiz 4",
+    "img": "https://picsum.photos/600?random=4"
   },
   {
     "id": 5,
-    "name": "Quiz 5"
+    "name": "Quiz 5",
+    "img": "https://picsum.photos/600?random=5"
   },
   {
     "id": 6,
-    "name": "Quiz 6"
+    "name": "Quiz 6",
+    "img": "https://picsum.photos/600?random=6"
   },
   {
     "id": 7,
-    "name": "Quiz 7"
+    "name": "Quiz 7",
+    "img": "https://picsum.photos/600?random=7"
   },
   {
     "id": 8,
-    "name": "Quiz 8"
+    "name": "Quiz 8",
+    "img": "https://picsum.photos/600?random=8"
   },
   {
     "id": 9,
-    "name": "Quiz 9"
+    "name": "Quiz 9",
+    "img": "https://picsum.photos/600?random=9"
   }
 ]
