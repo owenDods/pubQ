@@ -1,0 +1,12 @@
+.quizIcon {
+
+	font-family: 'Bungee', cursive;
+	font-size: $_fontSize-large;
+	@include textOutline;
+	display: flex;
+
+	span {
+		margin: auto;
+	}
+
+}

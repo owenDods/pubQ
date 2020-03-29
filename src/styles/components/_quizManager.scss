@@ -1,3 +1,5 @@
+$quizManager-quizListItemWithImgIconSize: 50px;
+
 .quiz {
 
 	&Manager {
@@ -38,7 +40,17 @@
 				box-shadow: $_shadow-raised;
 			}
 
+			&--hasImg .quizListItem__icon .quizIcon {
+				font-size: $_fontSize-large;
+				margin: auto auto 0 0;
+				width: $quizManager-quizListItemWithImgIconSize;
+				height: $quizManager-quizListItemWithImgIconSize;
+				background-color: $_black-semiOpaque;
+				border-top-right-radius: $_radius;
+			}
+
 			&__icon {
+
 				width: 100%;
 				height: 100%;
 				overflow: hidden;
@@ -46,9 +58,17 @@
 				background-color: $_black-slightlyTransparent;
 				background-size: cover;
 				background-repeat: no-repeat;
+				display: flex;
+
+				.quizIcon {
+					margin: auto;
+					font-size: 15vmin;
+					cursor: pointer;
+				}
+
 			}
 
-			label {
+			&__name {
 				margin: $_gutter-small auto auto;
 				font-size: $_fontSize-medium;
 				font-weight: bold;

@@ -12,12 +12,12 @@
   {
     "id": 3,
     "name": "Quiz 3",
-    "img": "https://picsum.photos/600?random=3"
+    "img": ""
   },
   {
     "id": 4,
     "name": "Quiz 4",
-    "img": "https://picsum.photos/600?random=4"
+    "img": ""
   },
   {
     "id": 5,
@@ -27,7 +27,7 @@
   {
     "id": 6,
     "name": "Quiz 6",
-    "img": "https://picsum.photos/600?random=6"
+    "img": ""
   },
   {
     "id": 7,

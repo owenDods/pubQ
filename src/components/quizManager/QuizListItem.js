@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import QuizIcon from '../quizIcon/QuizIcon';
+
 export const className = 'quizListItem';
 
 const QuizListItem = ({ name, submitQuizSelection, isSelected, img }) => {
@@ -9,15 +11,20 @@ const QuizListItem = ({ name, submitQuizSelection, isSelected, img }) => {
 		backgroundImage: `url(${img})`
 	} : {};
 
-	const styleClass = isSelected ? `${className} ${className}--selected` : className;
+	let styleClass = isSelected ? `${className} ${className}--selected` : className;
+	styleClass = img ? `${styleClass} ${className}--hasImg` : styleClass;
 
 	return (
 
 		<li className={styleClass} onClick={submitQuizSelection}>
 
-			<div className={`${className}__icon`} style={iconBackgroundStyle} />
+			<div className={`${className}__icon`} style={iconBackgroundStyle}>
 
-			<label>{name}</label>
+				<QuizIcon />
+
+			</div>
+
+			<label className={`${className}__name`}>{name}</label>
 
 		</li>
 
