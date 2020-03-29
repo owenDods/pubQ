@@ -46,6 +46,34 @@
 
 }
 
+@keyframes funSpin {
+
+	0% {
+		transform: rotate(40deg) scale(1);
+	}
+
+	40% {
+		transform: rotate(360deg) scale(0.9);
+	}
+
+	60% {
+		transform: rotate(720deg) scale(0.7);
+	}
+
+	70% {
+		transform: rotate(1080deg) scale(0.3);
+	}
+
+	75% {
+		transform: rotate(1460deg) scale(1.05);
+	}
+
+	100% {
+		transform: rotate(1480deg) scale(1);
+	}
+
+}
+
 @keyframes enterTop {
 
 	0% {

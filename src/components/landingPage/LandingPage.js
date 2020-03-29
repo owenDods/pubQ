@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import Button from '../basics/Button';
+import QuizIcon from '../quizIcon/QuizIcon';
 
 export const className = 'landingPage';
 
@@ -32,6 +33,11 @@ const LandingPage = () => {
 				label="Start"
 				onClick={() => updateStartPressedState(!isStartPressed)}
 			/>
+
+			<QuizIcon />
+			<QuizIcon />
+			<QuizIcon />
+			<QuizIcon />
 
 			{isStartPressed ? redirectContent : null}
 

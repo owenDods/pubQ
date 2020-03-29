@@ -10,6 +10,7 @@
 		margin: auto auto 0;
 		cursor: default;
 		font-family: 'Bungee', cursive;
+		z-index: $_z-index-1;
 		@include textOutlineBig;
 
 		span {
@@ -28,6 +29,38 @@
 		text-transform: uppercase;
 		border-width: 5px;
 		@include funPulse;
+	}
+
+	.quizIcon {
+
+		position: absolute;
+		font-size: 20vmin;
+		@include textOutlineBig;
+
+		&:nth-of-type(1) {
+			top: 5%;
+			left: 5%;
+			@include funSpin;
+		}
+
+		&:nth-of-type(2) {
+			top: 5%;
+			right: 5%;
+			@include funSpin(0.1s);
+		}
+
+		&:nth-of-type(3) {
+			bottom: 5%;
+			right: 5%;
+			@include funSpin(0.2s);
+		}
+
+		&:nth-of-type(4) {
+			bottom: 5%;
+			left: 5%;
+			@include funSpin(0.3s);
+		}
+
 	}
 
 }
