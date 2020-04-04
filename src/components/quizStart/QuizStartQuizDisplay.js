@@ -32,7 +32,8 @@ const QuizStartQuizDisplay = ({ quizName, quizImg }) => {
 };
 
 QuizStartQuizDisplay.propTypes = {
-	quizName: PropTypes.string
+	quizName: PropTypes.string,
+	quizImg: PropTypes.string
 };
 
 export default QuizStartQuizDisplay;
