@@ -7,13 +7,13 @@ import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
 
 export const className = 'quizStart';
 
-const QuizStart = ({ quizName, teams }) => (
+const QuizStart = ({ quizName, quizImg, teams }) => (
 
 	<div className={className}>
 
 		<Modal backgroundColour="blue" halfSize>
 
-			<QuizStartQuizDisplay quizName={quizName} />
+			<QuizStartQuizDisplay quizName={quizName} quizImg={quizImg} />
 
 		</Modal>
 
@@ -29,6 +29,7 @@ const QuizStart = ({ quizName, teams }) => (
 
 QuizStart.propTypes = {
 	quizName: PropTypes.string,
+	quizImg: PropTypes.string,
 	teams: PropTypes.arrayOf(PropTypes.shape({
 		number: PropTypes.number.isRequired,
 		name: PropTypes.string

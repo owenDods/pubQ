@@ -1,3 +1,6 @@
+$quizStart-quizImgSize: calc(50vh - (#{$_gutter} * 4));
+$quizStart-quizDisplayWithImgIconSize: 50px;
+
 .quizStart {
 
 	width: 100%;
@@ -10,11 +13,42 @@
 		width: 100%;
 		height: 100%;
 		display: flex;
+		position: relative;
+		padding: $_gutter;
+		box-sizing: border-box;
+
+		&__img {
+
+			margin: 0 $_gutter 0 0;
+			box-shadow: $_shadow-inset;
+			width: $quizStart-quizImgSize;
+			height: $quizStart-quizImgSize;
+			flex-shrink: 0;
+			background-size: cover;
+			background-color: $_blue-primary;
+			display: flex;
+
+			.quizIcon {
+				margin: auto;
+				font-size: 15vmin;
+			}
+
+		}
 
 		h2 {
 			font-size: 15vmin;
 			@include textOutline;
 			margin: auto;
+			cursor: default;
+		}
+
+		&--hasImg .quizStartQuizDisplay__img .quizIcon {
+			font-size: $_fontSize-large;
+			margin: auto auto 0 0;
+			width: $quizStart-quizDisplayWithImgIconSize;
+			height: $quizStart-quizDisplayWithImgIconSize;
+			background-color: $_black-semiOpaque;
+			border-top-right-radius: $_radius;
 		}
 
 	}

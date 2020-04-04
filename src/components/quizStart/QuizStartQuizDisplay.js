@@ -1,17 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import QuizIcon from '../quizIcon/QuizIcon';
+
 export const className = 'quizStartQuizDisplay';
 
-const QuizStartQuizDisplay = ({ quizName }) => (
+const QuizStartQuizDisplay = ({ quizName, quizImg }) => {
 
-	<div className={className}>
+	const imgBackgroundStyle = quizImg ? {
+		backgroundImage: `url(${quizImg})`
+	} : {};
 
-		<h2>{quizName}</h2>
+	const styleClass = quizImg ? `${className} ${className}--hasImg` : className;
 
-	</div>
+	return (
 
-);
+		<div className={styleClass}>
+
+			<div className={`${className}__img`} style={imgBackgroundStyle}>
+
+				<QuizIcon />
+
+			</div>
+
+			<h2>{quizName}</h2>
+
+		</div>
+
+	);
+
+};
 
 QuizStartQuizDisplay.propTypes = {
 	quizName: PropTypes.string

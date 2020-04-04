@@ -5,9 +5,7 @@ import {
 	useRouteMatch
 } from 'react-router-dom';
 
-import flow from 'lodash/fp/flow';
 import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
 
 import quizzesJson from '../../quizzes.json';
 
@@ -30,10 +28,7 @@ const Session = () => {
 	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
 	const [ selectedQuizId, setQuiz ] = useState(null);
-	const quizName = flow(
-		find({ id: selectedQuizId }),
-		get('name')
-	)(quizzes);
+	const { name: quizName, img: quizImg } = find({ id: selectedQuizId }, quizzes) || {};
 
 	return (
 
@@ -43,7 +38,11 @@ const Session = () => {
 
 				<Route path={`${path}/quizStart`}>
 
-					<QuizStart quizName={quizName} teams={teams} />
+					<QuizStart
+						quizName={quizName}
+						quizImg={quizImg}
+						teams={teams}
+					/>
 
 				</Route>
 
