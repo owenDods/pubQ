@@ -1,3 +1,5 @@
+$modal-labelHeight: $_lineHeight-large;
+
 .modal {
 
 	width: 100%;
@@ -27,12 +29,14 @@
 	&__label {
 		@include textOutline;
 		font-size: $_fontSize-large;
+		height: $modal-labelHeight;
+		line-height: $modal-labelHeight;
 		margin: $_gutter auto;
 		flex-shrink: 0;
 	}
 
 	&__content {
-		height: 100%;
+		height: calc(100% - #{$modal-labelHeight} - (#{$_gutter} * 2));
 	}
 
 	&-exit-active {
