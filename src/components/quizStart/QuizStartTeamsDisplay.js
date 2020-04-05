@@ -6,22 +6,28 @@ import QuizStartTeamsDisplayListItem from './QuizStartTeamsDisplayListItem';
 
 export const className = 'quizStartTeamsDisplay';
 
-const QuizStartTeamsDisplay = ({ teams }) => (
+const QuizStartTeamsDisplay = ({ teams = [] }) => {
 
-	<div className={className}>
+	const styleClass = teams.length === 1 ? `${className} ${className}--singleTeam` : className;
 
-		<List
-			name={className}
-			items={teams}
-		>
+	return (
 
-			<QuizStartTeamsDisplayListItem />
+		<div className={styleClass}>
 
-		</List>
+			<List
+				name={className}
+				items={teams}
+			>
 
-	</div>
+				<QuizStartTeamsDisplayListItem />
 
-);
+			</List>
+
+		</div>
+
+	);
+
+};
 
 QuizStartTeamsDisplay.propTypes = {
 	teams: PropTypes.arrayOf(PropTypes.shape({

@@ -53,4 +53,52 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 
 	}
 
+	&TeamsDisplay {
+
+		display: flex;
+		width: 100%;
+		height: 100%;
+
+		.list {
+
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			padding: $_gutter 0 0 $_gutter;
+			box-sizing: border-box;
+
+			li {
+				width: calc(50% - #{$_gutter});
+				margin: 0 $_gutter $_gutter 0;
+				background-color: $_red-primary;
+				box-shadow: $_shadow;
+				border-radius: $_radius;
+			}
+
+		}
+
+		&ListItem {
+
+			width: 100%;
+			height: 100%;
+			display: flex;
+			font-size: $_fontSize-large;
+
+			&__number {
+				margin: auto $_gutter;
+			}
+
+			&__name {
+				margin: auto 0;
+			}
+
+		}
+
+		&--singleTeam .list li {
+			width: calc(100% - #{$_gutter});
+		}
+
+	}
+
 }

@@ -9,7 +9,7 @@ const QuizStartTeamsDisplayListItem = ({ number, name }) => (
 
 		<span className={`${className}__number`}>{number}</span>
 
-		<span>{name}</span>
+		<span className={`${className}__name`}>{name}</span>
 
 	</label>
 
