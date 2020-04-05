@@ -11,6 +11,7 @@ import List from '../basics/List';
 import TeamManagerListItem from './TeamManagerListItem';
 import Button from '../basics/Button';
 
+export const teamLimit = 8;
 export const className = 'teamManager';
 
 const TeamManager = ({ teams = [], setTeams, closeModal }) => {
@@ -53,13 +54,15 @@ const TeamManager = ({ teams = [], setTeams, closeModal }) => {
 
 	}
 
+	const teamItems = teams.length < teamLimit ? [ ...teams, { name: '' } ] : teams;
+
 	return (
 
 		<div className={className}>
 
 			<List
 				name={className}
-				items={[ ...teams, { name: '' } ]}
+				items={teamItems}
 			>
 
 				<TeamManagerListItem setTeamName={setTeamName} removeTeam={removeTeam} />
