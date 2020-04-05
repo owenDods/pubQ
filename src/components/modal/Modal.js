@@ -12,6 +12,7 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 	const innerStyleClass = backgroundColour ? `${innerClass} ${innerClass}--${backgroundColour}` : innerClass;
 	let styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
 	styleClass = halfSize ? `${styleClass} ${className}--halfSize` : styleClass;
+	styleClass = label ? `${styleClass} ${className}--hasLabel` : styleClass;
 
 	const [ modalIsClosing, setModalIsClosingState ] = useState(false);
 	const onExitedCallback = useRef(null);
@@ -24,7 +25,7 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 	};
 
-	const labelContent = (<label className={`${className}__label`}>{label}</label>);
+	const labelContent = label ? (<label className={`${className}__label`}>{label}</label>) : null;
 
 	return (
 
@@ -39,7 +40,7 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 				<div className={innerStyleClass}>
 
-					{label ? labelContent : null}
+					{labelContent}
 
 					<div className={`${className}__content`}>
 
