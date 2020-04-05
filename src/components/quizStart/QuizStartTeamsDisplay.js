@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import map from 'lodash/fp/map';
+import List from '../basics/List';
+import QuizStartTeamsDisplayListItem from './QuizStartTeamsDisplayListItem';
 
 export const className = 'quizStartTeamsDisplay';
 
@@ -9,17 +10,14 @@ const QuizStartTeamsDisplay = ({ teams }) => (
 
 	<div className={className}>
 
-		{map(({ number, name }) => (
+		<List
+			name={className}
+			items={teams}
+		>
 
-			<label key={`${className}-${number}`}>
+			<QuizStartTeamsDisplayListItem />
 
-				<span className={`${className}__number`}>{number}</span>
-
-				<span>{name}</span>
-
-			</label>
-
-		), teams)}
+		</List>
 
 	</div>
 
