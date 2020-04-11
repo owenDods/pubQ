@@ -23,7 +23,7 @@ export const className = 'session';
 const Session = () => {
 
 	const { path } = useRouteMatch();
-	const [ sessionDestinations, setSessionDestinations ] = useState(getSessionDestinations(path));
+	const [ sessionDestinations ] = useState(getSessionDestinations(path));
 
 	const [ quizzes, setQuizzes ] = useState([]);
 	useEffect(() => {
@@ -49,6 +49,7 @@ const Session = () => {
 						quizName={quizName}
 						quizImg={quizImg}
 						teams={teams}
+						quizSelectionRoute={sessionDestinations.QUIZZES}
 					/>
 
 				</Route>
