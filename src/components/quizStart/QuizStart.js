@@ -7,7 +7,7 @@ import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
 
 export const className = 'quizStart';
 
-const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute }) => (
+const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelectionRoute }) => (
 
 	<div className={className}>
 
@@ -23,7 +23,7 @@ const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute }) => (
 
 		<Modal backgroundColour="red" enter="bottom" halfSize>
 
-			<QuizStartTeamsDisplay teams={teams} />
+			<QuizStartTeamsDisplay teams={teams} teamSelectionRoute={teamSelectionRoute} />
 
 		</Modal>
 
@@ -38,7 +38,8 @@ QuizStart.propTypes = {
 		number: PropTypes.number.isRequired,
 		name: PropTypes.string
 	})),
-	quizSelectionRoute: PropTypes.string
+	quizSelectionRoute: PropTypes.string,
+	teamSelectionRoute: PropTypes.string
 };
 
 export default QuizStart;

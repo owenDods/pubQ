@@ -50,6 +50,7 @@ const Session = () => {
 						quizImg={quizImg}
 						teams={teams}
 						quizSelectionRoute={sessionDestinations.QUIZZES}
+						teamSelectionRoute={sessionDestinations.TEAMS}
 					/>
 
 				</Route>
