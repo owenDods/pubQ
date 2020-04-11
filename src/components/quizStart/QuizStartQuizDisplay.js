@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import QuizIcon from '../quizIcon/QuizIcon';
+import NavLink from '../basics/NavLink';
 
 export const className = 'quizStartQuizDisplay';
 
@@ -30,11 +30,11 @@ const QuizStartQuizDisplay = ({ quizName, quizImg, quizSelectionRoute }) => {
 
 	const noQuizSelectedContent = !quizName ? (
 
-		<Link to={quizSelectionRoute}>
+		<NavLink to={quizSelectionRoute}>
 
 			Go to Quiz Selection
 
-		</Link>
+		</NavLink>
 
 	) : null;
 

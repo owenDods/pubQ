@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import List from '../basics/List';
 import QuizStartTeamsDisplayListItem from './QuizStartTeamsDisplayListItem';
+import NavLink from '../basics/NavLink';
 
 export const className = 'quizStartTeamsDisplay';
 
@@ -24,11 +24,11 @@ const QuizStartTeamsDisplay = ({ teams = [], teamSelectionRoute }) => {
 
 	const noTeamsSelectedContent = !teams.length ? (
 
-		<Link to={teamSelectionRoute}>
+		<NavLink to={teamSelectionRoute}>
 
 			Go to Team Selection
 
-		</Link>
+		</NavLink>
 
 	) : null;
 
