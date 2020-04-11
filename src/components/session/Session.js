@@ -13,9 +13,17 @@ import TeamManagerModal from '../teamManager/TeamManagerModal';
 import QuizManagerModal from '../quizManager/QuizManagerModal';
 import QuizStart from '../quizStart/QuizStart';
 
+export const getSessionDestinations = path => ({
+	TEAMS: `${path}/addTeams`,
+	QUIZZES: `${path}/quizSelect`,
+	START: `${path}/quizStart`
+});
 export const className = 'session';
 
 const Session = () => {
+
+	const { path } = useRouteMatch();
+	const [ sessionDestinations, setSessionDestinations ] = useState(getSessionDestinations(path));
 
 	const [ quizzes, setQuizzes ] = useState([]);
 	useEffect(() => {
@@ -25,7 +33,6 @@ const Session = () => {
 
 	}, []);
 
-	const { path } = useRouteMatch();
 	const [ teams, setTeams ] = useState([]);
 	const [ selectedQuizId, setQuiz ] = useState(null);
 	const { name: quizName, img: quizImg } = find({ id: selectedQuizId }, quizzes) || {};
@@ -36,7 +43,7 @@ const Session = () => {
 
 			<Switch>
 
-				<Route path={`${path}/quizStart`}>
+				<Route path={sessionDestinations.START}>
 
 					<QuizStart
 						quizName={quizName}
@@ -46,13 +53,19 @@ const Session = () => {
 
 				</Route>
 
-				<Route path={`${path}/quizSelect`}>
+				<Route path={sessionDestinations.QUIZZES}>
 
 					<QuizManagerModal
 						selectedQuizId={selectedQuizId}
 						setQuiz={setQuiz}
 						quizzes={quizzes}
 					/>
+
+				</Route>
+
+				<Route path={sessionDestinations.TEAMS}>
+
+					<TeamManagerModal teams={teams} setTeams={setTeams} />
 
 				</Route>
 
