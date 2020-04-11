@@ -8,7 +8,7 @@ const NavLink = ({ to, children }) => (
 
 	<Link className={className} to={to}>
 
-		{children}
+		<span>{children}</span>
 
 	</Link>
 

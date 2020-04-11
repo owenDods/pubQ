@@ -51,6 +51,11 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 			border-top-right-radius: $_radius;
 		}
 
+		.navLink {
+			margin: auto;
+			height: 100%;
+		}
+
 	}
 
 	&TeamsDisplay {
@@ -99,6 +104,16 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 			width: calc(100% - #{$_gutter});
 		}
 
+		.navLink {
+			margin: $_gutter auto;
+			height: calc(100% - (#{$_gutter} * 2));
+		}
+
+	}
+
+	.navLink {
+		font-size: 10vmin;
+		width: 50vw;
 	}
 
 }
