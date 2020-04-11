@@ -14,7 +14,7 @@ import Button from '../basics/Button';
 export const teamLimit = 8;
 export const className = 'teamManager';
 
-const TeamManager = ({ teams = [], setTeams, closeModal }) => {
+const TeamManager = ({ teams = [], setTeams, closeModal, destinationFromTeams }) => {
 
 	const setTeamName = (teamNumber, teamName) => {
 
@@ -50,7 +50,7 @@ const TeamManager = ({ teams = [], setTeams, closeModal }) => {
 
 	if (teamsConfirmed) {
 
-		return (<Redirect push to="/session/quizSelect" />);
+		return (<Redirect push to={destinationFromTeams} />);
 
 	}
 
@@ -88,7 +88,8 @@ TeamManager.propTypes = {
 		name: PropTypes.string
 	})),
 	setTeams: PropTypes.func.isRequired,
-	closeModal: PropTypes.func
+	closeModal: PropTypes.func,
+	destinationFromTeams: PropTypes.string
 };
 
 export default TeamManager;

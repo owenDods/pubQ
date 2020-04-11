@@ -22,9 +22,6 @@ export const className = 'session';
 
 const Session = () => {
 
-	const { path } = useRouteMatch();
-	const [ sessionDestinations ] = useState(getSessionDestinations(path));
-
 	const [ quizzes, setQuizzes ] = useState([]);
 	useEffect(() => {
 
@@ -36,6 +33,33 @@ const Session = () => {
 	const [ teams, setTeams ] = useState([]);
 	const [ selectedQuizId, setQuiz ] = useState(null);
 	const { name: quizName, img: quizImg } = find({ id: selectedQuizId }, quizzes) || {};
+
+	const { path } = useRouteMatch();
+	const [ sessionDestinations ] = useState(getSessionDestinations(path));
+	const [ destinationFromTeams, setDestinationFromTeams ] = useState(sessionDestinations.QUIZZES);
+	useEffect(() => {
+
+		if (selectedQuizId) {
+
+			setDestinationFromTeams(sessionDestinations.START);
+
+		} else {
+
+			setDestinationFromTeams(sessionDestinations.QUIZZES);
+
+		}
+
+	}, [ selectedQuizId ]);
+
+	const teamManagerModal = (
+
+		<TeamManagerModal
+			teams={teams}
+			setTeams={setTeams}
+			destinationFromTeams={destinationFromTeams}
+		/>
+
+	);
 
 	return (
 
@@ -67,13 +91,13 @@ const Session = () => {
 
 				<Route path={sessionDestinations.TEAMS}>
 
-					<TeamManagerModal teams={teams} setTeams={setTeams} />
+					{teamManagerModal}
 
 				</Route>
 
 				<Route path={path}>
 
-					<TeamManagerModal teams={teams} setTeams={setTeams} />
+					{teamManagerModal}
 
 				</Route>
 
