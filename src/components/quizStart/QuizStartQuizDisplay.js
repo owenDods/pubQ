@@ -1,12 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import QuizIcon from '../quizIcon/QuizIcon';
-import NavLink from '../basics/NavLink';
+import Button from '../basics/Button';
 
 export const className = 'quizStartQuizDisplay';
 
-const QuizStartQuizDisplay = ({ quizName, quizImg, quizSelectionRoute }) => {
+const QuizStartQuizDisplay = props => {
+
+	const {
+		quizName,
+		quizImg,
+		quizSelectionRoute,
+		closeModal,
+		intendedRedirectDestination,
+		setIntendedRedirectDestination,
+		setRedirectDestination
+	} = props;
 
 	const imgBackgroundStyle = quizImg ? {
 		backgroundImage: `url(${quizImg})`
@@ -28,13 +38,29 @@ const QuizStartQuizDisplay = ({ quizName, quizImg, quizSelectionRoute }) => {
 
 	) : null;
 
+	useEffect(() => {
+
+		if (intendedRedirectDestination) {
+
+			let closeModalCallback;
+
+			if (intendedRedirectDestination === quizSelectionRoute) {
+
+				closeModalCallback = () => setRedirectDestination(intendedRedirectDestination);
+
+			}
+
+			closeModal(closeModalCallback);
+
+		}
+
+	}, [ intendedRedirectDestination ]);
 	const noQuizSelectedContent = !quizName ? (
 
-		<NavLink to={quizSelectionRoute}>
-
-			Go to Quiz Selection
-
-		</NavLink>
+		<Button
+			label="Go to Quiz Selection"
+			onClick={() => setIntendedRedirectDestination(quizSelectionRoute)}
+		/>
 
 	) : null;
 
@@ -57,7 +83,11 @@ const QuizStartQuizDisplay = ({ quizName, quizImg, quizSelectionRoute }) => {
 QuizStartQuizDisplay.propTypes = {
 	quizName: PropTypes.string,
 	quizImg: PropTypes.string,
-	quizSelectionRoute: PropTypes.string
+	quizSelectionRoute: PropTypes.string,
+	closeModal: PropTypes.func,
+	intendedRedirectDestination: PropTypes.string,
+	setIntendedRedirectDestination: PropTypes.func.isRequired,
+	setRedirectDestination: PropTypes.func.isRequired
 };
 
 export default QuizStartQuizDisplay;

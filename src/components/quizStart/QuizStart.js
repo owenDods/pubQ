@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import Modal from '../modal/Modal';
 import QuizStartQuizDisplay from './QuizStartQuizDisplay';
@@ -7,29 +8,51 @@ import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
 
 export const className = 'quizStart';
 
-const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelectionRoute }) => (
+const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelectionRoute }) => {
 
-	<div className={className}>
+	const [ intendedRedirectDestination, setIntendedRedirectDestination ] = useState(null);
+	const [ redirectDestination, setRedirectDestination ] = useState(null);
 
-		<Modal backgroundColour="blue" halfSize>
+	if (redirectDestination) {
 
-			<QuizStartQuizDisplay
-				quizName={quizName}
-				quizImg={quizImg}
-				quizSelectionRoute={quizSelectionRoute}
-			/>
+		return (<Redirect push to={redirectDestination} />);
 
-		</Modal>
+	}
 
-		<Modal backgroundColour="red" enter="bottom" halfSize>
+	return (
 
-			<QuizStartTeamsDisplay teams={teams} teamSelectionRoute={teamSelectionRoute} />
+		<div className={className}>
 
-		</Modal>
+			<Modal backgroundColour="blue" halfSize>
 
-	</div>
+				<QuizStartQuizDisplay
+					quizName={quizName}
+					quizImg={quizImg}
+					quizSelectionRoute={quizSelectionRoute}
+					intendedRedirectDestination={intendedRedirectDestination}
+					setIntendedRedirectDestination={setIntendedRedirectDestination}
+					setRedirectDestination={setRedirectDestination}
+				/>
 
-);
+			</Modal>
+
+			<Modal backgroundColour="red" enter="bottom" halfSize>
+
+				<QuizStartTeamsDisplay
+					teams={teams}
+					teamSelectionRoute={teamSelectionRoute}
+					intendedRedirectDestination={intendedRedirectDestination}
+					setIntendedRedirectDestination={setIntendedRedirectDestination}
+					setRedirectDestination={setRedirectDestination}
+				/>
+
+			</Modal>
+
+		</div>
+
+	);
+
+};
 
 QuizStart.propTypes = {
 	quizName: PropTypes.string,

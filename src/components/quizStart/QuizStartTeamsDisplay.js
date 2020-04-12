@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import List from '../basics/List';
 import QuizStartTeamsDisplayListItem from './QuizStartTeamsDisplayListItem';
-import NavLink from '../basics/NavLink';
+import Button from '../basics/Button';
 
 export const className = 'quizStartTeamsDisplay';
 
-const QuizStartTeamsDisplay = ({ teams = [], teamSelectionRoute }) => {
+const QuizStartTeamsDisplay = props => {
+
+	const {
+		teams = [],
+		teamSelectionRoute,
+		closeModal,
+		intendedRedirectDestination,
+		setIntendedRedirectDestination,
+		setRedirectDestination
+	} = props;
 
 	const defaultContent = teams.length ? (
 
@@ -22,13 +31,29 @@ const QuizStartTeamsDisplay = ({ teams = [], teamSelectionRoute }) => {
 
 	) : null;
 
+	useEffect(() => {
+
+		if (intendedRedirectDestination) {
+
+			let closeModalCallback;
+
+			if (intendedRedirectDestination === teamSelectionRoute) {
+
+				closeModalCallback = () => setRedirectDestination(intendedRedirectDestination);
+
+			}
+
+			closeModal(closeModalCallback);
+
+		}
+
+	}, [ intendedRedirectDestination ]);
 	const noTeamsSelectedContent = !teams.length ? (
 
-		<NavLink to={teamSelectionRoute}>
-
-			Go to Team Selection
-
-		</NavLink>
+		<Button
+			label="Go to Team Selection"
+			onClick={() => setIntendedRedirectDestination(teamSelectionRoute)}
+		/>
 
 	) : null;
 
@@ -53,7 +78,11 @@ QuizStartTeamsDisplay.propTypes = {
 		number: PropTypes.number.isRequired,
 		name: PropTypes.string
 	})),
-	teamSelectionRoute: PropTypes.string
+	teamSelectionRoute: PropTypes.string,
+	closeModal: PropTypes.func,
+	intendedRedirectDestination: PropTypes.string,
+	setIntendedRedirectDestination: PropTypes.func.isRequired,
+	setRedirectDestination: PropTypes.func.isRequired
 };
 
 export default QuizStartTeamsDisplay;

@@ -51,7 +51,7 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 			border-top-right-radius: $_radius;
 		}
 
-		.navLink {
+		.button {
 			margin: auto;
 			height: 100%;
 		}
@@ -104,14 +104,14 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 			width: calc(100% - #{$_gutter});
 		}
 
-		.navLink {
+		.button {
 			margin: $_gutter auto;
 			height: calc(100% - (#{$_gutter} * 2));
 		}
 
 	}
 
-	.navLink {
+	.button {
 		font-size: 10vmin;
 		width: 50vw;
 	}
