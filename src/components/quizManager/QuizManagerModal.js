@@ -6,7 +6,7 @@ import quizShape from '../shapes/quizShape';
 import Modal from '../modal/Modal';
 import QuizManager from './QuizManager';
 
-const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes }) => (
+const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes, destinationFromQuizzes }) => (
 
 	<Modal label="CHOOSE A QUIZ" backgroundColour="blue">
 
@@ -14,6 +14,7 @@ const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes }) => (
 			selectedQuizId={selectedQuizId}
 			setQuiz={setQuiz}
 			quizzes={quizzes}
+			destinationFromQuizzes={destinationFromQuizzes}
 		/>
 
 	</Modal>
@@ -23,7 +24,8 @@ const QuizManagerModal = ({ selectedQuizId, setQuiz, quizzes }) => (
 QuizManagerModal.propTypes = {
 	selectedQuizId: PropTypes.number,
 	setQuiz: PropTypes.func,
-	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape))
+	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape)),
+	destinationFromQuizzes: PropTypes.string
 };
 
 export default QuizManagerModal;

@@ -50,6 +50,20 @@ const Session = () => {
 		}
 
 	}, [ selectedQuizId ]);
+	const [ destinationFromQuizzes, setDestinationFromQuizzes ] = useState(sessionDestinations.START);
+	useEffect(() => {
+
+		if (teams.length) {
+
+			setDestinationFromQuizzes(sessionDestinations.START);
+
+		} else {
+
+			setDestinationFromQuizzes(sessionDestinations.TEAMS);
+
+		}
+
+	}, [ teams.length ]);
 
 	const teamManagerModal = (
 
@@ -85,6 +99,7 @@ const Session = () => {
 						selectedQuizId={selectedQuizId}
 						setQuiz={setQuiz}
 						quizzes={quizzes}
+						destinationFromQuizzes={destinationFromQuizzes}
 					/>
 
 				</Route>

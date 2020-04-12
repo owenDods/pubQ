@@ -8,13 +8,13 @@ import QuizList from './QuizList';
 
 export const className = 'quizManager';
 
-const QuizManager = ({ setQuiz, closeModal, selectedQuizId, quizzes }) => {
+const QuizManager = ({ setQuiz, closeModal, selectedQuizId, quizzes, destinationFromQuizzes }) => {
 
 	const [ quizHasBeenSelected, setQuizSelectionStatus ] = useState(false);
 
 	if (quizHasBeenSelected) {
 
-		return (<Redirect push to="/session/quizStart" />);
+		return (<Redirect push to={destinationFromQuizzes} />);
 
 	}
 
@@ -46,7 +46,8 @@ QuizManager.propTypes = {
 	selectedQuizId: PropTypes.number,
 	setQuiz: PropTypes.func,
 	closeModal: PropTypes.func,
-	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape))
+	quizzes: PropTypes.arrayOf(PropTypes.shape(quizShape)),
+	destinationFromQuizzes: PropTypes.string
 };
 
 export default QuizManager;
