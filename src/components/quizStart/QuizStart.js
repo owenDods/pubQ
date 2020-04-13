@@ -49,9 +49,12 @@ const QuizStart = props => {
 
 	) : null;
 
+	const transitioningToQuizStarting = intendedRedirectDestination === questionSelectionRoute;
+	const styleClass = transitioningToQuizStarting ? `${className} ${className}--quizStarting` : className;
+
 	return (
 
-		<div className={className}>
+		<div className={styleClass}>
 
 			<Modal backgroundColour="blue" halfSize>
 
@@ -62,7 +65,7 @@ const QuizStart = props => {
 					intendedRedirectDestination={intendedRedirectDestination}
 					setIntendedRedirectDestination={setIntendedRedirectDestination}
 					setRedirectDestination={setRedirectDestination}
-					questionSelectionRoute={questionSelectionRoute}
+					transitioningToQuizStarting={transitioningToQuizStarting}
 				/>
 
 			</Modal>

@@ -86,3 +86,7 @@
 @mixin fadeInWithModal {
 	animation: fadeInWithModal 0.5s ease-in-out forwards;
 }
+
+@mixin fadeOutWithModal {
+	animation: fadeOutWithModal 0.5s ease-in-out forwards;
+}

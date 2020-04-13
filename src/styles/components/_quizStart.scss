@@ -149,4 +149,8 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 
 	}
 
+	&--quizStarting .quizStart__startButton {
+		@include fadeOutWithModal;
+	}
+
 }
