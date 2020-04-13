@@ -133,12 +133,17 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 			margin: auto;
 			border-radius: $_radius;
 			box-shadow: $_shadow;
+			display: flex;
 		}
 
 		.button {
-			margin: auto;
+			margin: auto $_gutter;
 			font-size: 5vmin;
 			@include funPulse;
+		}
+
+		.quizIcon {
+			@include funSpin;
 		}
 
 	}

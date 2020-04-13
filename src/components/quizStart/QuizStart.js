@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Modal from '../modal/Modal';
 import QuizStartQuizDisplay from './QuizStartQuizDisplay';
 import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
+import QuizIcon from '../quizIcon/QuizIcon';
 import Button from '../basics/Button';
 
 export const className = 'quizStart';
@@ -27,7 +28,11 @@ const QuizStart = ({ quizName, quizImg, teams = [], quizSelectionRoute, teamSele
 
 			<div className={`${className}__startButtonBackground`}>
 
+				<QuizIcon />
+
 				<Button label="START!" />
+
+				<QuizIcon />
 
 			</div>
 
