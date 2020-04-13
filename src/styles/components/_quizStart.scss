@@ -116,4 +116,31 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 		width: 50vw;
 	}
 
+	&__startButton {
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: $_z-index-1;
+		display: flex;
+
+		&Background {
+			padding: $_gutter;
+			background-color: $_white-slightlyOpaque;
+			margin: auto;
+			border-radius: $_radius;
+			box-shadow: $_shadow;
+		}
+
+		.button {
+			margin: auto;
+			font-size: 5vmin;
+			@include funPulse;
+		}
+
+	}
+
 }

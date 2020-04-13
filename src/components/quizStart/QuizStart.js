@@ -5,10 +5,11 @@ import { Redirect } from 'react-router-dom';
 import Modal from '../modal/Modal';
 import QuizStartQuizDisplay from './QuizStartQuizDisplay';
 import QuizStartTeamsDisplay from './QuizStartTeamsDisplay';
+import Button from '../basics/Button';
 
 export const className = 'quizStart';
 
-const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelectionRoute }) => {
+const QuizStart = ({ quizName, quizImg, teams = [], quizSelectionRoute, teamSelectionRoute }) => {
 
 	const [ intendedRedirectDestination, setIntendedRedirectDestination ] = useState(null);
 	const [ redirectDestination, setRedirectDestination ] = useState(null);
@@ -18,6 +19,21 @@ const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelection
 		return (<Redirect push to={redirectDestination} />);
 
 	}
+
+	const ableToBeginQuiz = quizName && teams.length;
+	const startQuizButton = ableToBeginQuiz ? (
+
+		<div className={`${className}__startButton`}>
+
+			<div className={`${className}__startButtonBackground`}>
+
+				<Button label="START!" />
+
+			</div>
+
+		</div>
+
+	) : null;
 
 	return (
 
@@ -47,6 +63,8 @@ const QuizStart = ({ quizName, quizImg, teams, quizSelectionRoute, teamSelection
 				/>
 
 			</Modal>
+
+			{startQuizButton}
 
 		</div>
 

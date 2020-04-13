@@ -16,6 +16,9 @@ $_transitionTiming: 0.3s;
 $_white: #fff;
 $_black: #000;
 
+$_white-semiOpaque: rgba(255, 255, 255, 0.5);
+$_white-slightlyOpaque: rgba(255, 255, 255, 0.75);
+
 $_black-slightlyTransparent: rgba(0, 0, 0, 0.25);
 $_black-semiOpaque: rgba(0, 0, 0, 0.5);
 
