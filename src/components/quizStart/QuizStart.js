@@ -10,7 +10,16 @@ import Button from '../basics/Button';
 
 export const className = 'quizStart';
 
-const QuizStart = ({ quizName, quizImg, teams = [], quizSelectionRoute, teamSelectionRoute }) => {
+const QuizStart = props => {
+
+	const {
+		quizName,
+		quizImg,
+		teams = [],
+		quizSelectionRoute,
+		teamSelectionRoute,
+		questionSelectionRoute
+	} = props;
 
 	const [ intendedRedirectDestination, setIntendedRedirectDestination ] = useState(null);
 	const [ redirectDestination, setRedirectDestination ] = useState(null);
@@ -30,7 +39,7 @@ const QuizStart = ({ quizName, quizImg, teams = [], quizSelectionRoute, teamSele
 
 				<QuizIcon />
 
-				<Button label="START!" />
+				<Button label="START!" onClick={() => setIntendedRedirectDestination(questionSelectionRoute)} />
 
 				<QuizIcon />
 
@@ -53,6 +62,7 @@ const QuizStart = ({ quizName, quizImg, teams = [], quizSelectionRoute, teamSele
 					intendedRedirectDestination={intendedRedirectDestination}
 					setIntendedRedirectDestination={setIntendedRedirectDestination}
 					setRedirectDestination={setRedirectDestination}
+					questionSelectionRoute={questionSelectionRoute}
 				/>
 
 			</Modal>
@@ -85,7 +95,8 @@ QuizStart.propTypes = {
 		name: PropTypes.string
 	})),
 	quizSelectionRoute: PropTypes.string,
-	teamSelectionRoute: PropTypes.string
+	teamSelectionRoute: PropTypes.string,
+	questionSelectionRoute: PropTypes.string
 };
 
 export default QuizStart;

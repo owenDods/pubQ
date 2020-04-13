@@ -12,11 +12,13 @@ import quizzesJson from '../../quizzes.json';
 import TeamManagerModal from '../teamManager/TeamManagerModal';
 import QuizManagerModal from '../quizManager/QuizManagerModal';
 import QuizStart from '../quizStart/QuizStart';
+import QuestionManager from '../question/QuestionManager';
 
 export const getSessionDestinations = path => ({
 	TEAMS: `${path}/addTeams`,
 	QUIZZES: `${path}/quizSelect`,
-	START: `${path}/quizStart`
+	START: `${path}/quizStart`,
+	QUESTIONS: `${path}/question`
 });
 export const className = 'session';
 
@@ -89,6 +91,7 @@ const Session = () => {
 						teams={teams}
 						quizSelectionRoute={sessionDestinations.QUIZZES}
 						teamSelectionRoute={sessionDestinations.TEAMS}
+						questionSelectionRoute={sessionDestinations.QUESTIONS}
 					/>
 
 				</Route>
@@ -107,6 +110,12 @@ const Session = () => {
 				<Route path={sessionDestinations.TEAMS}>
 
 					{teamManagerModal}
+
+				</Route>
+
+				<Route path={sessionDestinations.QUESTIONS}>
+
+					<QuestionManager />
 
 				</Route>
 

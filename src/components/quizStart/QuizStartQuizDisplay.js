@@ -15,7 +15,8 @@ const QuizStartQuizDisplay = props => {
 		closeModal,
 		intendedRedirectDestination,
 		setIntendedRedirectDestination,
-		setRedirectDestination
+		setRedirectDestination,
+		questionSelectionRoute
 	} = props;
 
 	const imgBackgroundStyle = quizImg ? {
@@ -44,7 +45,10 @@ const QuizStartQuizDisplay = props => {
 
 			let closeModalCallback;
 
-			if (intendedRedirectDestination === quizSelectionRoute) {
+			const destinationRequiresModalCallback = intendedRedirectDestination === quizSelectionRoute
+				|| intendedRedirectDestination === questionSelectionRoute;
+
+			if (destinationRequiresModalCallback) {
 
 				closeModalCallback = () => setRedirectDestination(intendedRedirectDestination);
 
@@ -87,7 +91,8 @@ QuizStartQuizDisplay.propTypes = {
 	closeModal: PropTypes.func,
 	intendedRedirectDestination: PropTypes.string,
 	setIntendedRedirectDestination: PropTypes.func.isRequired,
-	setRedirectDestination: PropTypes.func.isRequired
+	setRedirectDestination: PropTypes.func.isRequired,
+	questionSelectionRoute: PropTypes.string
 };
 
 export default QuizStartQuizDisplay;
