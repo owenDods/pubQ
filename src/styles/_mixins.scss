@@ -82,3 +82,7 @@
 @mixin leaveBottom {
 	animation: leaveBottom 0.5s ease-in-out forwards;
 }
+
+@mixin fadeInWithModal {
+	animation: fadeInWithModal 0.5s ease-in-out forwards;
+}

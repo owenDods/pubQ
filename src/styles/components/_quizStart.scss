@@ -126,6 +126,7 @@ $quizStart-quizDisplayWithImgIconSize: 50px;
 		margin: auto;
 		z-index: $_z-index-1;
 		display: flex;
+		@include fadeInWithModal;
 
 		&Background {
 			padding: $_gutter;
