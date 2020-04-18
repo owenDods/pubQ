@@ -25,7 +25,10 @@ const QuestionManagerRoundStatus = () => (
 
 		</div>
 
-		<QuestionManagerQuestionStatus totalQuestions={10} />
+		<QuestionManagerQuestionStatus
+			totalQuestions={10}
+			currentQuestion={0}
+		/>
 
 	</div>
 

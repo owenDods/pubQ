@@ -90,3 +90,7 @@
 @mixin fadeOutWithModal {
 	animation: fadeOutWithModal 0.5s ease-in-out forwards;
 }
+
+@mixin gentleRock {
+	animation: gentleRock 3s ease-in-out infinite;
+}

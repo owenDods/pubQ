@@ -64,18 +64,78 @@ $questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize
 			position: absolute;
 			left: $questionManager-questionStatusLineSize;
 			right: $questionManager-questionStatusLineSize;
-			top: 50%;
+			top: $questionManager-questionStatusLineSize;
 			transform: translateY(-50%);
 			height: $questionManager-questionStatusLineSize;
 			background-color: $_black;
+			box-shadow: $_shadow;
 		}
 
 		&__statusItem {
+
 			width: $questionManager-questionStatusItemSize;
 			height: $questionManager-questionStatusItemSize;
 			border-radius: 100%;
 			background-color: $_black;
-			margin: auto 0;
+			margin: 0 0 auto;
+			box-shadow: $_shadow;
+			z-index: $_z-index-1;
+			transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+			&--currentQuestion {
+				background-color: $_white;
+				box-shadow: $_shadow, $_shadow-inset;
+			}
+
+		}
+
+		&__currentQuestion {
+
+			position: absolute;
+			width: $questionManager-questionStatusItemSize;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			z-index: $_z-index-2;
+			transition: left 0.3s ease-in-out;
+
+			.quizIcon {
+				width: $questionManager-questionStatusItemSize;
+				height: $questionManager-questionStatusItemSize;
+				line-height: $questionManager-questionStatusItemSize;
+				@include gentleRock;
+			}
+
+			&Counter {
+				display: flex;
+				flex-direction: column;
+				height: calc(100% - #{$questionManager-questionStatusItemSize});
+			}
+
+			&Count,
+			&CountTotal {
+
+				display: flex;
+
+				span {
+					margin: auto;
+				}
+
+			}
+
+			&Count {
+				font-size: $_fontSize-medium;
+				font-weight: bold;
+				height: calc(100% - #{$_lineHeight-small});
+				line-height: $_fontSize-medium;
+			}
+
+			&CountTotal {
+				font-size: $_fontSize-small;
+				height: $_lineHeight-small;
+				line-height: $_lineHeight-small;
+			}
+
 		}
 
 		&--tooFewQuestions {
