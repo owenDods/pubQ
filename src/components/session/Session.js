@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {
 	Switch,
 	Route,
-	useRouteMatch
+	useRouteMatch,
+	useLocation
 } from 'react-router-dom';
 
 import find from 'lodash/fp/find';
@@ -78,9 +79,14 @@ const Session = () => {
 
 	);
 
+	const { pathname } = useLocation();
+	const quizInSession = pathname === sessionDestinations.QUESTIONS;
+
+	const styleClass = quizInSession ? `${className} ${className}--inSession` : className;
+
 	return (
 
-		<div className={className}>
+		<div className={styleClass}>
 
 			<Switch>
 
