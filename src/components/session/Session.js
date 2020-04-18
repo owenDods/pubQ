@@ -34,7 +34,8 @@ const Session = () => {
 
 	const [ teams, setTeams ] = useState([]);
 	const [ selectedQuizId, setQuiz ] = useState(null);
-	const { name: quizName, img: quizImg } = find({ id: selectedQuizId }, quizzes) || {};
+	const fullQuiz = find({ id: selectedQuizId }, quizzes) || {};
+	const { name: quizName, img: quizImg } = fullQuiz;
 
 	const { path } = useRouteMatch();
 	const [ sessionDestinations ] = useState(getSessionDestinations(path));
@@ -115,7 +116,7 @@ const Session = () => {
 
 				<Route path={sessionDestinations.QUESTIONS}>
 
-					<QuestionManager />
+					<QuestionManager fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]} />
 
 				</Route>
 
