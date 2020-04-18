@@ -1,6 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import QuestionManagerQuestionStatus from './QuestionManagerQuestionStatus';
+
 export const className = 'questionManagerRoundStatus';
 
 const QuestionManagerRoundStatus = () => (
@@ -22,6 +24,8 @@ const QuestionManagerRoundStatus = () => (
 			</label>
 
 		</div>
+
+		<QuestionManagerQuestionStatus totalQuestions={10} />
 
 	</div>
 

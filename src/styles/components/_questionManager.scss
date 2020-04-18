@@ -1,4 +1,6 @@
 $questionManager-roundStatusHeight: ($_gutter * 2) + ($_gutter-small * 2) + $_gutter-tiny + $_lineHeight + $_lineHeight-small;
+$questionManager-questionStatusItemSize: $_lineHeight;
+$questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize / 2;
 
 .questionManager {
 
@@ -23,6 +25,7 @@ $questionManager-roundStatusHeight: ($_gutter * 2) + ($_gutter-small * 2) + $_gu
 			color: $_white;
 			padding: $_gutter-small;
 			border-radius: $_radius;
+			margin: 0 $_gutter 0 0;
 		}
 
 		&__roundCounter,
@@ -45,6 +48,46 @@ $questionManager-roundStatusHeight: ($_gutter * 2) + ($_gutter-small * 2) + $_gu
 			font-size: $_fontSize-medium;
 			font-weight: bold;
 			line-height: $_lineHeight;
+		}
+
+	}
+
+	&QuestionStatus {
+
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: $questionManager-questionStatusLineSize;
+			right: $questionManager-questionStatusLineSize;
+			top: 50%;
+			transform: translateY(-50%);
+			height: $questionManager-questionStatusLineSize;
+			background-color: $_black;
+		}
+
+		&__statusItem {
+			width: $questionManager-questionStatusItemSize;
+			height: $questionManager-questionStatusItemSize;
+			border-radius: 100%;
+			background-color: $_black;
+			margin: auto 0;
+		}
+
+		&--tooFewQuestions {
+
+			&:before {
+				display: none;
+			}
+
+			.questionManagerQuestionStatus__statusItem {
+				display: none;
+			}
+
 		}
 
 	}
