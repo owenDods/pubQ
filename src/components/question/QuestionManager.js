@@ -3,13 +3,23 @@ import PropTypes from 'prop-types';
 
 import quizShape from '../shapes/quizShape';
 
+import QuestionManagerRoundStatus from './QuestionManagerRoundStatus';
+
 export const className = 'questionManager';
 
 const QuestionManager = ({ fullQuiz }) => {
 
 	console.log(fullQuiz);
 
-	return (<div className={className} />);
+	return (
+
+		<div className={className}>
+
+			<QuestionManagerRoundStatus />
+
+		</div>
+
+	);
 
 };
 

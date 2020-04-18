@@ -1,0 +1,52 @@
+$questionManager-roundStatusHeight: ($_gutter * 2) + ($_gutter-small * 2) + $_gutter-tiny + $_lineHeight + $_lineHeight-small;
+
+.questionManager {
+
+	&RoundStatus {
+
+		position: absolute;
+		left: $_gutter;
+		right: $_gutter;
+		height: $questionManager-roundStatusHeight;
+		padding: $_gutter;
+		box-sizing: border-box;
+		@include blueStripedBackground;
+		border-bottom-right-radius: $_radius;
+		border-bottom-left-radius: $_radius;
+		box-shadow: $_shadow;
+		display: flex;
+
+		&__roundStatus {
+			display: flex;
+			flex-direction: column;
+			background-color: $_black;
+			color: $_white;
+			padding: $_gutter-small;
+			border-radius: $_radius;
+		}
+
+		&__roundCounter,
+		&__roundLabel  {
+
+			display: flex;
+
+			span {
+				margin: auto;
+			}
+
+		}
+
+		&__roundCounter {
+			line-height: $_lineHeight-small;
+			margin: 0 auto $_gutter-tiny;
+		}
+
+		&__roundLabel  {
+			font-size: $_fontSize-medium;
+			font-weight: bold;
+			line-height: $_lineHeight;
+		}
+
+	}
+
+}
