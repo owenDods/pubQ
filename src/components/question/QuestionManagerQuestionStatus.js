@@ -13,8 +13,8 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) 
 
 		const currentLength = questionStatusItems.length;
 		const statusItemClass = `${className}__statusItem`;
-		const statusItemStyleClass = currentLength === currentQuestion ?
-			`${statusItemClass} ${statusItemClass}--currentQuestion` : statusItemClass;
+		const isCurrentQuestion = currentLength === currentQuestion;
+		const statusItemStyleClass = isCurrentQuestion ? `${statusItemClass} ${statusItemClass}--currentQuestion` : statusItemClass;
 
 		questionStatusItems.push(
 
