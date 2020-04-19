@@ -94,3 +94,9 @@
 @mixin gentleRock {
 	animation: gentleRock 3s ease-in-out infinite;
 }
+
+@mixin oneLineEllipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

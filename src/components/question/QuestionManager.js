@@ -6,10 +6,11 @@ import getOr from 'lodash/fp/getOr';
 import quizShape from '../shapes/quizShape';
 
 import QuestionManagerRoundStatus from './QuestionManagerRoundStatus';
+import QuestionManagerTeamsStatus from './QuestionManagerTeamsStatus';
 
 export const className = 'questionManager';
 
-const QuestionManager = ({ fullQuiz, quizLocationStatus }) => {
+const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
 	console.log(fullQuiz);
 
@@ -36,6 +37,8 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus }) => {
 				currentQuestion={currentQuestion}
 			/>
 
+			<QuestionManagerTeamsStatus teams={teams} />
+
 		</div>
 
 	);
@@ -47,7 +50,11 @@ QuestionManager.propTypes = {
 	quizLocationStatus: PropTypes.shape({
 		currentRound: PropTypes.number,
 		currentQuestion: PropTypes.number
-	})
+	}),
+	teams: PropTypes.arrayOf(PropTypes.shape({
+		number: PropTypes.number.isRequired,
+		name: PropTypes.string
+	}))
 };
 
 export default QuestionManager;

@@ -1,6 +1,7 @@
 $questionManager-roundStatusHeight: ($_gutter * 2) + ($_gutter-small * 2) + $_gutter-tiny + $_lineHeight + $_lineHeight-small;
 $questionManager-questionStatusItemSize: $_lineHeight;
 $questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize / 2;
+$questionManager-teamsStatusHeight: $questionManager-roundStatusHeight;
 
 .questionManager {
 
@@ -9,6 +10,7 @@ $questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize
 		position: absolute;
 		left: $_gutter;
 		right: $_gutter;
+		top: 0;
 		height: $questionManager-roundStatusHeight;
 		padding: $_gutter;
 		box-sizing: border-box;
@@ -147,6 +149,66 @@ $questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize
 
 			.questionManagerQuestionStatus__statusItem {
 				display: none;
+			}
+
+		}
+
+	}
+
+	&TeamsStatus {
+
+		position: absolute;
+		left: $_gutter;
+		right: $_gutter;
+		bottom: 0;
+		height: $questionManager-teamsStatusHeight;
+		padding: $_gutter $_gutter-small $_gutter $_gutter;
+		box-sizing: border-box;
+		@include redStripedBackground;
+		border-top-right-radius: $_radius;
+		border-top-left-radius: $_radius;
+		box-shadow: $_shadow;
+		display: flex;
+
+		.teamsList {
+
+			width: 100%;
+			height: 100%;
+
+			&Item {
+
+				flex-direction: column;
+				padding: $_gutter-tiny;
+				box-sizing: border-box;
+
+				&__number {
+					font-weight: bold;
+					font-size: $_fontSize-medium;
+					margin: 0 auto $_gutter-tiny;
+				}
+
+				&__name {
+					font-size: $_fontSize;
+					margin: 0 auto;
+					max-width: 100%;
+					@include oneLineEllipsis;
+					word-break: normal;
+				}
+
+			}
+
+			.list {
+
+				flex-wrap: nowrap;
+				padding: 0;
+
+				li {
+					width: 0;
+					height: 100%;
+					margin: 0 $_gutter-small 0 0;
+					flex: 1 1 0;
+				}
+
 			}
 
 		}

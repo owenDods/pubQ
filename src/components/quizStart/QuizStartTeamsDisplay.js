@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import List from '../basics/List';
-import QuizStartTeamsDisplayListItem from './QuizStartTeamsDisplayListItem';
+import TeamsList from '../teamsList/TeamsList';
 import Button from '../basics/Button';
 
 export const className = 'quizStartTeamsDisplay';
@@ -20,14 +19,10 @@ const QuizStartTeamsDisplay = props => {
 
 	const defaultContent = teams.length ? (
 
-		<List
+		<TeamsList
 			name={className}
-			items={teams}
-		>
-
-			<QuizStartTeamsDisplayListItem />
-
-		</List>
+			teams={teams}
+		/>
 
 	) : null;
 
@@ -57,11 +52,9 @@ const QuizStartTeamsDisplay = props => {
 
 	) : null;
 
-	const styleClass = teams.length === 1 ? `${className} ${className}--singleTeam` : className;
-
 	return (
 
-		<div className={styleClass}>
+		<div className={className}>
 
 			{defaultContent}
 

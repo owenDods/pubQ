@@ -129,6 +129,7 @@ const Session = () => {
 						fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]}
 						quizLocationStatus={quizLocationStatus}
 						setQuizLocationStatus={setQuizLocationStatus}
+						teams={teams}
 					/>
 
 				</Route>
