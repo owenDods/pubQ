@@ -36,6 +36,7 @@ module.exports = {
     'object-curly-newline': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'react/jsx-fragments': 'off'
+    'react/jsx-fragments': 'off',
+    'react/jsx-one-expression-per-line': 'off'
   },
 };

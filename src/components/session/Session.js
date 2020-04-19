@@ -21,6 +21,7 @@ export const getSessionDestinations = path => ({
 	START: `${path}/quizStart`,
 	QUESTIONS: `${path}/question`
 });
+export const defaultQuizLocation = { currentRound: 0, currentQuestion: 0 };
 export const className = 'session';
 
 const Session = () => {
@@ -82,6 +83,8 @@ const Session = () => {
 	const { pathname } = useLocation();
 	const quizInSession = pathname === sessionDestinations.QUESTIONS;
 
+	const [ quizLocationStatus, setQuizLocationStatus ] = useState(defaultQuizLocation);
+
 	const styleClass = quizInSession ? `${className} ${className}--inSession` : className;
 
 	return (
@@ -122,7 +125,11 @@ const Session = () => {
 
 				<Route path={sessionDestinations.QUESTIONS}>
 
-					<QuestionManager fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]} />
+					<QuestionManager
+						fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]}
+						quizLocationStatus={quizLocationStatus}
+						setQuizLocationStatus={setQuizLocationStatus}
+					/>
 
 				</Route>
 

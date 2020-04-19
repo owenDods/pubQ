@@ -26,6 +26,7 @@ $questionManager-questionStatusLineSize: $questionManager-questionStatusItemSize
 			padding: $_gutter-small;
 			border-radius: $_radius;
 			margin: 0 $_gutter 0 0;
+			flex-shrink: 0;
 		}
 
 		&__roundCounter,

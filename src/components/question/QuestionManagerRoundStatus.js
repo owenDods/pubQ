@@ -1,39 +1,57 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import QuestionManagerQuestionStatus from './QuestionManagerQuestionStatus';
 
 export const className = 'questionManagerRoundStatus';
 
-const QuestionManagerRoundStatus = () => (
+const QuestionManagerRoundStatus = props => {
 
-	<div className={className}>
+	const {
+		totalRounds = 0,
+		currentRound = 0,
+		currentRoundName,
+		totalQuestions,
+		currentQuestion
+	} = props;
 
-		<div className={`${className}__roundStatus`}>
+	return (
 
-			<label className={`${className}__roundCounter`}>
+		<div className={className}>
 
-				<span>Round 1 of 5</span>
+			<div className={`${className}__roundStatus`}>
 
-			</label>
+				<label className={`${className}__roundCounter`}>
 
-			<label className={`${className}__roundLabel`}>
+					<span>Round {currentRound + 1} of {totalRounds}</span>
 
-				<span>Pokémon</span>
+				</label>
 
-			</label>
+				<label className={`${className}__roundLabel`}>
+
+					<span>{currentRoundName}</span>
+
+				</label>
+
+			</div>
+
+			<QuestionManagerQuestionStatus
+				totalQuestions={totalQuestions}
+				currentQuestion={currentQuestion}
+			/>
 
 		</div>
 
-		<QuestionManagerQuestionStatus
-			totalQuestions={10}
-			currentQuestion={0}
-		/>
+	);
 
-	</div>
+};
 
-);
-
-QuestionManagerRoundStatus.propTypes = {};
+QuestionManagerRoundStatus.propTypes = {
+	totalRounds: PropTypes.number,
+	currentRound: PropTypes.number,
+	currentRoundName: PropTypes.string,
+	totalQuestions: PropTypes.number,
+	currentQuestion: PropTypes.number
+};
 
 export default QuestionManagerRoundStatus;
