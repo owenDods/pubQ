@@ -1,4 +1,4 @@
-import React, { cloneElement, useState, useRef } from 'react';
+import React, { cloneElement, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
@@ -8,15 +8,22 @@ export const className = 'modal';
 
 const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
-	const innerClass = `${className}__inner`;
-	const innerStyleClass = backgroundColour ? `${innerClass} ${innerClass}--${backgroundColour}` : innerClass;
-	let styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
-	styleClass = halfSize ? `${styleClass} ${className}--halfSize` : styleClass;
-	styleClass = label ? `${styleClass} ${className}--hasLabel` : styleClass;
+	const [ initialEnter, setInitialEnterState ] = useState(false);
+	useEffect(() => {
+
+		setInitialEnterState(true);
+
+	}, []);
+
+	const onEnterCallback = useRef(null);
+	const onModalEnter = callback => {
+
+		onEnterCallback.current = callback;
+
+	};
 
 	const [ modalIsClosing, setModalIsClosingState ] = useState(false);
 	const onExitedCallback = useRef(null);
-
 	const closeModal = callback => {
 
 		onExitedCallback.current = callback;
@@ -27,6 +34,12 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 	const labelContent = label ? (<label className={`${className}__label`}>{label}</label>) : null;
 
+	const innerClass = `${className}__inner`;
+	const innerStyleClass = backgroundColour ? `${innerClass} ${innerClass}--${backgroundColour}` : innerClass;
+	let styleClass = enter ? `${className} ${className}--enter${capitaliseString(enter)}` : className;
+	styleClass = halfSize ? `${styleClass} ${className}--halfSize` : styleClass;
+	styleClass = label ? `${styleClass} ${className}--hasLabel` : styleClass;
+
 	return (
 
 		<div className={styleClass}>
@@ -34,8 +47,9 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 			<CSSTransition
 				timeout={500}
 				classNames={className}
+				onEntered={onEnterCallback.current}
 				onExited={onExitedCallback.current}
-				in={!modalIsClosing}
+				in={!initialEnter ? initialEnter : !modalIsClosing}
 			>
 
 				<div className={innerStyleClass}>
@@ -44,7 +58,7 @@ const Modal = ({ label, children, backgroundColour, enter, halfSize }) => {
 
 					<div className={`${className}__content`}>
 
-						{cloneElement(children, { closeModal })}
+						{cloneElement(children, { onModalEnter, closeModal })}
 
 					</div>
 

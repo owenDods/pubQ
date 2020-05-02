@@ -5,7 +5,7 @@ import Button from './Button';
 
 export const className = 'textInput';
 
-const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, withButton, buttonLabel }) => {
+const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, withButton, buttonLabel, triggerFocus }) => {
 
 	const textInput = useRef(null);
 
@@ -18,6 +18,15 @@ const TextInput = ({ onSubmit, value = '', placeholder, shouldFocusOnMount, with
 		}
 
 	}, []);
+	useEffect(() => {
+
+		if (triggerFocus) {
+
+			textInput.current.focus();
+
+		}
+
+	}, [ triggerFocus ]);
 
 	const [ isEditingLocalValue, setEditingLocalValueStatus ] = useState(false);
 	const [ localValue, setLocalValue ] = useState(value);
@@ -91,7 +100,8 @@ TextInput.propTypes = {
 	placeholder: PropTypes.string,
 	shouldFocusOnMount: PropTypes.bool,
 	withButton: PropTypes.bool,
-	buttonLabel: PropTypes.string
+	buttonLabel: PropTypes.string,
+	triggerFocus: PropTypes.bool
 };
 
 export default TextInput;

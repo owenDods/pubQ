@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
@@ -14,7 +14,14 @@ import Button from '../basics/Button';
 export const teamLimit = 8;
 export const className = 'teamManager';
 
-const TeamManager = ({ teams = [], setTeams, closeModal, destinationFromTeams }) => {
+const TeamManager = ({ teams = [], setTeams, closeModal, destinationFromTeams, onModalEnter }) => {
+
+	const [ inputFocusState, setInputFocusState ] = useState(false);
+	useEffect(() => {
+
+		onModalEnter(() => setInputFocusState(true));
+
+	}, []);
 
 	const setTeamName = (teamNumber, teamName) => {
 
@@ -54,7 +61,7 @@ const TeamManager = ({ teams = [], setTeams, closeModal, destinationFromTeams })
 
 	}
 
-	const teamItems = teams.length < teamLimit ? [ ...teams, { name: '' } ] : teams;
+	const teamItems = teams.length < teamLimit ? [ ...teams, { name: '', focus: inputFocusState } ] : teams;
 
 	return (
 
@@ -89,7 +96,8 @@ TeamManager.propTypes = {
 	})),
 	setTeams: PropTypes.func.isRequired,
 	closeModal: PropTypes.func,
-	destinationFromTeams: PropTypes.string
+	destinationFromTeams: PropTypes.string,
+	onModalEnter: PropTypes.func
 };
 
 export default TeamManager;

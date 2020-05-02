@@ -6,7 +6,7 @@ import Button from '../basics/Button';
 
 export const className = 'teamManagerListItem';
 
-const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
+const TeamManagerListItem = ({ index, setTeamName, name, removeTeam, focus }) => {
 
 	const teamNumber = index + 1;
 	const teamNotCreatedYet = !name;
@@ -41,6 +41,7 @@ const TeamManagerListItem = ({ index, setTeamName, name, removeTeam }) => {
 				shouldFocusOnMount
 				withButton
 				buttonLabel={buttonLabel}
+				triggerFocus={focus}
 			/>
 
 			<Button
@@ -59,7 +60,8 @@ TeamManagerListItem.propTypes = {
 	index: PropTypes.number,
 	setTeamName: PropTypes.func.isRequired,
 	name: PropTypes.string,
-	removeTeam: PropTypes.func.isRequired
+	removeTeam: PropTypes.func.isRequired,
+	focus: PropTypes.bool
 };
 
 export default TeamManagerListItem;
