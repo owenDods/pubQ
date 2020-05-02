@@ -3,12 +3,19 @@
 	background: $_black-semiOpaque;
 	transition: background 0.3s ease-in-out;
 	display: flex;
-	flex-direction: column;
 	box-sizing: border-box;
 	padding: 0 $_gutter;
 
 	&--inSession {
 		background: transparent;
+	}
+
+	&__inner {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		position: relative;
 	}
 
 }

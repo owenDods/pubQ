@@ -77,18 +77,20 @@
 @keyframes enterTop {
 
 	0% {
-		opacity: 0.5;
-		transform: translateY(-100%) scale(0.95);
-	}
-
-	90% {
+		visibility: visible;
 		opacity: 0.5;
 		transform: translateY(0) scale(0.95);
 	}
 
+	90% {
+		opacity: 0.5;
+		transform: translateY(100%) scale(0.95);
+	}
+
 	100% {
+		visibility: visible;
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translateY(100%) scale(1);
 	}
 
 }
@@ -115,18 +117,20 @@
 @keyframes enterBottom {
 
 	0% {
-		opacity: 0.5;
-		transform: translateY(100%) scale(0.95);
-	}
-
-	90% {
+		visibility: visible;
 		opacity: 0.5;
 		transform: translateY(0) scale(0.95);
 	}
 
+	90% {
+		opacity: 0.5;
+		transform: translateY(-100%) scale(0.95);
+	}
+
 	100% {
+		visibility: visible;
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translateY(-100%) scale(1);
 	}
 
 }

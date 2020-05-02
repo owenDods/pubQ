@@ -70,7 +70,7 @@ $_main-transitionTiming: 500ms;
 	&-enter,
 	&-enter-active {
 
-		& > * {
+		& > * > * {
 			animation-delay: $_main-transitionTiming !important;
 		}
 

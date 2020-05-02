@@ -70,16 +70,6 @@ const Session = () => {
 
 	}, [ teams.length ]);
 
-	const teamManagerModal = (
-
-		<TeamManagerModal
-			teams={teams}
-			setTeams={setTeams}
-			destinationFromTeams={destinationFromTeams}
-		/>
-
-	);
-
 	const { pathname } = useLocation();
 	const quizInSession = pathname === sessionDestinations.QUESTIONS;
 
@@ -91,56 +81,58 @@ const Session = () => {
 
 		<div className={styleClass}>
 
-			<Switch>
+			<div className={`${className}__inner`}>
 
-				<Route path={sessionDestinations.START}>
+				<Switch>
 
-					<QuizStart
-						quizName={quizName}
-						quizImg={quizImg}
-						teams={teams}
-						quizSelectionRoute={sessionDestinations.QUIZZES}
-						teamSelectionRoute={sessionDestinations.TEAMS}
-						questionSelectionRoute={sessionDestinations.QUESTIONS}
-					/>
+					<Route path={sessionDestinations.START}>
 
-				</Route>
+						<QuizStart
+							quizName={quizName}
+							quizImg={quizImg}
+							teams={teams}
+							quizSelectionRoute={sessionDestinations.QUIZZES}
+							teamSelectionRoute={sessionDestinations.TEAMS}
+							questionSelectionRoute={sessionDestinations.QUESTIONS}
+						/>
 
-				<Route path={sessionDestinations.QUIZZES}>
+					</Route>
 
-					<QuizManagerModal
-						selectedQuizId={selectedQuizId}
-						setQuiz={setQuiz}
-						quizzes={quizzes}
-						destinationFromQuizzes={destinationFromQuizzes}
-					/>
+					<Route path={sessionDestinations.QUIZZES}>
 
-				</Route>
+						<QuizManagerModal
+							selectedQuizId={selectedQuizId}
+							setQuiz={setQuiz}
+							quizzes={quizzes}
+							destinationFromQuizzes={destinationFromQuizzes}
+						/>
 
-				<Route path={sessionDestinations.TEAMS}>
+					</Route>
 
-					{teamManagerModal}
+					<Route path={sessionDestinations.TEAMS}>
 
-				</Route>
+						<TeamManagerModal
+							teams={teams}
+							setTeams={setTeams}
+							destinationFromTeams={destinationFromTeams}
+						/>
 
-				<Route path={sessionDestinations.QUESTIONS}>
+					</Route>
 
-					<QuestionManager
-						fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]}
-						quizLocationStatus={quizLocationStatus}
-						setQuizLocationStatus={setQuizLocationStatus}
-						teams={teams}
-					/>
+					<Route path={sessionDestinations.QUESTIONS}>
 
-				</Route>
+						<QuestionManager
+							fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]}
+							quizLocationStatus={quizLocationStatus}
+							setQuizLocationStatus={setQuizLocationStatus}
+							teams={teams}
+						/>
 
-				<Route path={path}>
+					</Route>
 
-					{teamManagerModal}
+				</Switch>
 
-				</Route>
-
-			</Switch>
+			</div>
 
 		</div>
 
