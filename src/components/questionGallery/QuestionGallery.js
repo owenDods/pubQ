@@ -1,5 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
 import List from '../basics/List';
 import QuestionGalleryItem from './QuestionGalleryItem';
@@ -23,6 +25,15 @@ const QuestionGallery = ({ currentRoundIndex, currentQuestionIndex, currentQuest
 
 );
 
-QuestionGallery.propTypes = {};
+QuestionGallery.propTypes = {
+	currentRoundIndex: PropTypes.number,
+	currentQuestionIndex: PropTypes.number,
+	currentQuestion: PropTypes.shape({
+		type: PropTypes.string.isRequired,
+		content: PropTypes.oneOfType([
+			PropTypes.shape(multipleChoiceQuestionShape)
+		])
+	})
+};
 
 export default QuestionGallery;

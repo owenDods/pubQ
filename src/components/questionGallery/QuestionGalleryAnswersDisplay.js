@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import map from 'lodash/fp/map';
 
@@ -25,6 +25,10 @@ const QuestionGalleryAnswersDisplay = ({ currentRoundIndex, currentQuestionIndex
 
 );
 
-QuestionGalleryAnswersDisplay.propTypes = {};
+QuestionGalleryAnswersDisplay.propTypes = {
+	currentRoundIndex: PropTypes.number,
+	currentQuestionIndex: PropTypes.number,
+	answers: PropTypes.arrayOf(PropTypes.string)
+};
 
 export default QuestionGalleryAnswersDisplay;

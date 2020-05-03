@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const className = 'questionGalleryAnswersDisplayItem';
 
@@ -13,6 +13,8 @@ const QuestionGalleryAnswersDisplayItem = ({ text }) => (
 
 );
 
-QuestionGalleryAnswersDisplayItem.propTypes = {};
+QuestionGalleryAnswersDisplayItem.propTypes = {
+	text: PropTypes.string
+};
 
 export default QuestionGalleryAnswersDisplayItem;

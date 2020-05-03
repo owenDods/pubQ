@@ -13,8 +13,6 @@ export const className = 'questionManager';
 
 const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
-	console.log(fullQuiz);
-
 	const rounds = getOr([], 'rounds', fullQuiz);
 	const totalRounds = rounds.length;
 	const currentRoundIndex = get('currentRound', quizLocationStatus);
