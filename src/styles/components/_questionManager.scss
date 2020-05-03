@@ -10,7 +10,7 @@ $questionManager-teamsStatusHeight: $questionManager-roundStatusHeight;
 		position: absolute;
 		left: $_gutter;
 		right: $_gutter;
-		top: 0;
+		bottom: 100%;
 		height: $questionManager-roundStatusHeight;
 		padding: $_gutter;
 		box-sizing: border-box;
@@ -19,6 +19,7 @@ $questionManager-teamsStatusHeight: $questionManager-roundStatusHeight;
 		border-bottom-left-radius: $_radius;
 		box-shadow: $_shadow;
 		display: flex;
+		@include slideInTop;
 
 		&__roundStatus {
 			display: flex;
@@ -160,7 +161,7 @@ $questionManager-teamsStatusHeight: $questionManager-roundStatusHeight;
 		position: absolute;
 		left: $_gutter;
 		right: $_gutter;
-		bottom: 0;
+		top: 100%;
 		height: $questionManager-teamsStatusHeight;
 		padding: $_gutter $_gutter-small $_gutter $_gutter;
 		box-sizing: border-box;
@@ -169,6 +170,7 @@ $questionManager-teamsStatusHeight: $questionManager-roundStatusHeight;
 		border-top-left-radius: $_radius;
 		box-shadow: $_shadow;
 		display: flex;
+		@include slideInBottom;
 
 		.teamsList {
 

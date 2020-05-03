@@ -201,3 +201,29 @@
 	}
 
 }
+
+@keyframes slideInTop {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(100%);
+	}
+
+}
+
+@keyframes slideInBottom {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(-100%);
+	}
+
+}

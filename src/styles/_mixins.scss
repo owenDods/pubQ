@@ -100,3 +100,11 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+@mixin slideInTop {
+	animation: slideInTop 0.3s ease-in-out forwards;
+}
+
+@mixin slideInBottom {
+	animation: slideInBottom 0.3s ease-in-out forwards;
+}
