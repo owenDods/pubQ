@@ -13,7 +13,7 @@ import quizzesJson from '../../quizzes.json';
 import TeamManagerModal from '../teamManager/TeamManagerModal';
 import QuizManagerModal from '../quizManager/QuizManagerModal';
 import QuizStart from '../quizStart/QuizStart';
-import QuestionManager from '../question/QuestionManager';
+import QuestionManager from '../questionManager/QuestionManager';
 
 export const getSessionDestinations = path => ({
 	TEAMS: `${path}/addTeams`,

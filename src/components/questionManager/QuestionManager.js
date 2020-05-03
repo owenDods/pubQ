@@ -6,6 +6,7 @@ import getOr from 'lodash/fp/getOr';
 import quizShape from '../shapes/quizShape';
 
 import QuestionManagerRoundStatus from './QuestionManagerRoundStatus';
+import QuestionGallery from '../questionGallery/QuestionGallery';
 import QuestionManagerTeamsStatus from './QuestionManagerTeamsStatus';
 
 export const className = 'questionManager';
@@ -16,14 +17,14 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
 	const rounds = getOr([], 'rounds', fullQuiz);
 	const totalRounds = rounds.length;
-	const currentRound = get('currentRound', quizLocationStatus);
+	const currentRoundIndex = get('currentRound', quizLocationStatus);
 
-	const currentRoundObject = rounds[currentRound];
+	const currentRoundObject = rounds[currentRoundIndex];
 	const currentRoundName = get('name', currentRoundObject);
 	const currentRoundQuestions = getOr([], 'questions', currentRoundObject);
 
 	const currentRoundTotalQuestions = currentRoundQuestions.length;
-	const currentQuestion = get('currentQuestion', quizLocationStatus);
+	const currentQuestionIndex = get('currentQuestion', quizLocationStatus);
 
 	return (
 
@@ -31,10 +32,16 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
 			<QuestionManagerRoundStatus
 				totalRounds={totalRounds}
-				currentRound={currentRound}
+				currentRoundIndex={currentRoundIndex}
 				currentRoundName={currentRoundName}
 				totalQuestions={currentRoundTotalQuestions}
-				currentQuestion={currentQuestion}
+				currentQuestionIndex={currentQuestionIndex}
+			/>
+
+			<QuestionGallery
+				currentRoundIndex={currentRoundIndex}
+				currentQuestionIndex={currentQuestionIndex}
+				currentQuestion={currentRoundQuestions[currentQuestionIndex]}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />

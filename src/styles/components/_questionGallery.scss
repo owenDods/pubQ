@@ -1,0 +1,36 @@
+.questionGallery {
+
+	display: flex;
+	padding: $_gutter 0;
+	box-sizing: border-box;
+
+	.list {
+
+		width: 100%;
+		height: 100%;
+		display: flex;
+
+		& > li {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+		}
+
+	}
+
+	&Item {
+
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+
+		&__questionText {
+			font-size: $_fontSize-huge;
+			margin: 0 0 $_gutter;
+		}
+
+	}
+
+}

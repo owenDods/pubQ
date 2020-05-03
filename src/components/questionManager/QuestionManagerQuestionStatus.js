@@ -5,7 +5,7 @@ import QuizIcon from '../quizIcon/QuizIcon';
 
 export const className = 'questionManagerQuestionStatus';
 
-const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) => {
+const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionIndex }) => {
 
 	const questionStatusItems = [];
 
@@ -13,7 +13,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) 
 
 		const currentLength = questionStatusItems.length;
 		const statusItemClass = `${className}__statusItem`;
-		const isCurrentQuestion = currentLength === currentQuestion;
+		const isCurrentQuestion = currentLength === currentQuestionIndex;
 		const statusItemStyleClass = isCurrentQuestion ? `${statusItemClass} ${statusItemClass}--currentQuestion` : statusItemClass;
 
 		questionStatusItems.push(
@@ -29,7 +29,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) 
 
 	const tooFewQuestions = questionStatusItems.length < 2;
 	const currentQuestionStyle = tooFewQuestions ? {} : {
-		left: `calc(((100% - 32px) / ${totalQuestions - 1}) * ${currentQuestion})`
+		left: `calc(((100% - 32px) / ${totalQuestions - 1}) * ${currentQuestionIndex})`
 	};
 
 	const styleClass = tooFewQuestions ? `${className} ${className}--tooFewQuestions` : className;
@@ -48,7 +48,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) 
 
 					<label className={`${className}__currentQuestionCount`}>
 
-						<span>{currentQuestion + 1}</span>
+						<span>{currentQuestionIndex + 1}</span>
 
 					</label>
 
@@ -70,7 +70,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestion }) 
 
 QuestionManagerQuestionStatus.propTypes = {
 	totalQuestions: PropTypes.number,
-	currentQuestion: PropTypes.number
+	currentQuestionIndex: PropTypes.number
 };
 
 export default QuestionManagerQuestionStatus;
