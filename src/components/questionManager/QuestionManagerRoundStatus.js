@@ -19,21 +19,11 @@ const QuestionManagerRoundStatus = props => {
 
 		<div className={className}>
 
-			<div className={`${className}__roundStatus`}>
+			<label className={`${className}__roundLabel`}>
 
-				<label className={`${className}__roundCounter`}>
+				<span>{currentRoundName}</span>
 
-					<span>Round {currentRoundIndex + 1} of {totalRounds}</span>
-
-				</label>
-
-				<label className={`${className}__roundLabel`}>
-
-					<span>{currentRoundName}</span>
-
-				</label>
-
-			</div>
+			</label>
 
 			<QuestionManagerQuestionStatus
 				totalQuestions={totalQuestions}

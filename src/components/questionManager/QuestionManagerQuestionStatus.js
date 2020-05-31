@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import QuizIcon from '../quizIcon/QuizIcon';
-
 export const className = 'questionManagerQuestionStatus';
 
-const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionIndex }) => {
+const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionIndex = 0 }) => {
 
 	const questionStatusItems = [];
 
@@ -29,7 +27,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 	const tooFewQuestions = questionStatusItems.length < 2;
 	const currentQuestionStyle = tooFewQuestions ? {} : {
-		left: `calc(((100% - 32px) / ${totalQuestions - 1}) * ${currentQuestionIndex})`
+		left: `calc(((100% - 16px) / ${totalQuestions - 1}) * ${currentQuestionIndex})`
 	};
 
 	const styleClass = tooFewQuestions ? `${className} ${className}--tooFewQuestions` : className;
@@ -42,23 +40,11 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 			<div className={`${className}__currentQuestion`} style={currentQuestionStyle}>
 
-				<QuizIcon />
+				<label>
 
-				<div className={`${className}__currentQuestionCounter`}>
+					<span>{currentQuestionIndex + 1}</span>
 
-					<label className={`${className}__currentQuestionCount`}>
-
-						<span>{currentQuestionIndex + 1}</span>
-
-					</label>
-
-					<label className={`${className}__currentQuestionCountTotal`}>
-
-						<span>/ 10</span>
-
-					</label>
-
-				</div>
+				</label>
 
 			</div>
 
