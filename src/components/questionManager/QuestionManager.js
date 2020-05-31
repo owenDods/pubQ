@@ -14,7 +14,6 @@ export const className = 'questionManager';
 const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
 	const rounds = getOr([], 'rounds', fullQuiz);
-	const totalRounds = rounds.length;
 	const currentRoundIndex = get('currentRound', quizLocationStatus);
 
 	const currentRoundObject = rounds[currentRoundIndex];
@@ -29,8 +28,6 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 		<div className={className}>
 
 			<QuestionManagerRoundStatus
-				totalRounds={totalRounds}
-				currentRoundIndex={currentRoundIndex}
 				currentRoundName={currentRoundName}
 				totalQuestions={currentRoundTotalQuestions}
 				currentQuestionIndex={currentQuestionIndex}
