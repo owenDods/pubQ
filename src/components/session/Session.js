@@ -3,7 +3,8 @@ import {
 	Switch,
 	Route,
 	useRouteMatch,
-	useLocation
+	useLocation,
+	matchPath
 } from 'react-router-dom';
 
 import find from 'lodash/fp/find';
@@ -21,7 +22,6 @@ export const getSessionDestinations = path => ({
 	START: `${path}/quizStart`,
 	QUESTIONS: `${path}/question`
 });
-export const defaultQuizLocation = { currentRound: 0, currentQuestion: 0 };
 export const className = 'session';
 
 const Session = () => {
@@ -71,9 +71,12 @@ const Session = () => {
 	}, [ teams.length ]);
 
 	const { pathname } = useLocation();
-	const quizInSession = pathname === sessionDestinations.QUESTIONS;
+	const quizInSession = new RegExp(`^(${sessionDestinations.QUESTIONS})`).test(pathname);
 
-	const [ quizLocationStatus, setQuizLocationStatus ] = useState(defaultQuizLocation);
+	const questionsRoutePath = `${sessionDestinations.QUESTIONS}/:roundIndex/:questionIndex`;
+	const {
+		params: { roundIndex, questionIndex }
+	} = matchPath(pathname, { path: questionsRoutePath });
 
 	const styleClass = quizInSession ? `${className} ${className}--inSession` : className;
 
@@ -119,12 +122,12 @@ const Session = () => {
 
 					</Route>
 
-					<Route path={sessionDestinations.QUESTIONS}>
+					<Route path={questionsRoutePath}>
 
 						<QuestionManager
 							fullQuiz={fullQuiz.id ? fullQuiz : quizzes[0]}
-							quizLocationStatus={quizLocationStatus}
-							setQuizLocationStatus={setQuizLocationStatus}
+							roundIndex={roundIndex}
+							questionIndex={questionIndex}
 							teams={teams}
 						/>
 

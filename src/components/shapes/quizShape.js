@@ -6,17 +6,19 @@ export const multipleChoiceQuestionShape = {
 	correctAnswer: PropTypes.string.isRequired
 };
 
+export const roundsShape = {
+	name: PropTypes.string.isRequired,
+	questions: PropTypes.arrayOf(PropTypes.shape({
+		type: PropTypes.string.isRequired,
+		content: PropTypes.oneOfType([
+			PropTypes.shape(multipleChoiceQuestionShape)
+		])
+	}))
+};
+
 export default {
 	id: PropTypes.number.isRequired,
 	name: PropTypes.string.isRequired,
 	img: PropTypes.string,
-	rounds: PropTypes.arrayOf(PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		questions: PropTypes.arrayOf(PropTypes.shape({
-			type: PropTypes.string.isRequired,
-			content: PropTypes.oneOfType([
-				PropTypes.shape(multipleChoiceQuestionShape)
-			])
-		}))
-	}))
+	rounds: PropTypes.arrayOf(PropTypes.shape(roundsShape))
 };

@@ -26,7 +26,7 @@ const QuizStart = props => {
 
 	if (redirectDestination) {
 
-		return (<Redirect push to={redirectDestination} />);
+		return (<Redirect push to={`${redirectDestination}/0/0`} />);
 
 	}
 

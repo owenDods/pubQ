@@ -12,17 +12,13 @@ import QuestionManagerNav from './QuestionManagerNav';
 
 export const className = 'questionManager';
 
-const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
+const QuestionManager = ({ fullQuiz, roundIndex, questionIndex, teams }) => {
 
 	const rounds = getOr([], 'rounds', fullQuiz);
-	const currentRoundIndex = get('currentRound', quizLocationStatus);
-
-	const currentRoundObject = rounds[currentRoundIndex];
+	const currentRoundObject = rounds[roundIndex];
 	const currentRoundName = get('name', currentRoundObject);
 	const currentRoundQuestions = getOr([], 'questions', currentRoundObject);
-
 	const currentRoundTotalQuestions = currentRoundQuestions.length;
-	const currentQuestionIndex = get('currentQuestion', quizLocationStatus);
 
 	return (
 
@@ -31,18 +27,23 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 			<QuestionManagerRoundStatus
 				currentRoundName={currentRoundName}
 				totalQuestions={currentRoundTotalQuestions}
-				currentQuestionIndex={currentQuestionIndex}
+				questionIndex={questionIndex}
 			/>
 
 			<QuestionGallery
-				currentRoundIndex={currentRoundIndex}
-				currentQuestionIndex={currentQuestionIndex}
-				currentQuestion={currentRoundQuestions[currentQuestionIndex]}
+				roundIndex={roundIndex}
+				questionIndex={questionIndex}
+				currentQuestion={currentRoundQuestions[questionIndex]}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />
 
-			<QuestionManagerNav />
+			<QuestionManagerNav
+				rounds={rounds}
+				roundIndex={roundIndex}
+				totalQuestions={currentRoundTotalQuestions}
+				questionIndex={questionIndex}
+			/>
 
 		</div>
 
@@ -52,10 +53,8 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 
 QuestionManager.propTypes = {
 	fullQuiz: PropTypes.shape(quizShape),
-	quizLocationStatus: PropTypes.shape({
-		currentRound: PropTypes.number,
-		currentQuestion: PropTypes.number
-	}),
+	roundIndex: PropTypes.string,
+	questionIndex: PropTypes.string,
 	teams: PropTypes.arrayOf(PropTypes.shape({
 		number: PropTypes.number.isRequired,
 		name: PropTypes.string
