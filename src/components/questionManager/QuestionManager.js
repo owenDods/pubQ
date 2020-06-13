@@ -8,6 +8,7 @@ import quizShape from '../shapes/quizShape';
 import QuestionManagerRoundStatus from './QuestionManagerRoundStatus';
 import QuestionGallery from '../questionGallery/QuestionGallery';
 import QuestionManagerTeamsStatus from './QuestionManagerTeamsStatus';
+import QuestionManagerNav from './QuestionManagerNav';
 
 export const className = 'questionManager';
 
@@ -40,6 +41,8 @@ const QuestionManager = ({ fullQuiz, quizLocationStatus, teams }) => {
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />
+
+			<QuestionManagerNav />
 
 		</div>
 
