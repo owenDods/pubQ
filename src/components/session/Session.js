@@ -129,6 +129,7 @@ const Session = () => {
 							roundIndex={roundIndex}
 							questionIndex={questionIndex}
 							teams={teams}
+							questionBaseRoute={sessionDestinations.QUESTIONS}
 						/>
 
 					</Route>

@@ -10,7 +10,7 @@ const QuestionManagerRoundStatus = props => {
 	const {
 		currentRoundName,
 		totalQuestions,
-		currentQuestionIndex
+		questionIndex
 	} = props;
 
 	return (
@@ -25,7 +25,7 @@ const QuestionManagerRoundStatus = props => {
 
 			<QuestionManagerQuestionStatus
 				totalQuestions={totalQuestions}
-				currentQuestionIndex={currentQuestionIndex}
+				questionIndex={Number(questionIndex)}
 			/>
 
 		</div>
@@ -37,7 +37,7 @@ const QuestionManagerRoundStatus = props => {
 QuestionManagerRoundStatus.propTypes = {
 	currentRoundName: PropTypes.string,
 	totalQuestions: PropTypes.number,
-	currentQuestionIndex: PropTypes.number
+	questionIndex: PropTypes.string
 };
 
 export default QuestionManagerRoundStatus;

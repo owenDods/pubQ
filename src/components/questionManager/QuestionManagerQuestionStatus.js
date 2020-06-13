@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const className = 'questionManagerQuestionStatus';
 
-const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionIndex = 0 }) => {
+const QuestionManagerQuestionStatus = ({ totalQuestions = 0, questionIndex = 0 }) => {
 
 	const questionStatusItems = [];
 
@@ -11,7 +11,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 		const currentLength = questionStatusItems.length;
 		const statusItemClass = `${className}__statusItem`;
-		const isCurrentQuestion = currentLength === currentQuestionIndex;
+		const isCurrentQuestion = currentLength === questionIndex;
 		const statusItemStyleClass = isCurrentQuestion ? `${statusItemClass} ${statusItemClass}--currentQuestion` : statusItemClass;
 
 		questionStatusItems.push(
@@ -27,7 +27,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 	const tooFewQuestions = questionStatusItems.length < 2;
 	const currentQuestionStyle = tooFewQuestions ? {} : {
-		left: `calc(((100% - 16px) / ${totalQuestions - 1}) * ${currentQuestionIndex})`
+		left: `calc(((100% - 16px) / ${totalQuestions - 1}) * ${questionIndex})`
 	};
 
 	const styleClass = tooFewQuestions ? `${className} ${className}--tooFewQuestions` : className;
@@ -42,7 +42,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 				<label>
 
-					<span>{currentQuestionIndex + 1}</span>
+					<span>{questionIndex + 1}</span>
 
 				</label>
 
@@ -56,7 +56,7 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, currentQuestionInde
 
 QuestionManagerQuestionStatus.propTypes = {
 	totalQuestions: PropTypes.number,
-	currentQuestionIndex: PropTypes.number
+	questionIndex: PropTypes.number
 };
 
 export default QuestionManagerQuestionStatus;

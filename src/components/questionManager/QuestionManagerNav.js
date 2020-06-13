@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import getOr from 'lodash/fp/getOr';
 
@@ -7,10 +8,28 @@ import { roundsShape } from '../shapes/quizShape';
 
 import Button from '../basics/Button';
 
+export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: 0, nextQuestionIndex: 0 };
 export const className = 'questionManagerNav';
 
-const QuestionManagerNav = ({ rounds, roundIndex, totalQuestions, questionIndex }) => {
+const QuestionManagerNav = props => {
 
+	const { rounds, roundIndex, totalQuestions, questionIndex, questionBaseRoute } = props;
+	const [
+		nextRoundAndQuestionIndexes,
+		setNextRoundAndQuestionIndexes
+	] = useState(defaultNextRoundAndQuestionIndexes);
+	const { nextRoundIndex, nextQuestionIndex } = nextRoundAndQuestionIndexes;
+
+	const updateIndexes = (newRoundIndex, newQuestionIndex) => {
+
+		const newIndexes = {
+			nextRoundIndex: newRoundIndex,
+			nextQuestionIndex: newQuestionIndex
+		};
+
+		setNextRoundAndQuestionIndexes(newIndexes);
+
+	};
 	const handleBackNav = () => {
 
 		let newQuestionIndex = Number(questionIndex) - 1;
@@ -28,7 +47,7 @@ const QuestionManagerNav = ({ rounds, roundIndex, totalQuestions, questionIndex 
 
 		}
 
-		console.log(newQuestionIndex, newRoundIndex);
+		updateIndexes(newRoundIndex, newQuestionIndex);
 
 	};
 	const handleForwardNav = () => {
@@ -44,9 +63,17 @@ const QuestionManagerNav = ({ rounds, roundIndex, totalQuestions, questionIndex 
 
 		}
 
-		console.log(newQuestionIndex, newRoundIndex);
+		updateIndexes(newRoundIndex, newQuestionIndex);
 
 	};
+
+	const needsRouteUpdate = nextRoundIndex !== Number(roundIndex)
+		|| nextQuestionIndex !== Number(questionIndex);
+	const redirectContent = needsRouteUpdate ? (
+
+		<Redirect push to={`${questionBaseRoute}/${nextRoundIndex}/${nextQuestionIndex}`} />
+
+	) : null;
 
 	return (
 
@@ -68,6 +95,8 @@ const QuestionManagerNav = ({ rounds, roundIndex, totalQuestions, questionIndex 
 
 			</div>
 
+			{redirectContent}
+
 		</div>
 
 	);
@@ -78,7 +107,8 @@ QuestionManagerNav.propTypes = {
 	rounds: PropTypes.arrayOf(PropTypes.shape(roundsShape)),
 	roundIndex: PropTypes.string,
 	totalQuestions: PropTypes.number,
-	questionIndex: PropTypes.string
+	questionIndex: PropTypes.string,
+	questionBaseRoute: PropTypes.string
 };
 
 export default QuestionManagerNav;
