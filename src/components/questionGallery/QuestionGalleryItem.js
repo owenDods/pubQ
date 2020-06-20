@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 
 import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
+import TextFitParagraph from '../textFitParagraph/TextFitParagraph';
 import QuestionGalleryAnswersDisplay from './QuestionGalleryAnswersDisplay';
 
 export const className = 'questionGalleryItem';
@@ -18,7 +19,11 @@ const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, content 
 
 		<div className={className}>
 
-			<p className={`${className}__questionText`}>{questionText}</p>
+			<div className={`${className}__questionText`}>
+
+				<TextFitParagraph text={questionText} />
+
+			</div>
 
 			<QuestionGalleryAnswersDisplay
 				currentRoundIndex={currentRoundIndex}
