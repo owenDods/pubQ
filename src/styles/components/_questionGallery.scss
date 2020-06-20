@@ -32,7 +32,9 @@
 		&__questionText {
 			font-size: $_fontSize-huge;
 			margin: 0 0 $_gutter;
-			max-height: 50%;
+			height: calc(50% - #{$_gutter});
+			flex-shrink: 0;
+			text-align: center;
 		}
 
 	}
