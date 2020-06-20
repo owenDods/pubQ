@@ -16,20 +16,20 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, questionIndex = 0 }
 
 		questionStatusItems.push(
 
-			<div
+			<label
 				key={`${className}-statusItem-${currentLength}`}
 				className={statusItemStyleClass}
-			/>
+			>
+
+				<span>{currentLength + 1}</span>
+
+			</label>
 
 		);
 
 	}
 
 	const tooFewQuestions = questionStatusItems.length < 2;
-	const currentQuestionStyle = tooFewQuestions ? {} : {
-		left: `calc(((100% - 16px) / ${totalQuestions - 1}) * ${questionIndex})`
-	};
-
 	const styleClass = tooFewQuestions ? `${className} ${className}--tooFewQuestions` : className;
 
 	return (
@@ -37,16 +37,6 @@ const QuestionManagerQuestionStatus = ({ totalQuestions = 0, questionIndex = 0 }
 		<div className={styleClass}>
 
 			{questionStatusItems}
-
-			<div className={`${className}__currentQuestion`} style={currentQuestionStyle}>
-
-				<label>
-
-					<span>{questionIndex + 1}</span>
-
-				</label>
-
-			</div>
 
 		</div>
 
