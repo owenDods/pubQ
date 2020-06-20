@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import find from 'lodash/fp/find';
+import getOr from 'lodash/fp/getOr';
 
 import quizzesJson from '../../quizzes.json';
 
@@ -74,9 +75,9 @@ const Session = () => {
 	const quizInSession = new RegExp(`^(${sessionDestinations.QUESTIONS})`).test(pathname);
 
 	const questionsRoutePath = `${sessionDestinations.QUESTIONS}/:roundIndex/:questionIndex`;
-	const {
-		params: { roundIndex, questionIndex }
-	} = matchPath(pathname, { path: questionsRoutePath });
+	const questionPathMatch = matchPath(pathname, { path: questionsRoutePath });
+	const questionPathParams = getOr({}, 'params', questionPathMatch);
+	const { roundIndex, questionIndex } = questionPathParams;
 
 	const styleClass = quizInSession ? `${className} ${className}--inSession` : className;
 
