@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import { roundsShape } from '../shapes/quizShape';
 
 import Button from '../basics/Button';
 
-export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: 0, nextQuestionIndex: 0 };
+export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: null, nextQuestionIndex: null };
 export const className = 'questionManagerNav';
 
 const QuestionManagerNav = props => {
@@ -77,8 +77,17 @@ const QuestionManagerNav = props => {
 
 	};
 
-	const needsRouteUpdate = nextRoundIndex !== Number(roundIndex)
-		|| nextQuestionIndex !== Number(questionIndex);
+	const needsRouteUpdate = nextRoundIndex || nextRoundIndex === 0
+		|| nextQuestionIndex || nextQuestionIndex === 0;
+	useEffect(() => {
+
+		if (needsRouteUpdate) {
+
+			setNextRoundAndQuestionIndexes(defaultNextRoundAndQuestionIndexes);
+
+		}
+
+	}, [ nextRoundIndex, nextQuestionIndex ]);
 	const redirectContent = needsRouteUpdate ? (
 
 		<Redirect push to={`${questionBaseRoute}/${nextRoundIndex}/${nextQuestionIndex}`} />
