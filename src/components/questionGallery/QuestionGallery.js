@@ -4,7 +4,6 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
-import List from '../basics/List';
 import QuestionGalleryItem from './QuestionGalleryItem';
 
 export const className = 'questionGallery';
