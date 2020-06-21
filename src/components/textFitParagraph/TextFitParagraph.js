@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import useWindowResizeListener from '../utils/useWindowResizeListener';
+
 const decreaseFontSize = oldPercentage => (oldPercentage - 5);
 
 export const className = 'textFitParagraph';
@@ -25,7 +27,7 @@ const TextFitParagraph = ({ text }) => {
 		return paragraphHeight > containerHeight;
 
 	};
-	useEffect(() => {
+	const initiateTextSizeCorrectionIfNeeded = () => {
 
 		if (checkIfTextIsOverflowing()) {
 
@@ -33,6 +35,11 @@ const TextFitParagraph = ({ text }) => {
 			setFontPercentage(decreaseFontSize);
 
 		}
+
+	};
+	useEffect(() => {
+
+		initiateTextSizeCorrectionIfNeeded();
 
 		return resetAll;
 
@@ -50,6 +57,8 @@ const TextFitParagraph = ({ text }) => {
 		}
 
 	}, [ fontPercentage ]);
+
+	useWindowResizeListener(initiateTextSizeCorrectionIfNeeded);
 
 	const paragraphStyle = { fontSize: `${fontPercentage}%` };
 
