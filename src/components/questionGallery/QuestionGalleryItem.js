@@ -10,8 +10,9 @@ import QuestionGalleryAnswersDisplay from './QuestionGalleryAnswersDisplay';
 
 export const className = 'questionGalleryItem';
 
-const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, content }) => {
+const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, currentQuestion }) => {
 
+	const content = get('content', currentQuestion);
 	const questionText = get('question', content);
 	const answers = get('answers', content);
 
@@ -40,9 +41,12 @@ const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, content 
 QuestionGalleryItem.propTypes = {
 	currentRoundIndex: PropTypes.number,
 	currentQuestionIndex: PropTypes.number,
-	content: PropTypes.oneOfType([
-		PropTypes.shape(multipleChoiceQuestionShape)
-	])
+	currentQuestion: PropTypes.shape({
+		type: PropTypes.string.isRequired,
+		content: PropTypes.oneOfType([
+			PropTypes.shape(multipleChoiceQuestionShape)
+		])
+	})
 };
 
 export default QuestionGalleryItem;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
@@ -8,26 +9,33 @@ import QuestionGalleryItem from './QuestionGalleryItem';
 
 export const className = 'questionGallery';
 
-const QuestionGallery = ({ currentRoundIndex, currentQuestionIndex, currentQuestion }) => (
+const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion }) => (
 
-	<div className={className}>
+	<TransitionGroup className={className}>
 
-		<List name={className} items={[ currentQuestion ]}>
+		<CSSTransition
+			timeout={200}
+			classNames={className}
+			key={`${roundIndex}-${questionIndex}`}
+			appear
+			in
+		>
 
 			<QuestionGalleryItem
-				currentRoundIndex={currentRoundIndex}
-				currentQuestionIndex={currentQuestionIndex}
+				roundIndex={roundIndex}
+				questionIndex={questionIndex}
+				currentQuestion={currentQuestion}
 			/>
 
-		</List>
+		</CSSTransition>
 
-	</div>
+	</TransitionGroup>
 
 );
 
 QuestionGallery.propTypes = {
-	currentRoundIndex: PropTypes.number,
-	currentQuestionIndex: PropTypes.number,
+	roundIndex: PropTypes.string,
+	questionIndex: PropTypes.string,
 	currentQuestion: PropTypes.shape({
 		type: PropTypes.string.isRequired,
 		content: PropTypes.oneOfType([
