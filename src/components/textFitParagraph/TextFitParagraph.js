@@ -39,7 +39,7 @@ const TextFitParagraph = ({ text }) => {
 	}, [ text ]);
 	useEffect(() => {
 
-		if (shouldHideText && checkIfTextIsOverflowing()) {
+		if (checkIfTextIsOverflowing()) {
 
 			setFontPercentage(decreaseFontSize);
 
