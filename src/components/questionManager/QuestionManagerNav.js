@@ -49,7 +49,7 @@ const QuestionManagerNav = props => {
 				const prevRoundQuestions = getOr([], 'questions', prevRoundObject);
 				const prevRoundTotalQuestions = prevRoundQuestions.length;
 
-				newQuestionIndex = prevRoundTotalQuestions - 1;
+				newQuestionIndex = prevRoundTotalQuestions;
 
 			} else {
 
