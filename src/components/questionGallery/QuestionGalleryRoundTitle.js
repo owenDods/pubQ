@@ -1,14 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const className = 'questionGalleryRoundTitle';
 
-const QuestionGalleryRoundTitle = () => (
+const QuestionGalleryRoundTitle = ({ text }) => (
 
-	<h2 className={className}>ROUND NAME!!!</h2>
+	<div className={className}>
+
+		<h2>{text}</h2>
+
+	</div>
 
 );
 
-QuestionGalleryRoundTitle.propTypes = {};
+QuestionGalleryRoundTitle.propTypes = {
+	text: PropTypes.string
+};
 
 export default QuestionGalleryRoundTitle;

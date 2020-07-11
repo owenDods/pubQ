@@ -9,11 +9,11 @@ import QuestionGalleryRoundTitle from './QuestionGalleryRoundTitle';
 
 export const className = 'questionGallery';
 
-const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion }) => {
+const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion, currentRoundName }) => {
 
 	const questionGalleryRoundTitle = (
 
-		<QuestionGalleryRoundTitle />
+		<QuestionGalleryRoundTitle text={currentRoundName} />
 
 	);
 	const questionGalleryItem = (
@@ -57,7 +57,8 @@ QuestionGallery.propTypes = {
 		content: PropTypes.oneOfType([
 			PropTypes.shape(multipleChoiceQuestionShape)
 		])
-	})
+	}),
+	currentRoundName: PropTypes.string
 };
 
 export default QuestionGallery;

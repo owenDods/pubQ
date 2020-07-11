@@ -34,6 +34,7 @@ const QuestionManager = ({ fullQuiz, roundIndex, questionIndex, teams, questionB
 				roundIndex={roundIndex}
 				questionIndex={questionIndex}
 				currentQuestion={currentRoundQuestions[Number(questionIndex) - 1]}
+				currentRoundName={currentRoundName}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />
