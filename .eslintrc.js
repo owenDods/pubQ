@@ -24,7 +24,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'padded-blocks': [ 'error', 'always' ],
-    'indent': [ 'error', 'tab' ],
+    'indent': [ 'error', 'tab', { SwitchCase: 1 } ],
     'no-tabs': [ 'error', { allowIndentationTabs: true } ],
     'array-bracket-spacing': [ 'error', 'always' ],
     'comma-dangle': [ 'error', 'never' ],

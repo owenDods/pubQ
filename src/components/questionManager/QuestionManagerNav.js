@@ -6,6 +6,8 @@ import getOr from 'lodash/fp/getOr';
 
 import { roundsShape } from '../shapes/quizShape';
 
+import useDocumentEventListener from '../utils/useDocumentEventListener';
+
 import Button from '../basics/Button';
 
 export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: null, nextQuestionIndex: null };
@@ -37,13 +39,23 @@ const QuestionManagerNav = props => {
 
 		if (newQuestionIndex < 0) {
 
-			newRoundIndex = Number(roundIndex) - 1;
+			const newPrevRoundIndex = Number(roundIndex) - 1;
 
-			const prevRoundObject = rounds[newRoundIndex];
-			const prevRoundQuestions = getOr([], 'questions', prevRoundObject);
-			const prevRoundTotalQuestions = prevRoundQuestions.length;
+			if (newPrevRoundIndex >= 0) {
 
-			newQuestionIndex = prevRoundTotalQuestions - 1;
+				newRoundIndex = newPrevRoundIndex;
+
+				const prevRoundObject = rounds[newRoundIndex];
+				const prevRoundQuestions = getOr([], 'questions', prevRoundObject);
+				const prevRoundTotalQuestions = prevRoundQuestions.length;
+
+				newQuestionIndex = prevRoundTotalQuestions - 1;
+
+			} else {
+
+				newQuestionIndex = Number(questionIndex);
+
+			}
 
 		}
 
@@ -76,6 +88,41 @@ const QuestionManagerNav = props => {
 		updateIndexes(newRoundIndex, newQuestionIndex);
 
 	};
+
+	const [ keydownKey, setKeydownKey ] = useState(null);
+	const handleKeyboardNav = ({ key }) => {
+
+		if (key === 'ArrowLeft' || key === 'ArrowRight') {
+
+			setKeydownKey(key);
+
+		}
+
+	};
+	useEffect(() => {
+
+		switch (keydownKey) {
+
+			case 'ArrowLeft':
+
+				handleBackNav();
+
+				break;
+
+			case 'ArrowRight':
+
+				handleForwardNav();
+
+				break;
+
+			default:
+
+		}
+
+		return () => setKeydownKey(null);
+
+	}, [ keydownKey ]);
+	useDocumentEventListener(handleKeyboardNav, 'keydown');
 
 	const needsRouteUpdate = nextRoundIndex || nextRoundIndex === 0
 		|| nextQuestionIndex || nextQuestionIndex === 0;
