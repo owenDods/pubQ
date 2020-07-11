@@ -13,9 +13,11 @@ const QuestionManagerRoundStatus = props => {
 		questionIndex
 	} = props;
 
+	const styleClass = questionIndex === '0' ? `${className} ${className}--hide` : className;
+
 	return (
 
-		<div className={className}>
+		<div className={styleClass}>
 
 			<label className={`${className}__roundLabel`}>
 

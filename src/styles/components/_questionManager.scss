@@ -36,9 +36,24 @@ $questionManager-teamStatusGutter: $questionManager-navButtonSize;
 			font-size: $_fontSize-small;
 			font-weight: bold;
 			line-height: $_lineHeight-small;
+			transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
 			span {
 				margin: auto;
+			}
+
+		}
+
+		&--hide {
+
+			.questionManager {
+
+				&RoundStatus__roundLabel,
+				&QuestionStatus {
+					opacity: 0;
+					transform: translateY(-100%);
+				}
+
 			}
 
 		}
@@ -51,6 +66,7 @@ $questionManager-teamStatusGutter: $questionManager-navButtonSize;
 		width: 100%;
 		justify-content: space-between;
 		position: relative;
+		transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
 		&:before {
 			content: '';
