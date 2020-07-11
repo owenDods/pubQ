@@ -11,6 +11,7 @@ import useDocumentEventListener from '../utils/useDocumentEventListener';
 import Button from '../basics/Button';
 
 export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: null, nextQuestionIndex: null };
+export const defaultKeydownData = { keydownKey: null, shiftKey: false };
 export const className = 'questionManagerNav';
 
 const QuestionManagerNav = props => {
@@ -88,13 +89,68 @@ const QuestionManagerNav = props => {
 		updateIndexes(newRoundIndex, newQuestionIndex);
 
 	};
+	const handleGoToPrevRound = () => {
 
-	const [ keydownKey, setKeydownKey ] = useState(null);
-	const handleKeyboardNav = ({ key }) => {
+		const newQuestionIndex = 0;
+		let newRoundIndex = questionIndex === '0' ? Number(roundIndex) - 1 : Number(roundIndex);
+
+		if (newRoundIndex < 0) {
+
+			newRoundIndex = Number(roundIndex);
+
+		}
+
+		updateIndexes(newRoundIndex, newQuestionIndex);
+
+	};
+	const handleGoToNextRound = () => {
+
+		let newQuestionIndex = 0;
+		let newRoundIndex = Number(roundIndex) + 1;
+
+		if (newRoundIndex >= rounds.length) {
+
+			newQuestionIndex = Number(questionIndex);
+			newRoundIndex = Number(roundIndex);
+
+		}
+
+		updateIndexes(newRoundIndex, newQuestionIndex);
+
+	};
+
+	const [ { keydownKey, shiftKey }, setKeydownKey ] = useState(defaultKeydownData);
+	const handleKeyboardNav = ({ key, shiftKey: shift }) => {
 
 		if (key === 'ArrowLeft' || key === 'ArrowRight') {
 
-			setKeydownKey(key);
+			setKeydownKey({ keydownKey: key, shiftKey: shift });
+
+		}
+
+	};
+	const handleKeyboardBackNav = shiftKeyPressed => {
+
+		if (shiftKeyPressed) {
+
+			handleGoToPrevRound();
+
+		} else {
+
+			handleBackNav();
+
+		}
+
+	};
+	const handleKeyboardForwardNav = shiftKeyPressed => {
+
+		if (shiftKeyPressed) {
+
+			handleGoToNextRound();
+
+		} else {
+
+			handleForwardNav();
 
 		}
 
@@ -105,13 +161,13 @@ const QuestionManagerNav = props => {
 
 			case 'ArrowLeft':
 
-				handleBackNav();
+				handleKeyboardBackNav(shiftKey);
 
 				break;
 
 			case 'ArrowRight':
 
-				handleForwardNav();
+				handleKeyboardForwardNav(shiftKey);
 
 				break;
 
@@ -119,7 +175,7 @@ const QuestionManagerNav = props => {
 
 		}
 
-		return () => setKeydownKey(null);
+		return () => setKeydownKey(defaultKeydownData);
 
 	}, [ keydownKey ]);
 	useDocumentEventListener(handleKeyboardNav, 'keydown');
