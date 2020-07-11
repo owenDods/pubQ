@@ -32,7 +32,7 @@ const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion, currentRo
 		<TransitionGroup className={className}>
 
 			<CSSTransition
-				timeout={200}
+				timeout={400}
 				classNames={className}
 				key={`${roundIndex}-${questionIndex}`}
 				appear
