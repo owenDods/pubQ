@@ -33,7 +33,7 @@ const QuestionManager = ({ fullQuiz, roundIndex, questionIndex, teams, questionB
 			<QuestionGallery
 				roundIndex={roundIndex}
 				questionIndex={questionIndex}
-				currentQuestion={currentRoundQuestions[questionIndex]}
+				currentQuestion={currentRoundQuestions[Number(questionIndex) - 1]}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />

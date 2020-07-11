@@ -5,32 +5,49 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
 import QuestionGalleryItem from './QuestionGalleryItem';
+import QuestionGalleryRoundTitle from './QuestionGalleryRoundTitle';
 
 export const className = 'questionGallery';
 
-const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion }) => (
+const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion }) => {
 
-	<TransitionGroup className={className}>
+	const questionGalleryRoundTitle = (
 
-		<CSSTransition
-			timeout={200}
-			classNames={className}
-			key={`${roundIndex}-${questionIndex}`}
-			appear
-			in
-		>
+		<QuestionGalleryRoundTitle />
 
-			<QuestionGalleryItem
-				roundIndex={roundIndex}
-				questionIndex={questionIndex}
-				currentQuestion={currentQuestion}
-			/>
+	);
+	const questionGalleryItem = (
 
-		</CSSTransition>
+		<QuestionGalleryItem
+			roundIndex={roundIndex}
+			questionIndex={questionIndex}
+			currentQuestion={currentQuestion}
+		/>
 
-	</TransitionGroup>
+	);
+	const galleryContent = questionIndex === '0' ? questionGalleryRoundTitle : questionGalleryItem;
 
-);
+	return (
+
+		<TransitionGroup className={className}>
+
+			<CSSTransition
+				timeout={200}
+				classNames={className}
+				key={`${roundIndex}-${questionIndex}`}
+				appear
+				in
+			>
+
+				{galleryContent}
+
+			</CSSTransition>
+
+		</TransitionGroup>
+
+	);
+
+};
 
 QuestionGallery.propTypes = {
 	roundIndex: PropTypes.string,

@@ -67,7 +67,7 @@ const QuestionManagerNav = props => {
 		let newQuestionIndex = Number(questionIndex) + 1;
 		let newRoundIndex = Number(roundIndex);
 
-		if (newQuestionIndex >= totalQuestions) {
+		if (newQuestionIndex > totalQuestions) {
 
 			const newNextRoundIndex = Number(roundIndex) + 1;
 

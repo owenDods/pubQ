@@ -25,7 +25,7 @@ const QuestionManagerRoundStatus = props => {
 
 			<QuestionManagerQuestionStatus
 				totalQuestions={totalQuestions}
-				questionIndex={Number(questionIndex)}
+				questionIndex={Number(questionIndex) - 1}
 			/>
 
 		</div>
