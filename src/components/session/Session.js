@@ -74,10 +74,10 @@ const Session = () => {
 	const { pathname } = useLocation();
 	const quizInSession = new RegExp(`^(${sessionDestinations.QUESTIONS})`).test(pathname);
 
-	const questionsRoutePath = `${sessionDestinations.QUESTIONS}/:roundIndex/:questionIndex`;
+	const questionsRoutePath = `${sessionDestinations.QUESTIONS}/:roundIndex/:questionIndex/:answerMode?`;
 	const questionPathMatch = matchPath(pathname, { path: questionsRoutePath });
 	const questionPathParams = getOr({}, 'params', questionPathMatch);
-	const { roundIndex, questionIndex } = questionPathParams;
+	const { roundIndex, questionIndex, answerMode } = questionPathParams;
 
 	const styleClass = quizInSession ? `${className} ${className}--inSession` : className;
 
@@ -131,6 +131,7 @@ const Session = () => {
 							questionIndex={questionIndex}
 							teams={teams}
 							questionBaseRoute={sessionDestinations.QUESTIONS}
+							isAnswerMode={answerMode === 'answerMode'}
 						/>
 
 					</Route>

@@ -10,41 +10,57 @@ import useDocumentEventListener from '../utils/useDocumentEventListener';
 
 import Button from '../basics/Button';
 
-export const defaultNextRoundAndQuestionIndexes = { nextRoundIndex: null, nextQuestionIndex: null };
+export const defaultNextRoundAndQuestionIndexes = {
+	nextRoundIndex: null,
+	nextQuestionIndex: null,
+	nextAnswerMode: null
+};
 export const defaultKeydownData = { keydownKey: null, shiftKey: false };
 export const className = 'questionManagerNav';
 
 const QuestionManagerNav = props => {
 
-	const { rounds, roundIndex, totalQuestions, questionIndex, questionBaseRoute } = props;
+	const {
+		rounds,
+		roundIndex,
+		totalQuestions,
+		questionIndex,
+		questionBaseRoute,
+		isAnswerMode
+	} = props;
 	const [
 		nextRoundAndQuestionIndexes,
 		setNextRoundAndQuestionIndexes
 	] = useState(defaultNextRoundAndQuestionIndexes);
-	const { nextRoundIndex, nextQuestionIndex } = nextRoundAndQuestionIndexes;
+	const { nextRoundIndex, nextQuestionIndex, nextAnswerMode } = nextRoundAndQuestionIndexes;
 
-	const updateIndexes = (newRoundIndex, newQuestionIndex) => {
+	const updateNavParams = (newRoundIndex, newQuestionIndex, newAnswerMode) => {
 
 		const newIndexes = {
 			nextRoundIndex: newRoundIndex,
-			nextQuestionIndex: newQuestionIndex
+			nextQuestionIndex: newQuestionIndex,
+			nextAnswerMode: newAnswerMode
 		};
 
 		setNextRoundAndQuestionIndexes(newIndexes);
 
 	};
+	const toggledAnswerMode = isAnswerMode ? null : 'answerMode';
+	const sameAnswerMode = isAnswerMode ? 'answerMode' : null;
 	const handleBackNav = () => {
 
 		let newQuestionIndex = Number(questionIndex) - 1;
 		let newRoundIndex = Number(roundIndex);
+		let newAnswerMode = sameAnswerMode;
 
 		if (newQuestionIndex < 0) {
 
-			const newPrevRoundIndex = Number(roundIndex) - 1;
+			const newPrevRoundIndex = isAnswerMode ? newRoundIndex : Number(roundIndex) - 1;
 
 			if (newPrevRoundIndex >= 0) {
 
 				newRoundIndex = newPrevRoundIndex;
+				newAnswerMode = toggledAnswerMode;
 
 				const prevRoundObject = rounds[newRoundIndex];
 				const prevRoundQuestions = getOr([], 'questions', prevRoundObject);
@@ -60,21 +76,23 @@ const QuestionManagerNav = props => {
 
 		}
 
-		updateIndexes(newRoundIndex, newQuestionIndex);
+		updateNavParams(newRoundIndex, newQuestionIndex, newAnswerMode);
 
 	};
 	const handleForwardNav = () => {
 
 		let newQuestionIndex = Number(questionIndex) + 1;
 		let newRoundIndex = Number(roundIndex);
+		let newAnswerMode = sameAnswerMode;
 
 		if (newQuestionIndex > totalQuestions) {
 
-			const newNextRoundIndex = Number(roundIndex) + 1;
+			const newNextRoundIndex = isAnswerMode ? Number(roundIndex) + 1 : newRoundIndex;
 
 			if (newNextRoundIndex < rounds.length) {
 
 				newRoundIndex = newNextRoundIndex;
+				newAnswerMode = toggledAnswerMode;
 
 				newQuestionIndex = 0;
 
@@ -86,36 +104,40 @@ const QuestionManagerNav = props => {
 
 		}
 
-		updateIndexes(newRoundIndex, newQuestionIndex);
+		updateNavParams(newRoundIndex, newQuestionIndex, newAnswerMode);
 
 	};
 	const handleGoToPrevRound = () => {
 
 		const newQuestionIndex = 0;
-		let newRoundIndex = questionIndex === '0' ? Number(roundIndex) - 1 : Number(roundIndex);
 
-		if (newRoundIndex < 0) {
+		const isRoundStart = questionIndex === '0';
+		let newRoundIndex = (isRoundStart && !isAnswerMode) ? Number(roundIndex) - 1
+			: Number(roundIndex);
 
-			newRoundIndex = Number(roundIndex);
+		const newAnswerMode = (isRoundStart && !(newRoundIndex < 0)) ? toggledAnswerMode
+			: sameAnswerMode;
 
-		}
+		newRoundIndex = newRoundIndex < 0 ? Number(roundIndex) : newRoundIndex;
 
-		updateIndexes(newRoundIndex, newQuestionIndex);
+		updateNavParams(newRoundIndex, newQuestionIndex, newAnswerMode);
 
 	};
 	const handleGoToNextRound = () => {
 
 		let newQuestionIndex = 0;
-		let newRoundIndex = Number(roundIndex) + 1;
+		let newRoundIndex = isAnswerMode ? Number(roundIndex) + 1 : Number(roundIndex);
+		let newAnswerMode = toggledAnswerMode;
 
 		if (newRoundIndex >= rounds.length) {
 
 			newQuestionIndex = Number(questionIndex);
 			newRoundIndex = Number(roundIndex);
+			newAnswerMode = sameAnswerMode;
 
 		}
 
-		updateIndexes(newRoundIndex, newQuestionIndex);
+		updateNavParams(newRoundIndex, newQuestionIndex, newAnswerMode);
 
 	};
 
@@ -191,9 +213,10 @@ const QuestionManagerNav = props => {
 		}
 
 	}, [ nextRoundIndex, nextQuestionIndex ]);
+	const answerModeUrlParam = nextAnswerMode ? `/${nextAnswerMode}` : '';
 	const redirectContent = needsRouteUpdate ? (
 
-		<Redirect push to={`${questionBaseRoute}/${nextRoundIndex}/${nextQuestionIndex}`} />
+		<Redirect push to={`${questionBaseRoute}/${nextRoundIndex}/${nextQuestionIndex}${answerModeUrlParam}`} />
 
 	) : null;
 
@@ -230,7 +253,8 @@ QuestionManagerNav.propTypes = {
 	roundIndex: PropTypes.string,
 	totalQuestions: PropTypes.number,
 	questionIndex: PropTypes.string,
-	questionBaseRoute: PropTypes.string
+	questionBaseRoute: PropTypes.string,
+	isAnswerMode: PropTypes.bool
 };
 
 export default QuestionManagerNav;

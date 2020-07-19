@@ -12,7 +12,9 @@ import QuestionManagerNav from './QuestionManagerNav';
 
 export const className = 'questionManager';
 
-const QuestionManager = ({ fullQuiz, roundIndex, questionIndex, teams, questionBaseRoute }) => {
+const QuestionManager = props => {
+
+	const { fullQuiz, roundIndex, questionIndex, teams, questionBaseRoute, isAnswerMode } = props;
 
 	const rounds = getOr([], 'rounds', fullQuiz);
 	const currentRoundObject = rounds[roundIndex];
@@ -45,6 +47,7 @@ const QuestionManager = ({ fullQuiz, roundIndex, questionIndex, teams, questionB
 				totalQuestions={currentRoundTotalQuestions}
 				questionIndex={questionIndex}
 				questionBaseRoute={questionBaseRoute}
+				isAnswerMode={isAnswerMode}
 			/>
 
 		</div>
@@ -61,7 +64,8 @@ QuestionManager.propTypes = {
 		number: PropTypes.number.isRequired,
 		name: PropTypes.string
 	})),
-	questionBaseRoute: PropTypes.string
+	questionBaseRoute: PropTypes.string,
+	isAnswerMode: PropTypes.bool
 };
 
 export default QuestionManager;
