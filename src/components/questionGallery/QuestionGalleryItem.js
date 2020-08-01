@@ -10,7 +10,9 @@ import QuestionGalleryAnswersDisplay from './QuestionGalleryAnswersDisplay';
 
 export const className = 'questionGalleryItem';
 
-const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, currentQuestion }) => {
+const QuestionGalleryItem = props => {
+
+	const { currentRoundIndex, currentQuestionIndex, currentQuestion, isAnswerMode } = props;
 
 	const content = get('content', currentQuestion);
 	const questionText = get('question', content);
@@ -30,6 +32,7 @@ const QuestionGalleryItem = ({ currentRoundIndex, currentQuestionIndex, currentQ
 				currentRoundIndex={currentRoundIndex}
 				currentQuestionIndex={currentQuestionIndex}
 				answers={answers}
+				isAnswerMode={isAnswerMode}
 			/>
 
 		</div>
@@ -46,7 +49,8 @@ QuestionGalleryItem.propTypes = {
 		content: PropTypes.oneOfType([
 			PropTypes.shape(multipleChoiceQuestionShape)
 		])
-	})
+	}),
+	isAnswerMode: PropTypes.bool
 };
 
 export default QuestionGalleryItem;

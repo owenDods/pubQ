@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const className = 'button';
 
-const Button = ({ label, onClick, disabled, disabledText }) => (
+const Button = ({ label, onClick, disabled, disabledText, children }) => (
 
 	<button
 		type="button"
@@ -14,6 +14,8 @@ const Button = ({ label, onClick, disabled, disabledText }) => (
 
 		<span>{disabled && disabledText ? disabledText : label}</span>
 
+		{children}
+
 	</button>
 
 );
@@ -22,7 +24,8 @@ Button.propTypes = {
 	label: PropTypes.string,
 	onClick: PropTypes.func,
 	disabled: PropTypes.bool,
-	disabledText: PropTypes.string
+	disabledText: PropTypes.string,
+	children: PropTypes.element
 };
 
 export default Button;

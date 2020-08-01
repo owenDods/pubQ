@@ -68,6 +68,7 @@
 	&AnswersDisplay {
 
 		height: 100%;
+		position: relative;
 
 		& > .list {
 
@@ -113,6 +114,46 @@
 			label {
 				margin: auto;
 				font-size: $_fontSize-large;
+			}
+
+		}
+
+	}
+
+	&AnswerRevealButton {
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		width: 80px;
+		height: 80px;
+		z-index: $_z-index-1;
+
+		.button {
+
+			width: 100%;
+			height: 100%;
+			@include funPulse;
+
+			span:first-child {
+				margin: 0;
+			}
+
+		}
+
+		&__buttonContent {
+
+			margin: auto;
+			display: flex;
+			flex-direction: column;
+
+			.quizIcon {
+				color: $_black;
+				cursor: pointer;
+				transform: translateX(1px);
 			}
 
 		}

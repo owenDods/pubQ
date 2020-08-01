@@ -24,6 +24,7 @@ const QuestionGallery = props => {
 			roundIndex={roundIndex}
 			questionIndex={questionIndex}
 			currentQuestion={currentQuestion}
+			isAnswerMode={isAnswerMode}
 		/>
 
 	);

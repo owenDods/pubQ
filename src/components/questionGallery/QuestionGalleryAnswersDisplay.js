@@ -5,30 +5,46 @@ import map from 'lodash/fp/map';
 
 import List from '../basics/List';
 import QuestionGalleryAnswersDisplayItem from './QuestionGalleryAnswersDisplayItem';
+import QuestionGalleryAnswerRevealButton from './QuestionGalleryAnswerRevealButton';
 
 export const className = 'questionGalleryAnswersDisplay';
 
-const QuestionGalleryAnswersDisplay = ({ currentRoundIndex, currentQuestionIndex, answers }) => (
+const QuestionGalleryAnswersDisplay = props => {
 
-	<div className={className}>
+	const { currentRoundIndex, currentQuestionIndex, answers, isAnswerMode } = props;
 
-		<List
-			name={`${className}-${currentRoundIndex}-${currentQuestionIndex}`}
-			items={map(answer => ({ text: answer }), answers)}
-		>
+	const questionGalleryAnswerRevealButton = isAnswerMode ? (
 
-			<QuestionGalleryAnswersDisplayItem />
+		<QuestionGalleryAnswerRevealButton />
 
-		</List>
+	) : null;
 
-	</div>
+	return (
 
-);
+		<div className={className}>
+
+			<List
+				name={`${className}-${currentRoundIndex}-${currentQuestionIndex}`}
+				items={map(answer => ({ text: answer }), answers)}
+			>
+
+				<QuestionGalleryAnswersDisplayItem />
+
+			</List>
+
+			{questionGalleryAnswerRevealButton}
+
+		</div>
+
+	);
+
+};
 
 QuestionGalleryAnswersDisplay.propTypes = {
 	currentRoundIndex: PropTypes.number,
 	currentQuestionIndex: PropTypes.number,
-	answers: PropTypes.arrayOf(PropTypes.string)
+	answers: PropTypes.arrayOf(PropTypes.string),
+	isAnswerMode: PropTypes.bool
 };
 
 export default QuestionGalleryAnswersDisplay;
