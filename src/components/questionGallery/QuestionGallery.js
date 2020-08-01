@@ -9,11 +9,13 @@ import QuestionGalleryRoundTitle from './QuestionGalleryRoundTitle';
 
 export const className = 'questionGallery';
 
-const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion, currentRoundName }) => {
+const QuestionGallery = props => {
+
+	const { roundIndex, questionIndex, currentQuestion, currentRoundName, isAnswerMode } = props;
 
 	const questionGalleryRoundTitle = (
 
-		<QuestionGalleryRoundTitle text={currentRoundName} />
+		<QuestionGalleryRoundTitle text={currentRoundName} isAnswerMode={isAnswerMode} />
 
 	);
 	const questionGalleryItem = (
@@ -34,7 +36,7 @@ const QuestionGallery = ({ roundIndex, questionIndex, currentQuestion, currentRo
 			<CSSTransition
 				timeout={400}
 				classNames={className}
-				key={`${roundIndex}-${questionIndex}`}
+				key={`${roundIndex}-${questionIndex}-${isAnswerMode ? 'answerMode' : ''}`}
 				appear
 				in
 			>
@@ -58,7 +60,8 @@ QuestionGallery.propTypes = {
 			PropTypes.shape(multipleChoiceQuestionShape)
 		])
 	}),
-	currentRoundName: PropTypes.string
+	currentRoundName: PropTypes.string,
+	isAnswerMode: PropTypes.bool
 };
 
 export default QuestionGallery;

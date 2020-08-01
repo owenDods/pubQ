@@ -37,6 +37,7 @@ const QuestionManager = props => {
 				questionIndex={questionIndex}
 				currentQuestion={currentRoundQuestions[Number(questionIndex) - 1]}
 				currentRoundName={currentRoundName}
+				isAnswerMode={isAnswerMode}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />
