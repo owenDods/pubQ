@@ -5,541 +5,437 @@
     "img": "https://picsum.photos/600?random=1",
     "rounds": [
       {
-        "name": "Round 1",
+        "name": "General Knowledge",
         "questions": [
           {
             "type": "multipleChoice",
             "content": {
-              "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis est sed lacus vehicula volutpat eu non velit. Proin in convallis lacus, nec mollis erat. Nunc eu commodo enim. In condimentum vulputate mattis. Morbi ullamcorper dignissim consequat. Nulla tristique risus ultrices mollis dictum. Sed nec tempor urna. Aliquam sed sem odio. Suspendisse potenti.",
+              "question": "The Plaka is the oldest quarter of which city?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Athens",
+                "Prague",
+                "Rome",
+                "Vienna"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Athens"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 2?",
+              "question": "What is an axolotl?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "A nerve in the brain",
+                "A multi-axled vehicle",
+                "A type of mortice lock",
+                "A species of salamander"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "A species of salamander"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 3?",
+              "question": "The Panama Canal was officially opened by which US president?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Calvin Coolidge",
+                "Herbert Hoover",
+                "Theodore Roosevelt",
+                "Woodrow Wilson"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Woodrow Wilson"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 4?",
+              "question": "In which opera did Maria Callas make her last appearance at Covent Garden?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "‘Carmen’",
+                "‘Tosca’",
+                "‘Madame Butterfly’",
+                "‘La Boheme’"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "‘Tosca’"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 5?",
+              "question": "After Adam, Eve, Cain and Abel who is the next person mentioned in the Bible?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Enoch",
+                "Jubal",
+                "Lamech",
+                "Zillah"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Enoch"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 6?",
+              "question": "What is a kudzu?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Antelope",
+                "Bird",
+                "Jewish settlement",
+                "Climbing plant"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Antelope"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 7?",
+              "question": "Outlawed from 1603 to 1774, which Scottish clan was known as the ‘Faceless Clan’?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Campbell",
+                "MacGregor",
+                "MacLeod",
+                "MacDonald"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "MacGregor"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 8?",
+              "question": "From which country does tennis player Andres Gomez, winner of the 1990 French Championships, come?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Ecuador",
+                "Peru",
+                "Portugal",
+                "Spain"
               ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 9?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 10?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Ecuador"
             }
           }
         ]
       },
       {
-        "name": "Round 2",
+        "name": "Geography Questions",
         "questions": [
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah?",
+              "question": "Which US city is located on the Maumee River at Lake Erie?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Detroit",
+                "Toledo",
+                "Cleveland",
+                "Buffalo"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Toledo"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 2?",
+              "question": "Lisbon stands at the mouth of which river?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Seine",
+                "Duoro",
+                "Rio Grande",
+                "Tagus"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Tagus"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 3?",
+              "question": "What is the longest river in France?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Loire",
+                "Seine",
+                "Rhone",
+                "Gironde"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Loire"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 4?",
+              "question": "In which Australian state is Darwin?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Queensland",
+                "Western Australia",
+                "Northern Territory",
+                "Tasmania"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Northern Territory"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 5?",
+              "question": "Apart from Rome, how many cities in Italy have a population of over one million?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Three: Milan, Naples and Turin",
+                "Two: Genoa and Venice",
+                "One: Ancona",
+                "Four: Florence, Bologna, Trieste and Palermo"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Three: Milan, Naples and Turin"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 6?",
+              "question": "What in America is the Palmetto state?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Florida",
+                "Louisiana",
+                "Alabama",
+                "South Carolina"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "South Carolina"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 7?",
+              "question": "In which ocean is Madagascar?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Atlantic",
+                "Pacific",
+                "Indian",
+                "Arctic"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Indian"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 8?",
+              "question": "In which US city is the Sears Tower?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Boston",
+                "Chicago",
+                "St. Louis",
+                "San Francisco"
               ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 9?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 10?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Chicago"
             }
           }
         ]
       },
       {
-        "name": "Round 3",
+        "name": "Science and Technology",
         "questions": [
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah?",
+              "question": "Galena is an ore of which metal?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Copper",
+                "Lead",
+                "Zinc",
+                "Iron"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Lead"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 2?",
+              "question": "Which sign of the zodiac comes between Leo and Libra?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Virgo",
+                "Taurus",
+                "Aries",
+                "Capricorn"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Virgo"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 3?",
+              "question": "Which planet is said to influence the way we communicate?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Venus",
+                "Mercury",
+                "Mars",
+                "Saturn"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Mercury"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 4?",
+              "question": "Are you a fire, air, water or earth sign if you were born under Aquarius?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Fire",
+                "Water",
+                "Air",
+                "Earth"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Air"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 5?",
+              "question": "Which star sign is the first sign of the zodiac?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Pisces",
+                "Capricorn",
+                "Taurus",
+                "Aries"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Aries"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 6?",
+              "question": "If you were born on New Year’s Day, which is your astrological sign?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Aries",
+                "Cancer",
+                "Capricorn",
+                "Leo"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Capricorn"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 7?",
+              "question": "What is the ruling planet of Scorpio?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Pluto",
+                "Venus",
+                "Earth",
+                "Saturn"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Pluto"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 8?",
+              "question": "Pisces and Scorpio are two of the water signs, name the third.",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Aquarius",
+                "Sagittarius",
+                "Cancer",
+                "Leo"
               ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 9?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 10?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Cancer"
             }
           }
         ]
       },
       {
-        "name": "Round 4",
+        "name": "Sports",
         "questions": [
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah?",
+              "question": "At which sport in the 1960s did Peggy Fleming become a household name?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Equestrian",
+                "Tennis",
+                "Sprinting",
+                "Figure skating"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Figure skating"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 2?",
+              "question": "Who revolutionised high jumping when he used his flop technique to win an Olympic gold medal in Mexico in 1968?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Dick Fosbury",
+                "Mick Cadbury",
+                "Nick Fosdyke",
+                "Vic Foster"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Dick Fosbury"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 3?",
+              "question": "What nationality was tennis player John Newcombe?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "British",
+                "Canadian",
+                "Irish",
+                "Australian"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Australian"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 4?",
+              "question": "About which golfer did the great Bobby Jones remark : “He is playing an entirely different game – a game I’m not even familiar with.” ?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Gary Player",
+                "Tiger Woods",
+                "Jack Nicklaus",
+                "Peter Allis"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Jack Nicklaus"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 5?",
+              "question": "Which tennis player, famous for her two-handed backhand and baseline-dominated play was nicknamed ‘The Ice Maiden’?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Steffi Graf",
+                "Chris Evert",
+                "Evonne Cawley",
+                "Kim Clijsters"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Chris Evert"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 6?",
+              "question": "Who was the Argentinian racing driver ( 1911 – 1995 ) who won five world championships and was team leader of Mercedes-Benz, Alfa Romeo, Ferrari and Maserati?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Juan Manuel Fangio",
+                "Alberto Ascari",
+                "Giuseppe Farina",
+                "Jose Gonzales"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Juan Manuel Fangio"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 7?",
+              "question": "Which Italian jockey rode his first winner Lizzy Hare, at Goodwood in 1987?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Giovanni Forte",
+                "Diego Dettori",
+                "Uto Viaggi",
+                "Frankie Dettori"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Frankie Dettori"
             }
           },
           {
             "type": "multipleChoice",
             "content": {
-              "question": "What is blah blah blah 8?",
+              "question": "With which baseball team did Jose DiMaggio achieve icon status in the 1940s?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Chicago Bears",
+                "New York Yankees",
+                "Baltimore Batters",
+                "Cleveland Steelers"
               ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 9?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
-            }
-          },
-          {
-            "type": "multipleChoice",
-            "content": {
-              "question": "What is blah blah blah 10?",
-              "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
-              ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "New York Yankees"
             }
           }
         ]
@@ -552,12 +448,12 @@
             "content": {
               "question": "What is blah blah blah?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -565,12 +461,12 @@
             "content": {
               "question": "What is blah blah blah 2?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -578,12 +474,12 @@
             "content": {
               "question": "What is blah blah blah 3?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -591,12 +487,12 @@
             "content": {
               "question": "What is blah blah blah 4?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -604,12 +500,12 @@
             "content": {
               "question": "What is blah blah blah 5?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -617,12 +513,12 @@
             "content": {
               "question": "What is blah blah blah 6?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -630,12 +526,12 @@
             "content": {
               "question": "What is blah blah blah 7?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -643,12 +539,12 @@
             "content": {
               "question": "What is blah blah blah 8?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -656,12 +552,12 @@
             "content": {
               "question": "What is blah blah blah 9?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           },
           {
@@ -669,12 +565,12 @@
             "content": {
               "question": "What is blah blah blah 10?",
               "answers": [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4"
+                "Answer1",
+                "Answer2",
+                "Answer3",
+                "Answer4"
               ],
-              "correctAnswer": "Answer 2"
+              "correctAnswer": "Answer2"
             }
           }
         ]
