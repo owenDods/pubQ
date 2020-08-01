@@ -12,7 +12,14 @@ export const className = 'questionGalleryItem';
 
 const QuestionGalleryItem = props => {
 
-	const { currentRoundIndex, currentQuestionIndex, currentQuestion, isAnswerMode } = props;
+	const {
+		currentRoundIndex,
+		currentQuestionIndex,
+		currentQuestion,
+		isAnswerMode,
+		answerRevealed,
+		setAnswerRevealedStatus
+	} = props;
 
 	const content = get('content', currentQuestion);
 	const questionText = get('question', content);
@@ -33,6 +40,8 @@ const QuestionGalleryItem = props => {
 				currentQuestionIndex={currentQuestionIndex}
 				answers={answers}
 				isAnswerMode={isAnswerMode}
+				answerRevealed={answerRevealed}
+				setAnswerRevealedStatus={setAnswerRevealedStatus}
 			/>
 
 		</div>
@@ -50,7 +59,9 @@ QuestionGalleryItem.propTypes = {
 			PropTypes.shape(multipleChoiceQuestionShape)
 		])
 	}),
-	isAnswerMode: PropTypes.bool
+	isAnswerMode: PropTypes.bool,
+	answerRevealed: PropTypes.bool,
+	setAnswerRevealedStatus: PropTypes.func
 };
 
 export default QuestionGalleryItem;

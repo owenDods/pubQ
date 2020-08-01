@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import map from 'lodash/fp/map';
 
@@ -11,11 +12,25 @@ export const className = 'questionGalleryAnswersDisplay';
 
 const QuestionGalleryAnswersDisplay = props => {
 
-	const { currentRoundIndex, currentQuestionIndex, answers, isAnswerMode } = props;
+	const {
+		currentRoundIndex,
+		currentQuestionIndex,
+		answers,
+		isAnswerMode,
+		answerRevealed,
+		setAnswerRevealedStatus
+	} = props;
 
-	const questionGalleryAnswerRevealButton = isAnswerMode ? (
+	const questionGalleryAnswerRevealButton = (isAnswerMode && !answerRevealed) ? (
 
-		<QuestionGalleryAnswerRevealButton />
+		<CSSTransition
+			timeout={200}
+			classNames={`${className}__revealButton`}
+		>
+
+			<QuestionGalleryAnswerRevealButton setAnswerRevealedStatus={setAnswerRevealedStatus} />
+
+		</CSSTransition>
 
 	) : null;
 
@@ -32,7 +47,11 @@ const QuestionGalleryAnswersDisplay = props => {
 
 			</List>
 
-			{questionGalleryAnswerRevealButton}
+			<TransitionGroup className={`${className}__revealButton`}>
+
+				{questionGalleryAnswerRevealButton}
+
+			</TransitionGroup>
 
 		</div>
 
@@ -44,7 +63,9 @@ QuestionGalleryAnswersDisplay.propTypes = {
 	currentRoundIndex: PropTypes.number,
 	currentQuestionIndex: PropTypes.number,
 	answers: PropTypes.arrayOf(PropTypes.string),
-	isAnswerMode: PropTypes.bool
+	isAnswerMode: PropTypes.bool,
+	answerRevealed: PropTypes.bool,
+	setAnswerRevealedStatus: PropTypes.func
 };
 
 export default QuestionGalleryAnswersDisplay;

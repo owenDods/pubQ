@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
@@ -22,6 +22,13 @@ const QuestionManager = props => {
 	const currentRoundQuestions = getOr([], 'questions', currentRoundObject);
 	const currentRoundTotalQuestions = currentRoundQuestions.length;
 
+	const [ answerRevealed, setAnswerRevealedStatus ] = useState(false);
+	useEffect(() => {
+
+		setAnswerRevealedStatus(false);
+
+	}, [ roundIndex, questionIndex ]);
+
 	return (
 
 		<div className={className}>
@@ -38,6 +45,8 @@ const QuestionManager = props => {
 				currentQuestion={currentRoundQuestions[Number(questionIndex) - 1]}
 				currentRoundName={currentRoundName}
 				isAnswerMode={isAnswerMode}
+				answerRevealed={answerRevealed}
+				setAnswerRevealedStatus={setAnswerRevealedStatus}
 			/>
 
 			<QuestionManagerTeamsStatus teams={teams} />

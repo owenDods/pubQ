@@ -11,7 +11,15 @@ export const className = 'questionGallery';
 
 const QuestionGallery = props => {
 
-	const { roundIndex, questionIndex, currentQuestion, currentRoundName, isAnswerMode } = props;
+	const {
+		roundIndex,
+		questionIndex,
+		currentQuestion,
+		currentRoundName,
+		isAnswerMode,
+		answerRevealed,
+		setAnswerRevealedStatus
+	} = props;
 
 	const questionGalleryRoundTitle = (
 
@@ -25,6 +33,8 @@ const QuestionGallery = props => {
 			questionIndex={questionIndex}
 			currentQuestion={currentQuestion}
 			isAnswerMode={isAnswerMode}
+			answerRevealed={answerRevealed}
+			setAnswerRevealedStatus={setAnswerRevealedStatus}
 		/>
 
 	);
@@ -62,7 +72,9 @@ QuestionGallery.propTypes = {
 		])
 	}),
 	currentRoundName: PropTypes.string,
-	isAnswerMode: PropTypes.bool
+	isAnswerMode: PropTypes.bool,
+	answerRevealed: PropTypes.bool,
+	setAnswerRevealedStatus: PropTypes.func
 };
 
 export default QuestionGallery;
