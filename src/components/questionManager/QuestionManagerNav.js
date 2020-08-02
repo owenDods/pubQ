@@ -241,7 +241,7 @@ const QuestionManagerNav = props => {
 				<Button
 					label="&#9664;"
 					onClick={handleBackNav}
-					disabled={roundIndex === '0' && questionIndex === '0'}
+					disabled={roundIndex === '0' && questionIndex === '0' && !isAnswerMode}
 				/>
 
 			</div>
