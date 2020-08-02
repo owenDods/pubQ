@@ -24,6 +24,7 @@ const QuestionGalleryItem = props => {
 	const content = get('content', currentQuestion);
 	const questionText = get('question', content);
 	const answers = get('answers', content);
+	const correctAnswer = get('correctAnswer', content);
 
 	return (
 
@@ -42,6 +43,7 @@ const QuestionGalleryItem = props => {
 				isAnswerMode={isAnswerMode}
 				answerRevealed={answerRevealed}
 				setAnswerRevealedStatus={setAnswerRevealedStatus}
+				correctAnswer={correctAnswer}
 			/>
 
 		</div>

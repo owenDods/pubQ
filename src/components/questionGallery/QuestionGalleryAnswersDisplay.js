@@ -18,7 +18,8 @@ const QuestionGalleryAnswersDisplay = props => {
 		answers,
 		isAnswerMode,
 		answerRevealed,
-		setAnswerRevealedStatus
+		setAnswerRevealedStatus,
+		correctAnswer
 	} = props;
 
 	const questionGalleryAnswerRevealButton = (isAnswerMode && !answerRevealed) ? (
@@ -33,17 +34,21 @@ const QuestionGalleryAnswersDisplay = props => {
 		</CSSTransition>
 
 	) : null;
+	const styleClass = answerRevealed ? `${className} ${className}--answerRevealed` : className;
 
 	return (
 
-		<div className={className}>
+		<div className={styleClass}>
 
 			<List
 				name={`${className}-${currentRoundIndex}-${currentQuestionIndex}`}
 				items={map(answer => ({ text: answer }), answers)}
 			>
 
-				<QuestionGalleryAnswersDisplayItem />
+				<QuestionGalleryAnswersDisplayItem
+					answerRevealed={answerRevealed}
+					correctAnswer={correctAnswer}
+				/>
 
 			</List>
 
@@ -65,7 +70,8 @@ QuestionGalleryAnswersDisplay.propTypes = {
 	answers: PropTypes.arrayOf(PropTypes.string),
 	isAnswerMode: PropTypes.bool,
 	answerRevealed: PropTypes.bool,
-	setAnswerRevealedStatus: PropTypes.func
+	setAnswerRevealedStatus: PropTypes.func,
+	correctAnswer: PropTypes.string
 };
 
 export default QuestionGalleryAnswersDisplay;

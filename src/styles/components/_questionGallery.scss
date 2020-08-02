@@ -116,6 +116,44 @@
 				font-size: $_fontSize-large;
 			}
 
+			&--isCorrect {
+
+				transition: all 0.2s ease-in-out;
+				transform: scale(1.1);
+				box-shadow: $_shadow-raised;
+				box-sizing: border-box;
+				border: 10px solid $_black;
+				overflow: hidden;
+
+				&:after {
+					@include shine;
+				}
+
+			}
+
+		}
+
+		&__revealButton {
+
+			&-exit {
+				opacity: 1;
+			}
+
+			&-exit-active {
+				opacity: 0;
+				transition: opacity 0.2s ease-in-out;
+			}
+
+		}
+
+		&--answerRevealed {
+
+			.questionGalleryAnswersDisplayItem:not(.questionGalleryAnswersDisplayItem--isCorrect) {
+				transition: all 0.2s ease-in-out;
+				opacity: 0.5;
+				transform: scale(0.8);
+			}
+
 		}
 
 	}
