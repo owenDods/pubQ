@@ -58,6 +58,8 @@ const QuestionManager = props => {
 				questionIndex={questionIndex}
 				questionBaseRoute={questionBaseRoute}
 				isAnswerMode={isAnswerMode}
+				answerRevealed={answerRevealed}
+				setAnswerRevealedStatus={setAnswerRevealedStatus}
 			/>
 
 		</div>

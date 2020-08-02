@@ -26,7 +26,9 @@ const QuestionManagerNav = props => {
 		totalQuestions,
 		questionIndex,
 		questionBaseRoute,
-		isAnswerMode
+		isAnswerMode,
+		answerRevealed,
+		setAnswerRevealedStatus
 	} = props;
 	const [
 		nextRoundAndQuestionIndexes,
@@ -144,7 +146,7 @@ const QuestionManagerNav = props => {
 	const [ { keydownKey, shiftKey }, setKeydownKey ] = useState(defaultKeydownData);
 	const handleKeyboardNav = ({ key, shiftKey: shift }) => {
 
-		if (key === 'ArrowLeft' || key === 'ArrowRight') {
+		if (key === 'ArrowLeft' || key === 'ArrowRight' || key === 'ArrowDown') {
 
 			setKeydownKey({ keydownKey: key, shiftKey: shift });
 
@@ -190,6 +192,16 @@ const QuestionManagerNav = props => {
 			case 'ArrowRight':
 
 				handleKeyboardForwardNav(shiftKey);
+
+				break;
+
+			case 'ArrowDown':
+
+				if (isAnswerMode && !answerRevealed) {
+
+					setAnswerRevealedStatus(true);
+
+				}
 
 				break;
 
@@ -254,7 +266,9 @@ QuestionManagerNav.propTypes = {
 	totalQuestions: PropTypes.number,
 	questionIndex: PropTypes.string,
 	questionBaseRoute: PropTypes.string,
-	isAnswerMode: PropTypes.bool
+	isAnswerMode: PropTypes.bool,
+	answerRevealed: PropTypes.bool,
+	setAnswerRevealedStatus: PropTypes.func
 };
 
 export default QuestionManagerNav;
