@@ -16,6 +16,9 @@ module.exports = {
 						options: {}
 					}
 				]
+			},
+			html: {
+				title: 'Pub Quiz'
 			}
 		})
 	]

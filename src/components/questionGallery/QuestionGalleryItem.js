@@ -7,6 +7,7 @@ import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
 import TextFitParagraph from '../textFitParagraph/TextFitParagraph';
 import QuestionGalleryAnswersDisplay from './QuestionGalleryAnswersDisplay';
+import plaka from '../../img/plaka.jpg';
 
 export const className = 'questionGalleryItem';
 
@@ -25,14 +26,27 @@ const QuestionGalleryItem = props => {
 	const questionText = get('question', content);
 	const answers = get('answers', content);
 	const correctAnswer = get('correctAnswer', content);
+	const imgUrl = get('imgUrl', content);
+
+	const imgContent = imgUrl ? (
+
+		<img className={`${className}__img`} src={plaka} />
+
+	) : null;
 
 	return (
 
 		<div className={className}>
 
-			<div className={`${className}__questionText`}>
+			<div className={`${className}__questionContent`}>
 
-				<TextFitParagraph text={questionText} />
+				{imgContent}
+
+				<div className={`${className}__questionText`}>
+
+					<TextFitParagraph text={questionText} />
+
+				</div>
 
 			</div>
 

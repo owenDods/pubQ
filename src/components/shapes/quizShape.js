@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 export const multipleChoiceQuestionShape = {
 	question: PropTypes.string.isRequired,
 	answers: PropTypes.arrayOf(PropTypes.string).isRequired,
-	correctAnswer: PropTypes.string.isRequired
+	correctAnswer: PropTypes.string.isRequired,
+	imgUrl: PropTypes.string
 };
 
 export const roundsShape = {
