@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TextFitParagraph from '../textFitParagraph/TextFitParagraph';
+
 export const className = 'questionGalleryAnswersDisplayItem';
 
 const QuestionGalleryAnswersDisplayItem = ({ text, answerRevealed, correctAnswer }) => {
@@ -12,7 +14,7 @@ const QuestionGalleryAnswersDisplayItem = ({ text, answerRevealed, correctAnswer
 
 		<div className={styleClass}>
 
-			<label>{text}</label>
+			<TextFitParagraph text={text} />
 
 		</div>
 

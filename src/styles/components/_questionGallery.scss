@@ -124,7 +124,7 @@
 			border-radius: $_radius;
 			display: flex;
 
-			label {
+			.textFitParagraph {
 				margin: auto;
 				font-size: $_fontSize-large;
 			}
