@@ -7,6 +7,7 @@ import { multipleChoiceQuestionShape } from '../shapes/quizShape';
 
 import TextFitParagraph from '../textFitParagraph/TextFitParagraph';
 import QuestionGalleryAnswersDisplay from './QuestionGalleryAnswersDisplay';
+import ImgHolder from '../imgHolder/ImgHolder';
 import images from '../../img/*.jpg';
 
 export const className = 'questionGalleryItem';
@@ -30,7 +31,7 @@ const QuestionGalleryItem = props => {
 
 	const imgContent = imgUrl ? (
 
-		<img className={`${className}__img`} src={images[imgUrl]} />
+		<ImgHolder imgUrl={images[imgUrl]} />
 
 	) : null;
 

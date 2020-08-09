@@ -1,0 +1,9 @@
+$imgHolder-size: 200px;
+
+.imgHolder {
+	width: $imgHolder-size;
+	height: $imgHolder-size;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: $_shadow;
+}

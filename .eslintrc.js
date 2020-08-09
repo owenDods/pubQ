@@ -38,6 +38,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'react/jsx-fragments': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'jsx-a11y/alt-text': 'off'
+    'jsx-a11y/alt-text': 'off',
+    'import/no-unresolved': [ 2, { ignore: [ '\.jpg$' ] } ]
   },
 };
