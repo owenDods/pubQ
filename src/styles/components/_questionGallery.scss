@@ -123,6 +123,8 @@
 			box-shadow: $_shadow;
 			border-radius: $_radius;
 			display: flex;
+			padding: $_gutter;
+			box-sizing: border-box;
 
 			.textFitParagraph {
 				margin: auto;
